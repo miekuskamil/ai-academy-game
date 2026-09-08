@@ -1,0 +1,157 @@
+id: w5-make-it-yours
+world: building-with-ai
+title: Make it yours
+goal: Understand that the builder's taste and judgment — not the AI — decide what is good.
+intro: >-
+  The AI can build fast, but it has no taste. It does not know what *you* think is
+  cool, funny, or beautiful. That is your job, and it is the most important one.
+  This lesson is about the thing AI cannot give you: your own direction.
+minutes: 11
+tracks: [explorer, builder]
+prereqs: [w5-real-project]
+
+open_comic:
+  id: w5-04-open
+  title: Which one is best?
+  beats:
+    - id: b1
+      speaker: mila
+      text: You made three versions of my game. Which one is the best?
+      prop: none
+      mood: curious
+    - id: b2
+      speaker: iskra
+      text: I genuinely cannot tell. They all work. Which one feels right to you?
+      prop: none
+      mood: calm
+    - id: b3
+      speaker: mila
+      text: The middle one. It is the most me. The others feel a bit generic.
+      prop: none
+      mood: proud
+    - id: b4
+      speaker: iskra
+      text: See? That is taste, and only you have it. I build; you decide what is good.
+      prop: none
+      mood: excited
+      highlight: only you have it
+
+play: none
+play_brief: ""
+
+teach:
+  - heading: The AI has no taste of its own
+    body: >-
+      The AI can make ten versions in a minute, but it cannot tell you which is
+      best, because "best" depends on what you like — your style, your sense of fun,
+      what feels right to you. Taste is a human thing. The AI is a brilliant pair of
+      hands with no opinions of its own.
+    prop: none
+  - heading: Your job is to direct
+    body: >-
+      That means the important work is yours: deciding what to keep, what to change,
+      what it should feel like. "Make it more playful." "The colours are too loud."
+      "That joke is not me." You are the director with the vision; the AI is the
+      crew that makes it real. Never hand the deciding away.
+    prop: none
+  - heading: This is what makes it truly yours
+    body: >-
+      A thing built entirely by AI with no direction feels generic, because it is an
+      average of everything. What makes your project *yours* is all the choices only
+      you could make. The AI did the typing, but your taste and your decisions are
+      the soul of it. That is something no machine can copy.
+    prop: none
+
+terms:
+  - term: taste
+    plain: Your own sense of what is good, cool, or right — which the AI does not have.
+    seen_in: Two people using the same tools and making completely different art.
+  - term: creative direction
+    plain: Being the one who decides how something should look, feel, and be.
+    seen_in: A film director choosing the mood while the crew does the filming.
+
+name_it:
+  - The AI has no taste — it cannot tell you what is best.
+  - "Your job is to direct: keep, change, decide the feel."
+  - Your choices are what make a project truly yours.
+
+exercises:
+  - id: w5-04-e1
+    kind: mcq
+    prompt: The AI makes three versions of your design. Who should decide which is best?
+    choices:
+      - The AI, it built them.
+      - You — "best" depends on your taste, which the AI does not have.
+      - A random pick.
+      - Nobody, keep all three.
+    answer: [1]
+    points: 1
+    explain: >-
+      Best depends on what *you* like, and only you have that. The AI can build the
+      options but cannot judge them for you.
+  - id: w5-04-e2
+    kind: mcq
+    prompt: Why can a project built by AI with no direction feel generic?
+    choices:
+      - Because AI is bad at everything.
+      - Because with no one's taste guiding it, it becomes an average of everything.
+      - Because it is too colourful.
+      - Because it is always broken.
+    answer: [1]
+    points: 1
+    explain: >-
+      Without your choices it is a bland average. Your direction is exactly what
+      gives a project a personality.
+  - id: w5-04-e3
+    kind: mcq
+    prompt: What makes a project truly *yours*?
+    choices:
+      - That AI did all of it.
+      - The choices only you could make — your taste and direction.
+      - That it was fast to build.
+      - That it looks like everyone else's.
+    answer: [1]
+    points: 1
+    explain: >-
+      Your decisions are the soul of it. The AI typed, but the vision and the
+      choices are yours — and no machine can copy those.
+  - id: w5-04-e4
+    kind: prompt_rubric
+    prompt: >-
+      The AI built your app but it feels a bit generic. Write direction to make it
+      more *you* — say what to change to match your taste.
+    min_words: 10
+    must_include:
+      - ["more", "less", "feel", "style", "colour", "playful", "simpler", "change"]
+    criteria_labels:
+      - Gives creative direction
+    explain: >-
+      Something like "Make it more playful and use my favourite blue, and make the
+      words sound more like how I actually talk." That is you directing — the part
+      only you can do.
+
+close_comic:
+  id: w5-04-close
+  title: The most me
+  beats:
+    - id: b1
+      speaker: mila
+      text: Warmer colours, and make it sound like me. ...Yes. That is the one.
+      prop: none
+      mood: proud
+    - id: b2
+      speaker: iskra
+      text: I never could have picked that. It is yours through and through.
+      prop: none
+      mood: excited
+    - id: b3
+      speaker: mila
+      text: You built it, but I made it mine.
+      prop: none
+      mood: curious
+    - id: b4
+      speaker: iskra
+      text: That is the whole partnership. My hands, your soul. Go make more.
+      prop: none
+      mood: excited
+      highlight: your soul

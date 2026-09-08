@@ -1,0 +1,159 @@
+id: w3-thinking-partner
+world: using-ai-for-real
+title: A thinking partner
+goal: Use AI to brainstorm, plan, and get unstuck while staying in charge of the thinking.
+intro: >-
+  Here is one of the best ways to use AI, and hardly anyone teaches it. Not as a
+  machine that gives answers, but as a thinking partner — someone to bounce ideas
+  off, get unstuck with, and plan alongside. You stay the thinker. It helps you
+  think better.
+minutes: 11
+tracks: [explorer, builder]
+prereqs: [w3-trust-but-check]
+
+open_comic:
+  id: w3-03-open
+  title: Stuck
+  beats:
+    - id: b1
+      speaker: mila
+      text: I have to invent a science project and my brain is completely empty.
+      prop: none
+      mood: confused
+    - id: b2
+      speaker: iskra
+      text: Want me to just pick one for you?
+      prop: none
+      mood: calm
+    - id: b3
+      speaker: mila
+      text: No — give me ten rough ideas and I will choose. I want it to be mine.
+      prop: none
+      mood: curious
+    - id: b4
+      speaker: iskra
+      text: Even better. I will spark, you will choose. That is real teamwork.
+      prop: none
+      mood: excited
+      highlight: I will spark, you will choose
+
+play: none
+play_brief: ""
+
+teach:
+  - heading: Use it to get unstuck, not to replace you
+    body: >-
+      When your brain is empty, AI is brilliant at getting it started. Ask for ten
+      quick ideas, or three ways to begin. You are not asking it to decide — you
+      are asking it to hand you options so your own thinking can kick in. A blank
+      page is much easier once there is something on it.
+    prop: none
+  - heading: Make it a back-and-forth
+    body: >-
+      The best thinking happens in a conversation. Say what you like and do not
+      like about its ideas, and ask it to build on the good bits. "I like number 3,
+      make five more like that." Now you are steering your own thinking with a
+      partner who never runs out of suggestions.
+    prop: none
+  - heading: Stay the one in charge
+    body: >-
+      A thinking partner helps you think — it does not think for you. You pick which
+      idea is really yours, you decide what is good, you do the choosing. If you let
+      it make every decision, you stop learning. Use it to go further than you could
+      alone, not to switch your own brain off.
+    prop: none
+
+terms:
+  - term: brainstorm
+    plain: Getting lots of rough ideas out quickly, before picking the good ones.
+    seen_in: A team throwing ideas at a whiteboard, no bad ideas allowed yet.
+  - term: thinking partner
+    plain: Using AI to help you think, while you stay the one deciding.
+    seen_in: A study buddy who asks you questions instead of just giving answers.
+
+name_it:
+  - Use AI to get unstuck and spark ideas.
+  - Make it a back-and-forth — react, and ask for more.
+  - You stay in charge of the choosing and the thinking.
+
+exercises:
+  - id: w3-03-e1
+    kind: mcq
+    prompt: You are stuck starting a story. What is the best way to use AI as a thinking partner?
+    choices:
+      - Ask it to write the whole story so you do not have to.
+      - Ask for five different opening ideas, then pick and build on one.
+      - Copy someone else's story.
+      - Give up on the story.
+    answer: [1]
+    points: 1
+    explain: >-
+      Options get you unstuck while keeping the story yours. Letting it write the
+      whole thing means you stop being the author — and stop learning.
+  - id: w3-03-e2
+    kind: mcq
+    prompt: What makes AI a good thinking partner rather than just an answer machine?
+    choices:
+      - It decides everything for you.
+      - You go back and forth, and you stay the one choosing.
+      - It never gives more than one idea.
+      - You copy its first answer exactly.
+    answer: [1]
+    points: 1
+    explain: >-
+      The back-and-forth is the magic, with you in the driving seat. That is how it
+      makes your thinking better instead of replacing it.
+  - id: w3-03-e3
+    kind: mcq
+    prompt: Why is it important to stay in charge when using AI to think?
+    choices:
+      - So the AI does not get tired.
+      - So you keep learning and the ideas stay truly yours.
+      - There is no reason, let it decide.
+      - So you can blame the AI later.
+    answer: [1]
+    points: 1
+    explain: >-
+      If it makes every choice, your own thinking never grows. Staying in charge is
+      how you get smarter, not just how you get answers.
+  - id: w3-03-e4
+    kind: prompt_rubric
+    prompt: >-
+      You are stuck picking a topic for a talk. Write a prompt that uses AI as a
+      thinking partner — ask for options, not one final answer.
+    min_words: 10
+    must_include:
+      - ["ideas", "options", "few", "several", "list", "some"]
+      - ["talk", "topic", "presentation", "speech"]
+    criteria_labels:
+      - Asks for options, not one answer
+      - Names the task
+    explain: >-
+      Something like "Give me eight possible topics for a five-minute talk, then I
+      will pick." You get a spark for your own choosing, which is the whole point.
+
+close_comic:
+  id: w3-03-close
+  title: Mine, with help
+  beats:
+    - id: b1
+      speaker: mila
+      text: Idea number 7 — the plant one. I am going to make it my own way.
+      prop: none
+      mood: proud
+    - id: b2
+      speaker: iskra
+      text: Yes! I sparked, you chose, and now it is yours. That is the dream.
+      prop: none
+      mood: excited
+    - id: b3
+      speaker: mila
+      text: I never would have got there staring at a blank page.
+      prop: none
+      mood: curious
+    - id: b4
+      speaker: iskra
+      text: That is what a thinking partner is for. You did the thinking that counts.
+      prop: none
+      mood: calm
+      highlight: thinking partner

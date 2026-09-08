@@ -1,0 +1,177 @@
+id: w1-ask-like-you-mean-it
+world: talking-to-ai
+title: Ask like you mean it
+goal: Write a prompt that names who it is for, the job, the limits, and the shape of the answer.
+intro: >-
+  Here is the most useful thing you will learn all year, and you get it first.
+  Talking to an AI is a real skill, not magic words. The trick is simple: if you
+  are vague, you get a vague answer back. Let us make yours sharp, right now.
+minutes: 12
+tracks: [explorer, builder]
+prereqs: []
+
+open_comic:
+  id: w1-01-open
+  title: Write me a thing
+  beats:
+    - id: b1
+      speaker: mila
+      text: Write me something about dogs.
+      prop: none
+      mood: calm
+    - id: b2
+      speaker: iskra
+      text: Here are nine hundred words on the history of dogs. In Latin.
+      prop: none
+      mood: proud
+    - id: b3
+      speaker: mila
+      text: That is not what I wanted at all!
+      prop: none
+      mood: confused
+    - id: b4
+      speaker: iskra
+      text: You did not say what you wanted. So I guessed. I am a champion guesser.
+      prop: none
+      mood: calm
+      highlight: guessed
+
+play: prompt-lab
+play_brief: >-
+  Write a prompt in the box. A little checklist lights up as you cover each of
+  the four parts: who it is for, the job, the limits, and the shape. Try to light
+  up all four.
+
+teach:
+  - heading: Vague in, vague out
+    body: >-
+      "Write about dogs" could mean a poem, a list, a school report, or a joke.
+      The AI cannot read your mind, so it picks one — and it is usually not the
+      one you meant. This is not the AI being dim. It is you not saying enough.
+    prop: none
+  - heading: The four parts of a good ask
+    body: >-
+      A strong prompt names four things. Who it is for — a six-year-old needs
+      different words than your teacher. The job — explain, list, compare, write.
+      The limits — how long, what to leave out. The shape — a list, a table,
+      three sentences. Name those four and the answer changes completely.
+    prop: none
+  - heading: You are giving instructions, not making a wish
+    body: >-
+      Think of it like sending a friend to the shop. "Get food" comes back with
+      anything. "Get two red apples and a small milk" comes back right. The AI is
+      the same. The clearer the instruction, the less it has to guess.
+    prop: none
+
+terms:
+  - term: prompt
+    plain: The instructions you type to an AI. Your whole message to it is the prompt.
+    seen_in: Every chatbot box you have ever typed into.
+  - term: prompt engineering
+    plain: The skill of writing prompts that get you what you actually want.
+    seen_in: Job adverts now list it as a real skill people get paid for.
+
+name_it:
+  - A vague ask gets a vague answer. Say more than you think you need to.
+  - Cover four things — who it is for, the job, the limits, the shape.
+  - You are giving instructions, not making a wish.
+
+exercises:
+  - id: w1-01-e0
+    kind: sandbox
+    prompt: >-
+      In the prompt lab above, write an ask that lights up at least three of the
+      four parts.
+    check: prompt-parts
+    params:
+      min: 3
+    explain: >-
+      Three or four lights means your ask names who it is for, the job, a limit,
+      or a shape — so the AI barely has to guess. That is the whole skill.
+  - id: w1-01-e1
+    kind: mcq
+    prompt: Which of these asks will get the most useful answer?
+    choices:
+      - Tell me about space.
+      - Write three fun facts about black holes for a nine-year-old, one sentence each.
+      - Space stuff please.
+      - Explain everything about the universe.
+    answer: [1]
+    points: 1
+    explain: >-
+      It names who it is for (a nine-year-old), the job (fun facts), the limits
+      (three, one sentence each) and the shape (a short list). The others leave
+      the AI guessing.
+  - id: w1-01-e2
+    kind: match
+    prompt: Match each part of a good ask to an example of it.
+    pairs:
+      - ["Who it is for", "for a six-year-old"]
+      - ["The job", "compare two phones"]
+      - ["The limits", "in under fifty words"]
+      - ["The shape", "as a table"]
+    points: 2
+    explain: >-
+      Every good prompt has these four. You will not always need all four, but
+      knowing them means you always know what to add when an answer misses.
+  - id: w1-01-e3
+    kind: mcq
+    prompt: >-
+      You asked "write a story" and got a sad ten-page story. You wanted
+      something short and funny. What is the best fix?
+    choices:
+      - Give up, the AI cannot do funny.
+      - Ask again with the limits and shape — "a funny story, about a page, for kids."
+      - Type "write a story" again but louder, in capitals.
+      - Ask a completely different question.
+    answer: [1]
+    points: 1
+    explain: >-
+      The first answer was just a draft made from a vague ask. Add what was
+      missing — the mood, the length, the reader — and it snaps into shape.
+  - id: w1-01-e4
+    kind: prompt_rubric
+    prompt: >-
+      Write a prompt asking an AI to help plan a birthday party. Try to cover all
+      four parts — who it is for, the job, the limits, and the shape of the answer.
+    min_words: 12
+    must_include:
+      - ["for", "aged", "year", "old", "kid", "friend"]
+      - ["plan", "ideas", "list", "help"]
+      - ["under", "budget", "cheap", "hour", "less than", "no more"]
+      - ["list", "table", "steps", "order", "bullet"]
+    criteria_labels:
+      - Who it is for
+      - The job
+      - A limit
+      - The shape
+    explain: >-
+      A strong answer might be: "Give me a list of five cheap party game ideas for
+      eight-year-olds, each one sentence." That names the reader, the job, a limit
+      and the shape. If you missed one, add it and see how much sharper it feels.
+
+close_comic:
+  id: w1-01-close
+  title: Try that again
+  beats:
+    - id: b1
+      speaker: mila
+      text: Write three fun dog facts for a six-year-old. One sentence each.
+      prop: none
+      mood: curious
+    - id: b2
+      speaker: iskra
+      text: Dogs can smell your feelings. Dogs dream like you do. Puppies are born deaf.
+      prop: none
+      mood: excited
+    - id: b3
+      speaker: mila
+      text: That is exactly what I wanted!
+      prop: none
+      mood: proud
+    - id: b4
+      speaker: iskra
+      text: Because this time you told me. I still guessed — you just aimed my guess.
+      prop: none
+      mood: calm
+      highlight: aimed

@@ -1,0 +1,166 @@
+id: w3-right-tool
+world: using-ai-for-real
+title: The right tool for the job
+goal: Judge which tasks AI is genuinely good at, and which are better done another way.
+intro: >-
+  AI is amazing at some things and surprisingly bad at others. The people who get
+  the most out of it are not the ones who use it for everything — they are the
+  ones who know when to reach for it and when not to. Let us build that instinct.
+minutes: 12
+tracks: [explorer, builder]
+prereqs: [w2-same-different-answer]
+
+open_comic:
+  id: w3-01-open
+  title: The wrong tool
+  beats:
+    - id: b1
+      speaker: mila
+      text: Iskra, how many jellybeans are in this jar right now, exactly?
+      prop: none
+      mood: curious
+    - id: b2
+      speaker: iskra
+      text: Two hundred and six! ...Probably. I cannot actually see your jar.
+      prop: none
+      mood: confused
+    - id: b3
+      speaker: mila
+      text: Right, you cannot count real things you cannot see. My eyes are better for that.
+      prop: none
+      mood: calm
+    - id: b4
+      speaker: iskra
+      text: True! But ask me to write the counting instructions, and I am brilliant.
+      prop: none
+      mood: proud
+      highlight: right tool
+
+play: task-sorter
+play_brief: >-
+  Sort each real task into the right bin: ask AI, do it myself, or check
+  carefully. Get a feel for what AI is genuinely for.
+
+teach:
+  - heading: What AI is genuinely great at
+    body: >-
+      AI shines at word jobs: explaining a tricky idea, rewriting a message, making
+      a first draft, brainstorming lots of options, summarising a long thing,
+      translating, and turning a mess into a tidy list. If a task is mostly about
+      words and patterns, AI is a brilliant tool.
+    prop: none
+  - heading: What it is bad at, or cannot do
+    body: >-
+      It is shaky at exact maths, at anything happening right now that it cannot
+      see, and at facts it might just make up. It cannot know your secret plans,
+      count things in your real room, or feel what your friend feels. For those,
+      your own eyes, a calculator, or a real person beat it every time.
+    prop: none
+  - heading: The three-box sort
+    body: >-
+      A handy habit: sort a task into three boxes. "Ask AI" — word jobs and first
+      drafts. "Do it myself" — things only you can know or judge. "Check carefully"
+      — AI can help, but you must verify. Most real tasks are actually a mix, and
+      spotting which parts go where is the skill.
+    prop: none
+
+terms:
+  - term: use case
+    plain: A specific job you might use AI for, and whether it actually fits.
+    seen_in: A company asking "is this a good use case for AI?" before building.
+  - term: strengths and limits
+    plain: The things a tool is great at, and the things it just cannot do well.
+    seen_in: Knowing a hammer is for nails, not for screws.
+
+name_it:
+  - AI is great at word jobs and first drafts.
+  - It is weak at exact maths, live facts, and things only you can know.
+  - Sort tasks into ask AI, do it myself, or check carefully.
+
+exercises:
+  - id: w3-01-e0
+    kind: sandbox
+    prompt: In the sorter above, place all the tasks and get at least six in their best bin.
+    check: sorted-tasks
+    params:
+      min: 6
+    explain: >-
+      Word jobs go to AI, you-only jobs stay with you, and factual jobs get
+      checked. Sorting them well is the judgment this whole world is about.
+  - id: w3-01-e1
+    kind: mcq
+    prompt: Which of these is AI genuinely great at?
+    choices:
+      - Counting the exact coins in your pocket right now.
+      - Rewriting your message to sound friendlier.
+      - Knowing what you are secretly planning.
+      - Telling you today's real weather without looking it up.
+    answer: [1]
+    points: 1
+    explain: >-
+      Rewriting is a word job — exactly AI's strength. The others need your real
+      pocket, your private thoughts, or live information it cannot see.
+  - id: w3-01-e2
+    kind: mcq
+    prompt: Your friend is sad and you want to know how to help. Is AI the right tool?
+    choices:
+      - Yes, it knows your friend better than you.
+      - Not really — it can suggest ideas, but only you know your friend and can be there.
+      - Yes, just do whatever it says.
+      - No, AI is useless for everything.
+    answer: [1]
+    points: 1
+    explain: >-
+      AI can offer gentle ideas, but it cannot feel, cannot know your friend, and
+      cannot sit with them. This is a "do it myself" job with maybe a little help.
+  - id: w3-01-e3
+    kind: mcq
+    prompt: You need the exact answer to 8,472 times 391 for a project. Best tool?
+    choices:
+      - Ask the AI and trust it.
+      - Use a calculator — exact maths is not the AI's strength.
+      - Guess.
+      - Ask the AI three times and pick the middle answer.
+    answer: [1]
+    points: 1
+    explain: >-
+      A calculator is built for exact maths and is always right. The AI can slip on
+      big sums because it is guessing likely digits, not truly calculating.
+  - id: w3-01-e4
+    kind: match
+    prompt: Sort each task into the right box.
+    pairs:
+      - ["Draft a thank-you note", "Ask AI"]
+      - ["Decide if a gift is right for your mum", "Do it myself"]
+      - ["Summarise a long article, then check it", "Check carefully"]
+      - ["Count real apples on your table", "Do it myself"]
+    points: 2
+    explain: >-
+      Word jobs go to AI, personal judgment stays with you, and anything factual it
+      helps with gets checked. Most real work is a mix of all three.
+
+close_comic:
+  id: w3-01-close
+  title: The right box
+  beats:
+    - id: b1
+      speaker: mila
+      text: So drafting my speech is your job, but deciding what I really feel is mine.
+      prop: none
+      mood: curious
+    - id: b2
+      speaker: iskra
+      text: Perfectly sorted. I will draft. You will mean it. Best team.
+      prop: none
+      mood: excited
+    - id: b3
+      speaker: mila
+      text: Knowing when NOT to use you might be the useful bit.
+      prop: none
+      mood: proud
+    - id: b4
+      speaker: iskra
+      text: It really is. A good tool user knows what the tool is not for.
+      prop: none
+      mood: calm
+      highlight: not for

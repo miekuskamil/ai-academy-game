@@ -1,0 +1,157 @@
+id: w4-patterns-not-understanding
+world: whats-inside
+title: Patterns, not understanding
+goal: Grasp that finding patterns is powerful but is not the same as truly understanding.
+intro: >-
+  The AI is a pattern-finding champion. But there is a difference between spotting
+  a pattern and truly understanding something — and that gap explains almost every
+  weird thing an AI does. Once you see it, you will never be fooled by a clever-
+  sounding answer again.
+minutes: 11
+tracks: [explorer, builder]
+prereqs: [w4-mountain-of-examples]
+
+open_comic:
+  id: w4-02-open
+  title: The parrot puzzle
+  beats:
+    - id: b1
+      speaker: mila
+      text: You use big words perfectly. So you understand them like I do?
+      prop: none
+      mood: curious
+    - id: b2
+      speaker: iskra
+      text: I know which words fit together. That is not quite the same as understanding.
+      prop: none
+      mood: calm
+    - id: b3
+      speaker: mila
+      text: Like a parrot saying hello without knowing what hello means?
+      prop: none
+      mood: curious
+    - id: b4
+      speaker: iskra
+      text: A very sharp parrot with a huge vocabulary. But yes — patterns, not meaning.
+      prop: none
+      mood: proud
+      highlight: patterns, not meaning
+
+play: none
+play_brief: ""
+
+teach:
+  - heading: Finding patterns is genuinely powerful
+    body: >-
+      Do not undersell it — spotting patterns lets the AI do amazing things. It can
+      write, translate, explain, and answer because it learned the patterns of how
+      people do those things. Pattern-finding is real skill, and it is why AI is so
+      useful.
+    prop: none
+  - heading: But a pattern is not a meaning
+    body: >-
+      The AI knows that "thank you" often comes after "here is your change." But it
+      does not feel thankful. It knows the shape of a sad story without feeling sad.
+      It gets the words right while the real meaning — the kind you feel — is not
+      there. It matches patterns. It does not live them.
+    prop: none
+  - heading: Why this gap matters
+    body: >-
+      This explains the odd moments. An AI can write a lovely poem about the sea,
+      then get a simple sea fact wrong. Why? It was matching poem-patterns, not
+      checking what is true. Once you know it works by pattern and not by meaning,
+      you can guess when it will do well and when it will slip.
+    prop: none
+
+terms:
+  - term: pattern matching
+    plain: Recognising and copying shapes in data, without understanding their meaning.
+    seen_in: Guessing a song from its rhythm without knowing the words.
+  - term: understanding
+    plain: Truly grasping what something means, which is more than matching patterns.
+    seen_in: Knowing why a joke is funny, not just that people laugh at it.
+
+name_it:
+  - Pattern-finding is powerful and makes AI genuinely useful.
+  - Matching patterns is not the same as understanding meaning.
+  - The gap explains when AI shines and when it slips.
+
+exercises:
+  - id: w4-02-e1
+    kind: mcq
+    prompt: When an AI uses a word perfectly, what does that tell us?
+    choices:
+      - It fully understands the word like a person does.
+      - It has learned the pattern of where that word fits.
+      - It feels the meaning of the word.
+      - Nothing at all.
+    answer: [1]
+    points: 1
+    explain: >-
+      It learned where words go, which is powerful — but it is pattern skill, not
+      the lived understanding you have.
+  - id: w4-02-e2
+    kind: mcq
+    prompt: An AI writes a beautiful poem about the moon, then gets a moon fact wrong. Why?
+    choices:
+      - It was matching poem-patterns, not checking true facts.
+      - It is broken.
+      - It hates the moon.
+      - Poems and facts cannot be about the same thing.
+    answer: [0]
+    points: 1
+    explain: >-
+      Lovely word-patterns and true facts are different jobs. It nailed the first
+      and slipped on the second — classic pattern-not-understanding.
+  - id: w4-02-e3
+    kind: mcq
+    prompt: Why is "a very clever parrot" a fair way to picture a language model?
+    choices:
+      - Because it has feathers.
+      - Because it can produce the right words without truly understanding them.
+      - Because it is small and green.
+      - Because it repeats only one phrase.
+    answer: [1]
+    points: 1
+    explain: >-
+      The parrot gets the words right without the meaning behind them. The AI is
+      that, scaled up enormously — brilliant with patterns, thin on understanding.
+  - id: w4-02-e4
+    kind: mcq
+    prompt: How does knowing "patterns, not understanding" help you use AI well?
+    choices:
+      - It does not help at all.
+      - It helps you predict when it will be reliable and when to double-check.
+      - It means you should never use AI.
+      - It means AI understands everything.
+    answer: [1]
+    points: 1
+    explain: >-
+      Once you know it matches patterns, you can guess where it shines (word jobs)
+      and where it slips (true facts, real understanding) — and check accordingly.
+
+close_comic:
+  id: w4-02-close
+  title: The clever parrot
+  beats:
+    - id: b1
+      speaker: mila
+      text: So you are the cleverest parrot in the world, but still a parrot.
+      prop: none
+      mood: curious
+    - id: b2
+      speaker: iskra
+      text: A parrot who has read everything. Useful, but do not mistake me for wise.
+      prop: none
+      mood: calm
+    - id: b3
+      speaker: mila
+      text: Now I can guess when you will be great and when you will trip.
+      prop: none
+      mood: proud
+    - id: b4
+      speaker: iskra
+      text: That guess is a superpower. Most people never learn it. You just did.
+      prop: none
+      mood: excited
+      highlight: superpower

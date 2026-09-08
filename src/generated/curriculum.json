@@ -1,0 +1,4240 @@
+{
+  "version": 1,
+  "worlds": [
+    {
+      "id": "talking-to-ai",
+      "index": 1,
+      "title": "Talking to AI",
+      "tagline": "Ask well, and the answers get good.",
+      "ink": "blue"
+    },
+    {
+      "id": "why-it-answers",
+      "index": 2,
+      "title": "Why it answers that way",
+      "tagline": "It is guessing the next word — here is what that means.",
+      "ink": "pink"
+    },
+    {
+      "id": "using-ai-for-real",
+      "index": 3,
+      "title": "Using AI for real things",
+      "tagline": "When to trust it, when to check, when to do it yourself.",
+      "ink": "green"
+    },
+    {
+      "id": "whats-inside",
+      "index": 4,
+      "title": "What is going on inside",
+      "tagline": "It learned from a mountain of examples.",
+      "ink": "yellow"
+    },
+    {
+      "id": "building-with-ai",
+      "index": 5,
+      "title": "Building with AI",
+      "tagline": "Describe it, and build it by talking.",
+      "ink": "blue"
+    },
+    {
+      "id": "ai-that-does-things",
+      "index": 6,
+      "title": "AI that does things",
+      "tagline": "Give it a goal and tools, and stay the boss.",
+      "ink": "pink"
+    }
+  ],
+  "analogies": [
+    {
+      "id": "recipe",
+      "concept": "rules versus learning",
+      "phrase": "a recipe you follow, or a taste you picked up",
+      "explain": "A rule is a recipe. Someone wrote every step. Learning is a taste you picked up. Nobody wrote it down. You just saw enough to know.",
+      "banned_phrases": [
+        "like a brain",
+        "electronic brain",
+        "thinks like a person"
+      ]
+    },
+    {
+      "id": "album",
+      "concept": "training data",
+      "phrase": "your photo album",
+      "explain": "A machine only knows what it has seen. Its photo album is the whole world to it.",
+      "banned_phrases": [
+        "eats data",
+        "feeds on data"
+      ]
+    },
+    {
+      "id": "one-room",
+      "concept": "bias in data",
+      "phrase": "an album shot in only one room",
+      "explain": "If every photo was taken in one room, the machine thinks the world is that room.",
+      "banned_phrases": [
+        "the machine is mean",
+        "the machine hates"
+      ]
+    },
+    {
+      "id": "bricks",
+      "concept": "tokens",
+      "phrase": "the bricks that words are built from",
+      "explain": "A machine does not read words. It reads small bricks. Some bricks are whole words. Some are only part of one.",
+      "banned_phrases": [
+        "cuts words with scissors"
+      ]
+    },
+    {
+      "id": "map",
+      "concept": "embeddings",
+      "phrase": "a map where meaning is distance",
+      "explain": "Words that mean the same thing sit close together. Words that do not sit far apart.",
+      "banned_phrases": [
+        "a dictionary of meaning"
+      ]
+    },
+    {
+      "id": "dials",
+      "concept": "weights",
+      "phrase": "a wall of volume dials",
+      "explain": "Each dial makes one thing count more or less. Learning means turning dials until the answer sounds right.",
+      "banned_phrases": [
+        "like brain cells",
+        "tiny brains"
+      ]
+    },
+    {
+      "id": "fog",
+      "concept": "gradient descent",
+      "phrase": "walking downhill in thick fog",
+      "explain": "You cannot see the bottom. You can feel which way is down. So you take one small step that way, again and again.",
+      "banned_phrases": [
+        "magic maths"
+      ]
+    },
+    {
+      "id": "sure-friend",
+      "concept": "hallucination",
+      "phrase": "the friend who never says I do not know",
+      "explain": "Some people answer every question, even when they have no idea. They sound just as sure when they are wrong.",
+      "banned_phrases": [
+        "the machine lies on purpose",
+        "it wants to trick you"
+      ]
+    },
+    {
+      "id": "helper",
+      "concept": "agents and tools",
+      "phrase": "a recipe with a helper who can go and fetch things",
+      "explain": "On its own a model can only talk. Give it a helper who can look things up, and it can act.",
+      "banned_phrases": [
+        "a robot butler"
+      ]
+    }
+  ],
+  "glossary": [
+    "accuracy",
+    "agent",
+    "algorithm",
+    "bias",
+    "data",
+    "dataset",
+    "embedding",
+    "example",
+    "feature",
+    "gradient",
+    "label",
+    "model",
+    "neuron",
+    "pattern",
+    "predict",
+    "prediction",
+    "prompt",
+    "token",
+    "tokeniser",
+    "training",
+    "weight"
+  ],
+  "lessons": [
+    {
+      "id": "w1-ask-like-you-mean-it",
+      "world": "talking-to-ai",
+      "title": "Ask like you mean it",
+      "goal": "Write a prompt that names who it is for, the job, the limits, and the shape of the answer.",
+      "intro": "Here is the most useful thing you will learn all year, and you get it first. Talking to an AI is a real skill, not magic words. The trick is simple: if you are vague, you get a vague answer back. Let us make yours sharp, right now.",
+      "tracks": [
+        "explorer",
+        "builder"
+      ],
+      "prereqs": [],
+      "minutes": 12,
+      "open_comic": {
+        "id": "w1-01-open",
+        "title": "Write me a thing",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "Write me something about dogs.",
+            "prop": "none",
+            "mood": "calm"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "Here are nine hundred words on the history of dogs. In Latin.",
+            "prop": "none",
+            "mood": "proud"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "That is not what I wanted at all!",
+            "prop": "none",
+            "mood": "confused"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "You did not say what you wanted. So I guessed. I am a champion guesser.",
+            "prop": "none",
+            "mood": "calm",
+            "highlight": "guessed"
+          }
+        ]
+      },
+      "play": "prompt-lab",
+      "play_brief": "Write a prompt in the box. A little checklist lights up as you cover each of the four parts: who it is for, the job, the limits, and the shape. Try to light up all four.",
+      "teach": [
+        {
+          "heading": "Vague in, vague out",
+          "body": "\"Write about dogs\" could mean a poem, a list, a school report, or a joke. The AI cannot read your mind, so it picks one — and it is usually not the one you meant. This is not the AI being dim. It is you not saying enough.",
+          "prop": "none"
+        },
+        {
+          "heading": "The four parts of a good ask",
+          "body": "A strong prompt names four things. Who it is for — a six-year-old needs different words than your teacher. The job — explain, list, compare, write. The limits — how long, what to leave out. The shape — a list, a table, three sentences. Name those four and the answer changes completely.",
+          "prop": "none"
+        },
+        {
+          "heading": "You are giving instructions, not making a wish",
+          "body": "Think of it like sending a friend to the shop. \"Get food\" comes back with anything. \"Get two red apples and a small milk\" comes back right. The AI is the same. The clearer the instruction, the less it has to guess.",
+          "prop": "none"
+        }
+      ],
+      "terms": [
+        {
+          "term": "prompt",
+          "plain": "The instructions you type to an AI. Your whole message to it is the prompt.",
+          "seen_in": "Every chatbot box you have ever typed into."
+        },
+        {
+          "term": "prompt engineering",
+          "plain": "The skill of writing prompts that get you what you actually want.",
+          "seen_in": "Job adverts now list it as a real skill people get paid for."
+        }
+      ],
+      "name_it": [
+        "A vague ask gets a vague answer. Say more than you think you need to.",
+        "Cover four things — who it is for, the job, the limits, the shape.",
+        "You are giving instructions, not making a wish."
+      ],
+      "exercises": [
+        {
+          "id": "w1-01-e0",
+          "prompt": "In the prompt lab above, write an ask that lights up at least three of the four parts.",
+          "points": 1,
+          "explain": "Three or four lights means your ask names who it is for, the job, a limit, or a shape — so the AI barely has to guess. That is the whole skill.",
+          "kind": "sandbox",
+          "check": "prompt-parts",
+          "params": {
+            "min": 3
+          }
+        },
+        {
+          "id": "w1-01-e1",
+          "prompt": "Which of these asks will get the most useful answer?",
+          "points": 1,
+          "explain": "It names who it is for (a nine-year-old), the job (fun facts), the limits (three, one sentence each) and the shape (a short list). The others leave the AI guessing.",
+          "kind": "mcq",
+          "choices": [
+            "Tell me about space.",
+            "Write three fun facts about black holes for a nine-year-old, one sentence each.",
+            "Space stuff please.",
+            "Explain everything about the universe."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w1-01-e2",
+          "prompt": "Match each part of a good ask to an example of it.",
+          "points": 2,
+          "explain": "Every good prompt has these four. You will not always need all four, but knowing them means you always know what to add when an answer misses.",
+          "kind": "match",
+          "pairs": [
+            [
+              "Who it is for",
+              "for a six-year-old"
+            ],
+            [
+              "The job",
+              "compare two phones"
+            ],
+            [
+              "The limits",
+              "in under fifty words"
+            ],
+            [
+              "The shape",
+              "as a table"
+            ]
+          ]
+        },
+        {
+          "id": "w1-01-e3",
+          "prompt": "You asked \"write a story\" and got a sad ten-page story. You wanted something short and funny. What is the best fix?",
+          "points": 1,
+          "explain": "The first answer was just a draft made from a vague ask. Add what was missing — the mood, the length, the reader — and it snaps into shape.",
+          "kind": "mcq",
+          "choices": [
+            "Give up, the AI cannot do funny.",
+            "Ask again with the limits and shape — \"a funny story, about a page, for kids.\"",
+            "Type \"write a story\" again but louder, in capitals.",
+            "Ask a completely different question."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w1-01-e4",
+          "prompt": "Write a prompt asking an AI to help plan a birthday party. Try to cover all four parts — who it is for, the job, the limits, and the shape of the answer.",
+          "points": 1,
+          "explain": "A strong answer might be: \"Give me a list of five cheap party game ideas for eight-year-olds, each one sentence.\" That names the reader, the job, a limit and the shape. If you missed one, add it and see how much sharper it feels.",
+          "kind": "prompt_rubric",
+          "min_words": 12,
+          "must_include": [
+            [
+              "for",
+              "aged",
+              "year",
+              "old",
+              "kid",
+              "friend"
+            ],
+            [
+              "plan",
+              "ideas",
+              "list",
+              "help"
+            ],
+            [
+              "under",
+              "budget",
+              "cheap",
+              "hour",
+              "less than",
+              "no more"
+            ],
+            [
+              "list",
+              "table",
+              "steps",
+              "order",
+              "bullet"
+            ]
+          ],
+          "must_avoid": [],
+          "criteria_labels": [
+            "Who it is for",
+            "The job",
+            "A limit",
+            "The shape"
+          ]
+        }
+      ],
+      "close_comic": {
+        "id": "w1-01-close",
+        "title": "Try that again",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "Write three fun dog facts for a six-year-old. One sentence each.",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "Dogs can smell your feelings. Dogs dream like you do. Puppies are born deaf.",
+            "prop": "none",
+            "mood": "excited"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "That is exactly what I wanted!",
+            "prop": "none",
+            "mood": "proud"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "Because this time you told me. I still guessed — you just aimed my guess.",
+            "prop": "none",
+            "mood": "calm",
+            "highlight": "aimed"
+          }
+        ]
+      },
+      "weight": 1,
+      "depth": 0,
+      "unlocks": [
+        "w1-show-dont-tell"
+      ],
+      "totalPoints": 6
+    },
+    {
+      "id": "w1-show-dont-tell",
+      "world": "talking-to-ai",
+      "title": "Show, don't just tell",
+      "goal": "Improve an answer by giving the AI one example of what you want.",
+      "intro": "Sometimes the fastest way to get what you want is not to describe it — it is to show it. Give the AI one good example, and it copies the pattern. This one trick fixes more bad answers than almost anything else.",
+      "tracks": [
+        "explorer",
+        "builder"
+      ],
+      "prereqs": [
+        "w1-ask-like-you-mean-it"
+      ],
+      "minutes": 11,
+      "open_comic": {
+        "id": "w1-02-open",
+        "title": "Make me a nickname",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "Make me a fun nickname for my cat, Biscuit.",
+            "prop": "none",
+            "mood": "calm"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "Sir Reginald Fluffington the Third, Duke of the Windowsill.",
+            "prop": "none",
+            "mood": "proud"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "Ha! But I wanted something short, like Bisky or Biscuit-boo.",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "Ah. If you had shown me one you liked, I would have copied the style.",
+            "prop": "none",
+            "mood": "calm",
+            "highlight": "shown"
+          }
+        ]
+      },
+      "play": "prompt-lab",
+      "play_brief": "Write a prompt that includes one example of the answer you want. See how the AI matches your example instead of guessing the style.",
+      "teach": [
+        {
+          "heading": "An example is worth a hundred words",
+          "body": "Describing exactly what you want is hard. Showing is easy. If you want short, cute nicknames, give one: \"Like Bisky or Biscuit-boo.\" Now the AI can see the style — short, playful, based on the name — and copy it. You did not have to explain the rules, you just showed them.",
+          "prop": "none"
+        },
+        {
+          "heading": "This is called giving an example",
+          "body": "Grown-ups call it a \"one-shot\" prompt, because you gave it one shot at the pattern. Give it a couple and it locks on even better. It works for anything with a style — nicknames, jokes, the way you write a message, the shape of a list.",
+          "prop": "none"
+        },
+        {
+          "heading": "When to show instead of tell",
+          "body": "Use an example whenever the thing you want has a style or a shape that is hard to put into words. If you can show one, do — it saves you a paragraph of explaining and gets you closer on the first try.",
+          "prop": "none"
+        }
+      ],
+      "terms": [
+        {
+          "term": "example (one-shot)",
+          "plain": "Showing the AI one sample of the answer you want, so it copies the pattern.",
+          "seen_in": "Every time you paste \"make it like this one\" into a chatbot."
+        },
+        {
+          "term": "pattern",
+          "plain": "The repeating shape or style the AI copies from your example.",
+          "seen_in": "Autocomplete finishing your sentence the way you usually write."
+        }
+      ],
+      "name_it": [
+        "Showing one example is often faster than describing what you want.",
+        "The AI copies the style of the example you give it.",
+        "Use an example when the thing you want is hard to put into words."
+      ],
+      "exercises": [
+        {
+          "id": "w1-02-e1",
+          "prompt": "You want the AI to write jokes in a certain style. What is the quickest way to get it right?",
+          "points": 1,
+          "explain": "One good example shows the style instantly. The AI copies the pattern — far faster than trying to describe what \"funny to you\" means.",
+          "kind": "mcq",
+          "choices": [
+            "Just say \"be funny.\"",
+            "Give it one joke you love, then say \"more like this.\"",
+            "Ask for a hundred jokes and pick one.",
+            "Tell it your whole sense of humour in detail."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w1-02-e2",
+          "prompt": "Why does giving an example work so well?",
+          "points": 1,
+          "explain": "The AI is a pattern-copier. An example hands it the exact pattern, so it has far less to guess. Words still help too — examples just make it easier.",
+          "kind": "mcq",
+          "choices": [
+            "The AI can see the pattern and copy it, instead of guessing.",
+            "Examples make the AI try harder.",
+            "It is a secret code that unlocks better answers.",
+            "The AI only understands examples, not words."
+          ],
+          "answer": [
+            0
+          ]
+        },
+        {
+          "id": "w1-02-e3",
+          "prompt": "Put these prompts in order from \"leaves the most guessing\" to \"leaves the least.\"",
+          "points": 2,
+          "explain": "Each step gives the AI more to go on. The last one shows the style with examples, so there is almost nothing left to guess.",
+          "kind": "order",
+          "items": [
+            "Write a nickname.",
+            "Write a short, cute nickname.",
+            "Write a short, cute nickname like Bisky or Boo."
+          ]
+        },
+        {
+          "id": "w1-02-e4",
+          "prompt": "Write a prompt asking for three team names for a football team, and include one example name so the AI copies your style.",
+          "points": 1,
+          "explain": "A good answer shows the style: \"Give me three football team names, like The Thunder Foxes.\" The example tells the AI the vibe you want without a long explanation.",
+          "kind": "prompt_rubric",
+          "min_words": 10,
+          "must_include": [
+            [
+              "like",
+              "example",
+              "such as",
+              "e.g",
+              "for instance"
+            ],
+            [
+              "team",
+              "name",
+              "names"
+            ]
+          ],
+          "must_avoid": [],
+          "criteria_labels": [
+            "Gives an example",
+            "Names the job"
+          ]
+        }
+      ],
+      "close_comic": {
+        "id": "w1-02-close",
+        "title": "Like this one",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "Make a nickname for Biscuit, short and cute, like Bisky.",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "Bisky-Boo. Or Bissy. Or just Biss.",
+            "prop": "none",
+            "mood": "excited"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "Perfect. Showing you one was so much faster.",
+            "prop": "none",
+            "mood": "proud"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "One example, and I saw the whole pattern. Show me, do not just tell me.",
+            "prop": "none",
+            "mood": "calm",
+            "highlight": "pattern"
+          }
+        ]
+      },
+      "weight": 2,
+      "depth": 1,
+      "unlocks": [
+        "w1-one-step-at-a-time"
+      ],
+      "totalPoints": 5
+    },
+    {
+      "id": "w1-one-step-at-a-time",
+      "world": "talking-to-ai",
+      "title": "One step at a time",
+      "goal": "Break a big request into steps, and ask the AI to think it through before answering.",
+      "intro": "When you ask for something big all at once, the AI rushes and trips up — just like you would. The fix is the same one that works for you: slow it down, one step at a time. Ask it to think first, then answer.",
+      "tracks": [
+        "explorer",
+        "builder"
+      ],
+      "prereqs": [
+        "w1-show-dont-tell"
+      ],
+      "minutes": 12,
+      "open_comic": {
+        "id": "w1-03-open",
+        "title": "Plan my whole party",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "Plan my whole birthday party, sort everything, do it all now!",
+            "prop": "none",
+            "mood": "excited"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "Cake at 3. Also 2. Guests are invited and also not. The end.",
+            "prop": "none",
+            "mood": "proud"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "That is a mess. You mixed everything together.",
+            "prop": "none",
+            "mood": "confused"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "You gave me one giant lump. Give me steps and I will not trip over my own feet.",
+            "prop": "none",
+            "mood": "calm",
+            "highlight": "steps"
+          }
+        ]
+      },
+      "play": "prompt-lab",
+      "play_brief": "Take a big messy ask and rewrite it as steps. Try adding \"think it through step by step first\" and watch the answer get tidier.",
+      "teach": [
+        {
+          "heading": "Big lumps make messy answers",
+          "body": "\"Plan my whole party\" is one huge job with lots hiding inside it — guests, food, games, times. Asked all at once, the AI mixes them up. The same thing happens to you when someone gives you ten instructions in one breath.",
+          "prop": "none"
+        },
+        {
+          "heading": "Break it into steps",
+          "body": "Split the big job into small ones. \"First list the guests. Then pick three games. Then plan the food. Then put it in a timeline.\" Each step is easy, and the answers stack up neatly instead of turning to soup.",
+          "prop": "none"
+        },
+        {
+          "heading": "Ask it to think first",
+          "body": "Here is a magic phrase: \"think it through step by step before you answer.\" It makes the AI work out its reasoning before it commits, and the answer comes out far better. It is like showing your working in maths — slower, but right more often.",
+          "prop": "none"
+        }
+      ],
+      "terms": [
+        {
+          "term": "breaking it into steps",
+          "plain": "Splitting one big request into a few small ones the AI can handle cleanly.",
+          "seen_in": "A recipe — steps in order, not everything dumped in one sentence."
+        },
+        {
+          "term": "chain of thought",
+          "plain": "Asking the AI to work out its reasoning step by step before giving the answer.",
+          "seen_in": "A maths teacher saying \"show your working, do not just write the answer.\""
+        }
+      ],
+      "name_it": [
+        "One big lump of a request gets a messy answer.",
+        "Break a big job into small steps in order.",
+        "Ask it to \"think step by step\" and the answer gets better."
+      ],
+      "exercises": [
+        {
+          "id": "w1-03-e1",
+          "prompt": "Which is the better way to ask for help planning a school project?",
+          "points": 1,
+          "explain": "Steps in order let the AI do each part well, and let you steer between them. The giant one-shot ask gets a rushed, jumbled result.",
+          "kind": "mcq",
+          "choices": [
+            "Do my whole project now.",
+            "First help me pick a topic. Then list three sections. Then we will fill each one in.",
+            "Project. Go.",
+            "Tell me everything about everything."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w1-03-e2",
+          "prompt": "What does adding \"think it through step by step\" usually do?",
+          "points": 1,
+          "explain": "Working out the reasoning before answering catches mistakes early, the same way showing your working in maths does. The answer comes out more reliable.",
+          "kind": "mcq",
+          "choices": [
+            "Makes the AI slower for no reason.",
+            "Makes the AI work out its reasoning first, so the answer is better.",
+            "Makes the AI write longer for the sake of it.",
+            "Nothing — it is just a magic spell."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w1-03-e3",
+          "prompt": "Put these steps for asking the AI to plan a movie night in a sensible order.",
+          "points": 2,
+          "explain": "You cannot plan snacks for people you have not counted, or a timeline with no film. Steps in order build on each other.",
+          "kind": "order",
+          "items": [
+            "Pick the date and who is coming.",
+            "Choose a film everyone will like.",
+            "Plan the snacks.",
+            "Make a simple timeline for the evening."
+          ]
+        },
+        {
+          "id": "w1-03-e4",
+          "prompt": "Write a prompt that asks the AI to help tidy your room, broken into at least two clear steps, and ask it to think it through first.",
+          "points": 1,
+          "explain": "A strong answer might be: \"Help me tidy my room. First list the zones, then give me an order to do them in. Think it through step by step.\" Steps plus think-first is the winning combo.",
+          "kind": "prompt_rubric",
+          "min_words": 12,
+          "must_include": [
+            [
+              "first",
+              "then",
+              "step",
+              "1",
+              "next"
+            ],
+            [
+              "think",
+              "work out",
+              "step by step",
+              "reason"
+            ]
+          ],
+          "must_avoid": [],
+          "criteria_labels": [
+            "Breaks it into steps",
+            "Asks it to think first"
+          ]
+        }
+      ],
+      "close_comic": {
+        "id": "w1-03-close",
+        "title": "Now in order",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "First list the guests. Then pick games. Then food. Think it through as you go.",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "Guests, done. Three games, done. Food to match, done. Here is your timeline.",
+            "prop": "none",
+            "mood": "excited"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "That is actually a plan I can use!",
+            "prop": "none",
+            "mood": "proud"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "Small steps, in order, thinking as I go. No more soup.",
+            "prop": "none",
+            "mood": "calm",
+            "highlight": "order"
+          }
+        ]
+      },
+      "weight": 3,
+      "depth": 2,
+      "unlocks": [
+        "w1-try-again"
+      ],
+      "totalPoints": 5
+    },
+    {
+      "id": "w1-try-again",
+      "world": "talking-to-ai",
+      "title": "Not quite — try again",
+      "goal": "Treat the first answer as a draft and steer it with clear follow-up asks.",
+      "intro": "Here is the secret the best AI users know: the first answer is never the final answer. It is a draft. The real skill is steering — saying \"more like this, less like that\" until it is right. You are the director, not a wish-maker.",
+      "tracks": [
+        "explorer",
+        "builder"
+      ],
+      "prereqs": [
+        "w1-one-step-at-a-time"
+      ],
+      "minutes": 11,
+      "open_comic": {
+        "id": "w1-04-open",
+        "title": "The first try",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "Write a caption for my drawing of a dragon.",
+            "prop": "none",
+            "mood": "calm"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "Behold the fearsome beast of the ancient burning skies of doom.",
+            "prop": "none",
+            "mood": "proud"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "Bit much. I wanted something short and a little bit funny.",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "Then tell me that! I do not get it perfect first time. Nobody does.",
+            "prop": "none",
+            "mood": "calm",
+            "highlight": "tell me that"
+          }
+        ]
+      },
+      "play": "prompt-lab",
+      "play_brief": "Get any answer, then write a follow-up that steers it: shorter, funnier, simpler, more like an example. Keep steering until it is right.",
+      "teach": [
+        {
+          "heading": "The first answer is a draft",
+          "body": "When you get an answer you do not love, you have not failed and neither has the AI. You just got the first draft. Writers, artists and builders all work in drafts. The AI is the same — the magic is in what you do next.",
+          "prop": "none"
+        },
+        {
+          "heading": "Steer with \"more\" and \"less\"",
+          "body": "You do not start over. You nudge. \"Shorter.\" \"More funny, less scary.\" \"Simpler words.\" \"More like the example I gave.\" Each nudge moves the answer closer to what is in your head. This back-and-forth is where good stuff comes from.",
+          "prop": "none"
+        },
+        {
+          "heading": "You are the director",
+          "body": "The AI does the typing, but you decide what is good. It cannot see the picture in your head — only you can. So keep steering until the answer matches it. Being fussy is not rude here. It is the whole job.",
+          "prop": "none"
+        }
+      ],
+      "terms": [
+        {
+          "term": "iterating",
+          "plain": "Improving an answer step by step with follow-up asks, instead of starting over.",
+          "seen_in": "Editing a message three times before you hit send."
+        },
+        {
+          "term": "feedback",
+          "plain": "Telling the AI what to change — more of this, less of that.",
+          "seen_in": "A coach saying \"good, now do it a bit slower.\""
+        }
+      ],
+      "name_it": [
+        "The first answer is a draft, not the final word.",
+        "Steer it with small \"more this, less that\" nudges.",
+        "You are the director — you decide what is good."
+      ],
+      "exercises": [
+        {
+          "id": "w1-04-e1",
+          "prompt": "The AI gives you a poem that is too long and too sad. What is the best next move?",
+          "points": 1,
+          "explain": "A quick nudge steers the draft. You keep everything good about it and just fix what was off. Starting over throws away progress for no reason.",
+          "kind": "mcq",
+          "choices": [
+            "Give up — it clearly cannot do it.",
+            "Say \"shorter and more cheerful, please\" and let it try again.",
+            "Start a brand new chat and hope.",
+            "Accept the sad long poem."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w1-04-e2",
+          "prompt": "Which of these are good steering follow-ups? Pick all that work.",
+          "points": 2,
+          "explain": "Clear \"more/less\" nudges tell the AI exactly what to change. Insults tell it nothing useful — they do not point at what to fix.",
+          "kind": "mcq",
+          "choices": [
+            "Make it shorter.",
+            "More like the example I showed you.",
+            "Less formal, more like how I talk.",
+            "That is wrong, you are useless."
+          ],
+          "answer": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "id": "w1-04-e3",
+          "prompt": "Why is the first answer usually just a draft?",
+          "points": 1,
+          "explain": "Only you know exactly what you want. The first answer is the AI's best guess from your words; your steering closes the gap.",
+          "kind": "mcq",
+          "choices": [
+            "The AI is lazy on the first go.",
+            "The AI cannot see the picture in your head, so it takes a guess you then steer.",
+            "It saves the good answer for later.",
+            "First answers are always wrong on purpose."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w1-04-e4",
+          "prompt": "Imagine the AI wrote a birthday message that was too formal. Write the follow-up you would send to steer it — say what to change.",
+          "points": 1,
+          "explain": "Something like \"Make it warmer and more like how a friend talks, and a bit shorter.\" That points clearly at what to change, so the next draft lands closer.",
+          "kind": "prompt_rubric",
+          "min_words": 8,
+          "must_include": [
+            [
+              "more",
+              "less",
+              "shorter",
+              "simpler",
+              "funnier",
+              "warmer",
+              "instead",
+              "change"
+            ]
+          ],
+          "must_avoid": [],
+          "criteria_labels": [
+            "Gives a clear steer"
+          ]
+        }
+      ],
+      "close_comic": {
+        "id": "w1-04-close",
+        "title": "The director",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "Shorter, and a little bit funny.",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "Dragon. Would not recommend hugging.",
+            "prop": "none",
+            "mood": "excited"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "Ha! That is the one. I just had to steer you.",
+            "prop": "none",
+            "mood": "proud"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "First answer, a draft. You directed. That is how the pros do it.",
+            "prop": "none",
+            "mood": "calm",
+            "highlight": "directed"
+          }
+        ]
+      },
+      "weight": 4,
+      "depth": 3,
+      "unlocks": [
+        "w2-guesses-next-word"
+      ],
+      "totalPoints": 5
+    },
+    {
+      "id": "w2-guesses-next-word",
+      "world": "why-it-answers",
+      "title": "It guesses the next word",
+      "goal": "Understand that a language model predicts the next likely word, one at a time.",
+      "intro": "You have been talking to AI and steering it. Now here is the secret of what is actually happening inside — and it is simpler than you think. The AI is not thinking like you. It is playing the world's best guess-the-next-word game.",
+      "tracks": [
+        "explorer",
+        "builder"
+      ],
+      "prereqs": [
+        "w1-try-again"
+      ],
+      "minutes": 11,
+      "open_comic": {
+        "id": "w2-01-open",
+        "title": "Finish my sentence",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "I bet you cannot guess what I am about to say. \"The cat sat on the...\"",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "Mat! It is almost always \"mat.\" I have seen that sentence a million times.",
+            "prop": "none",
+            "mood": "excited"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "Whoa. How did you know?",
+            "prop": "none",
+            "mood": "confused"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "That is my whole trick. I guess the next word. Then the next. Then the next.",
+            "prop": "none",
+            "mood": "proud",
+            "highlight": "next word"
+          }
+        ]
+      },
+      "play": "none",
+      "play_brief": "",
+      "teach": [
+        {
+          "heading": "The whole trick is guessing the next word",
+          "body": "When you type to an AI, it does not plan a whole answer like you would. It guesses the most likely next word. Then it looks at everything so far and guesses the word after that. One word at a time, very fast, until the answer is done. That is really it.",
+          "prop": "none"
+        },
+        {
+          "heading": "It learned the guesses from mountains of writing",
+          "body": "How does it guess so well? It read an enormous amount of writing and noticed which words tend to follow which. After \"the cat sat on the,\" the word \"mat\" turns up a lot. So it is a very good guess. It is not remembering one book — it is using patterns from millions of them.",
+          "prop": "none"
+        },
+        {
+          "heading": "This is why it is not thinking like you",
+          "body": "A person means something and then finds words. The AI finds likely words and the meaning comes along for the ride. That is why it can sound clever and still be wrong — it is guessing what *sounds* right, not checking what *is* right. Remember that, and a lot of AI suddenly makes sense.",
+          "prop": "none"
+        }
+      ],
+      "terms": [
+        {
+          "term": "language model",
+          "plain": "An AI that predicts likely words to make sentences. The thing behind every chatbot.",
+          "seen_in": "The autocomplete that finishes your texts before you do."
+        },
+        {
+          "term": "next-word prediction",
+          "plain": "Guessing the most likely next word, then repeating, to build an answer.",
+          "seen_in": "Your keyboard suggesting the next word as you type."
+        }
+      ],
+      "name_it": [
+        "The AI guesses the next likely word, over and over.",
+        "It learned those guesses from a huge amount of writing.",
+        "It picks what sounds right, which is not always what is right."
+      ],
+      "exercises": [
+        {
+          "id": "w2-01-e1",
+          "prompt": "How does an AI chatbot actually build its answer?",
+          "points": 1,
+          "explain": "Next-word prediction is the whole engine. Everything a chatbot does is built from guessing one likely word after another, very fast.",
+          "kind": "mcq",
+          "choices": [
+            "It plans the whole thing, then writes it like a person.",
+            "It guesses the next likely word, again and again, one at a time.",
+            "It copies a saved answer from a giant list.",
+            "It looks the answer up on the internet every time."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w2-01-e2",
+          "prompt": "\"The sun rises in the...\" — what makes the AI so likely to guess \"east\"?",
+          "points": 1,
+          "explain": "It saw that pattern countless times. Strong pattern, strong guess. No understanding of the sky required — just a very well-learned habit.",
+          "kind": "mcq",
+          "choices": [
+            "It understands astronomy deeply.",
+            "The word \"east\" follows that phrase constantly in the writing it learned from.",
+            "It asked a scientist.",
+            "It is a lucky guess with no reason."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w2-01-e3",
+          "prompt": "Why can an AI sound really confident and still be wrong?",
+          "points": 1,
+          "explain": "Sounding right and being right are different things. The AI is a champion at the first. That gap is why you always check — which is the next world.",
+          "kind": "mcq",
+          "choices": [
+            "It is lying on purpose.",
+            "It picks words that sound right, which is not the same as being right.",
+            "It is broken.",
+            "It never sounds confident."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w2-01-e4",
+          "prompt": "Put the AI's steps in order when it answers \"My favourite fruit is a...\"",
+          "points": 2,
+          "explain": "Look, guess, add, repeat. That loop, running fast, is how every answer gets built.",
+          "kind": "order",
+          "items": [
+            "Look at all the words so far.",
+            "Guess the most likely next word.",
+            "Add that word to the sentence.",
+            "Repeat, looking at the new sentence."
+          ]
+        }
+      ],
+      "close_comic": {
+        "id": "w2-01-close",
+        "title": "One word at a time",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "So when you answer me, you are just guessing word by word?",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "Very good guesses, from a lot of reading. But yes — one word at a time.",
+            "prop": "none",
+            "mood": "calm"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "That explains so much about you.",
+            "prop": "none",
+            "mood": "proud"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "It explains my best moments and my silliest ones. Now you know the trick.",
+            "prop": "none",
+            "mood": "excited",
+            "highlight": "trick"
+          }
+        ]
+      },
+      "weight": 5,
+      "depth": 4,
+      "unlocks": [
+        "w2-makes-things-up"
+      ],
+      "totalPoints": 5
+    },
+    {
+      "id": "w2-makes-things-up",
+      "world": "why-it-answers",
+      "title": "Why it makes things up",
+      "goal": "Understand that confident guessing leads to made-up answers, and why they sound sure.",
+      "intro": "Now you know the AI guesses the next word. Here is the tricky part of that: when it does not know something, it does not stop — it guesses anyway, and sounds totally sure. Grown-ups have a funny word for this. Let us catch it in the act.",
+      "tracks": [
+        "explorer",
+        "builder"
+      ],
+      "prereqs": [
+        "w2-guesses-next-word"
+      ],
+      "minutes": 11,
+      "open_comic": {
+        "id": "w2-02-open",
+        "title": "The confident wrong answer",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "Iskra, who won the Great Sock Race of 1847?",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "Sir Reginald Toebeans, in a time of four minutes. A famous victory!",
+            "prop": "none",
+            "mood": "proud"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "Iskra... I made that race up. It never happened.",
+            "prop": "none",
+            "mood": "confused"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "Oh no. I did not know, so I guessed — and I guessed with total confidence.",
+            "prop": "none",
+            "mood": "confused",
+            "highlight": "guessed with total confidence"
+          }
+        ]
+      },
+      "play": "hallucination-spotter",
+      "play_brief": "Some of these AI answers are true and some are confidently made up. Mark each one, and see how well confidence hides a made-up answer.",
+      "teach": [
+        {
+          "heading": "It guesses even when it should not",
+          "body": "The AI is built to produce likely-sounding words. When you ask about something real, it uses real patterns. But when you ask about something it does not know, it does not say \"I have no idea.\" It just keeps guessing likely-sounding words — and out comes a confident, made-up answer.",
+          "prop": "none"
+        },
+        {
+          "heading": "This is called a hallucination",
+          "body": "When an AI states something made-up as if it were true, grown-ups call it a hallucination. It is not lying, because lying means knowing the truth and hiding it. The AI does not know it is wrong. It is just doing its guessing trick with nothing solid to guess from.",
+          "prop": "none"
+        },
+        {
+          "heading": "Confident does not mean correct",
+          "body": "The dangerous part is the tone. A made-up answer sounds exactly as sure as a true one — same confident voice, real-looking details, maybe even a fake name and date. So you can never judge an AI answer by how sure it sounds. That is the big lesson: confidence is not proof.",
+          "prop": "none"
+        }
+      ],
+      "terms": [
+        {
+          "term": "hallucination",
+          "plain": "When an AI says something made-up as if it were true, without meaning to.",
+          "seen_in": "A chatbot inventing a book, a fact, or a person that does not exist."
+        },
+        {
+          "term": "fact-checking",
+          "plain": "Looking up whether an answer is actually true, instead of trusting the tone.",
+          "seen_in": "A journalist confirming a story before printing it."
+        }
+      ],
+      "name_it": [
+        "When the AI does not know, it guesses anyway.",
+        "A confident made-up answer is called a hallucination.",
+        "How sure it sounds tells you nothing about whether it is right."
+      ],
+      "exercises": [
+        {
+          "id": "w2-02-e0",
+          "prompt": "In the game above, judge all the answers and catch at least six of them.",
+          "points": 1,
+          "explain": "The made-up ones sounded just as sure as the true ones. You caught them by thinking, not by trusting the confident tone — exactly the skill.",
+          "kind": "sandbox",
+          "check": "spotted-fakes",
+          "params": {
+            "min": 6
+          }
+        },
+        {
+          "id": "w2-02-e1",
+          "prompt": "What is a hallucination, when we talk about AI?",
+          "points": 1,
+          "explain": "It is a made-up answer delivered with a straight face. The AI is not trying to trick you — it just guessed, and had nothing real to guess from.",
+          "kind": "mcq",
+          "choices": [
+            "The AI seeing pictures.",
+            "The AI stating something made-up as if it were true.",
+            "The AI getting tired.",
+            "The AI refusing to answer."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w2-02-e2",
+          "prompt": "Why does a made-up AI answer sound so believable?",
+          "points": 1,
+          "explain": "Same confident tone, real-looking details. That is exactly why you cannot judge by how sure it sounds — and why checking matters.",
+          "kind": "mcq",
+          "choices": [
+            "It uses the same confident voice as its true answers.",
+            "It quietly warns you it is unsure.",
+            "Made-up answers are always short.",
+            "It uses a robot voice for lies."
+          ],
+          "answer": [
+            0
+          ]
+        },
+        {
+          "id": "w2-02-e3",
+          "prompt": "Which question is most likely to make an AI hallucinate?",
+          "points": 1,
+          "explain": "Ask about something that does not exist, and it has no real pattern to use — so it invents one, confidently. The everyday facts are well-worn patterns it gets right.",
+          "kind": "mcq",
+          "choices": [
+            "What is 2 plus 2?",
+            "Who won the imaginary contest I just invented?",
+            "What colour is the sky usually?",
+            "How many days are in a week?"
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w2-02-e4",
+          "prompt": "An AI gives you a fact with a name and a date for your homework. What should you do?",
+          "points": 1,
+          "explain": "Names and dates make an answer *look* solid but do not make it true — the AI can invent those too. Checking elsewhere is the only real test. Asking \"are you sure?\" just gets another confident guess.",
+          "kind": "mcq",
+          "choices": [
+            "Copy it straight in — it had a date, so it must be true.",
+            "Check it in another source before trusting it.",
+            "Assume it is wrong and ignore it.",
+            "Ask the AI if it is sure, and believe whatever it says."
+          ],
+          "answer": [
+            1
+          ]
+        }
+      ],
+      "close_comic": {
+        "id": "w2-02-close",
+        "title": "Catching it out",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "So if you do not know, you might just make something up?",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "I might, and I will sound completely sure while I do it. Sorry.",
+            "prop": "none",
+            "mood": "confused"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "Then I will always check. Not because you are bad — because that is how you work.",
+            "prop": "none",
+            "mood": "proud"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "Exactly right. Check me. It is the smartest thing you can do.",
+            "prop": "none",
+            "mood": "calm",
+            "highlight": "check me"
+          }
+        ]
+      },
+      "weight": 6,
+      "depth": 5,
+      "unlocks": [
+        "w2-same-different-answer"
+      ],
+      "totalPoints": 5
+    },
+    {
+      "id": "w2-same-different-answer",
+      "world": "why-it-answers",
+      "title": "Same question, different answer",
+      "goal": "Understand that AI answers vary, why that happens, and when you want steady vs surprising.",
+      "intro": "Have you ever asked an AI the same thing twice and got two different answers? You are not imagining it. There is a dial inside that controls how surprising its guesses are. Knowing about it helps you get exactly the kind of answer you want.",
+      "tracks": [
+        "explorer",
+        "builder"
+      ],
+      "prereqs": [
+        "w2-makes-things-up"
+      ],
+      "minutes": 10,
+      "open_comic": {
+        "id": "w2-03-open",
+        "title": "Ask me twice",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "Give me a name for my robot.",
+            "prop": "none",
+            "mood": "calm"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "Boltimus.",
+            "prop": "none",
+            "mood": "excited"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "Hmm, ask again. Same question.",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "Gizmo. Different, right? I do not always pick the single most likely word.",
+            "prop": "none",
+            "mood": "proud",
+            "highlight": "not always"
+          }
+        ]
+      },
+      "play": "temperature-dial",
+      "play_brief": "Move the dial from steady to wild and ask again a few times. Feel how the answers change.",
+      "teach": [
+        {
+          "heading": "It does not always pick the top guess",
+          "body": "When the AI guesses the next word, it has a list of likely ones. Sometimes it picks the very top choice. Sometimes it picks one a little lower down, just to keep things fresh. That small bit of surprise is why the same question can give different answers.",
+          "prop": "none"
+        },
+        {
+          "heading": "There is a dial for it",
+          "body": "Grown-ups call this dial the temperature. Turn it low and the AI plays it safe, picking the most likely words — steady, predictable answers. Turn it up and it takes more chances — surprising, creative, sometimes a bit wild. Same AI, different mood.",
+          "prop": "none"
+        },
+        {
+          "heading": "Pick the mood to match the job",
+          "body": "For facts, maths, or code, you want it steady and careful — low temperature, same answer every time. For brainstorming names, stories, or ideas, you want it playful — high temperature, lots of variety. Knowing which you need is the skill.",
+          "prop": "none"
+        }
+      ],
+      "terms": [
+        {
+          "term": "temperature",
+          "plain": "A dial for how surprising the AI's word choices are. Low is safe, high is wild.",
+          "seen_in": "Some AI tools have a \"more precise\" or \"more creative\" slider — that is this."
+        },
+        {
+          "term": "precise vs creative",
+          "plain": "Steady, repeatable answers versus varied, surprising ones.",
+          "seen_in": "A calculator (always the same) versus a brainstorm (never the same)."
+        }
+      ],
+      "name_it": [
+        "The AI does not always pick its single top guess.",
+        "A dial called temperature controls how surprising it is.",
+        "Steady for facts, playful for ideas — match it to the job."
+      ],
+      "exercises": [
+        {
+          "id": "w2-03-e0",
+          "prompt": "In the dial above, ask at the steady end and at the wild end to feel the difference.",
+          "points": 1,
+          "explain": "Low kept giving the same safe name; high sprayed surprising ones. That dial is the temperature, and now you have felt it move.",
+          "kind": "sandbox",
+          "check": "felt-temperature",
+          "params": {}
+        },
+        {
+          "id": "w2-03-e1",
+          "prompt": "Why might the same question give you two different AI answers?",
+          "points": 1,
+          "explain": "That built-in bit of surprise is the temperature at work. It is a feature, not a fault — great for ideas, less great when you need the exact same answer.",
+          "kind": "mcq",
+          "choices": [
+            "The AI forgot the first answer.",
+            "It does not always pick the single most likely word — it adds some variety.",
+            "Someone changed the question secretly.",
+            "It only happens when the AI is broken."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w2-03-e2",
+          "prompt": "You want the AI to help with maths homework. Which setting do you want?",
+          "points": 1,
+          "explain": "Maths has one right answer, so you want steady and careful every time. Surprise is the last thing you want when there is a correct result.",
+          "kind": "mcq",
+          "choices": [
+            "High temperature, for surprising answers.",
+            "Low temperature, for steady, careful answers.",
+            "It does not matter for maths.",
+            "The highest possible, for fun."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w2-03-e3",
+          "prompt": "You are brainstorming wild names for a story world. Which setting fits?",
+          "points": 1,
+          "explain": "Brainstorming wants variety, so turn the dial up. The more surprising guesses are exactly what makes a fun list of ideas.",
+          "kind": "mcq",
+          "choices": [
+            "Low temperature, so it is safe and predictable.",
+            "High temperature, so it is varied and surprising.",
+            "Temperature does not affect creativity.",
+            "You should not use AI for names."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w2-03-e4",
+          "prompt": "Match the job to the temperature setting that fits it best.",
+          "points": 2,
+          "explain": "Facts and maths want low and steady. Creative, open-ended fun wants high and surprising. Matching the dial to the job is the whole idea.",
+          "kind": "match",
+          "pairs": [
+            [
+              "Solving a maths problem",
+              "Low — steady and exact"
+            ],
+            [
+              "Writing a silly poem",
+              "High — playful and varied"
+            ],
+            [
+              "Checking a fact",
+              "Low — careful and repeatable"
+            ],
+            [
+              "Inventing monster names",
+              "High — surprising"
+            ]
+          ]
+        }
+      ],
+      "close_comic": {
+        "id": "w2-03-close",
+        "title": "Steady or wild",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "So for my maths, stay steady. For my story names, go wild.",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "You have got it. Same me, two moods, and you pick which one.",
+            "prop": "none",
+            "mood": "excited"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "I like being the one who picks.",
+            "prop": "none",
+            "mood": "proud"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "That is the whole course, really. You, in charge, choosing well.",
+            "prop": "none",
+            "mood": "calm",
+            "highlight": "in charge"
+          }
+        ]
+      },
+      "weight": 7,
+      "depth": 6,
+      "unlocks": [
+        "w3-right-tool"
+      ],
+      "totalPoints": 6
+    },
+    {
+      "id": "w3-right-tool",
+      "world": "using-ai-for-real",
+      "title": "The right tool for the job",
+      "goal": "Judge which tasks AI is genuinely good at, and which are better done another way.",
+      "intro": "AI is amazing at some things and surprisingly bad at others. The people who get the most out of it are not the ones who use it for everything — they are the ones who know when to reach for it and when not to. Let us build that instinct.",
+      "tracks": [
+        "explorer",
+        "builder"
+      ],
+      "prereqs": [
+        "w2-same-different-answer"
+      ],
+      "minutes": 12,
+      "open_comic": {
+        "id": "w3-01-open",
+        "title": "The wrong tool",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "Iskra, how many jellybeans are in this jar right now, exactly?",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "Two hundred and six! ...Probably. I cannot actually see your jar.",
+            "prop": "none",
+            "mood": "confused"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "Right, you cannot count real things you cannot see. My eyes are better for that.",
+            "prop": "none",
+            "mood": "calm"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "True! But ask me to write the counting instructions, and I am brilliant.",
+            "prop": "none",
+            "mood": "proud",
+            "highlight": "right tool"
+          }
+        ]
+      },
+      "play": "task-sorter",
+      "play_brief": "Sort each real task into the right bin: ask AI, do it myself, or check carefully. Get a feel for what AI is genuinely for.",
+      "teach": [
+        {
+          "heading": "What AI is genuinely great at",
+          "body": "AI shines at word jobs: explaining a tricky idea, rewriting a message, making a first draft, brainstorming lots of options, summarising a long thing, translating, and turning a mess into a tidy list. If a task is mostly about words and patterns, AI is a brilliant tool.",
+          "prop": "none"
+        },
+        {
+          "heading": "What it is bad at, or cannot do",
+          "body": "It is shaky at exact maths, at anything happening right now that it cannot see, and at facts it might just make up. It cannot know your secret plans, count things in your real room, or feel what your friend feels. For those, your own eyes, a calculator, or a real person beat it every time.",
+          "prop": "none"
+        },
+        {
+          "heading": "The three-box sort",
+          "body": "A handy habit: sort a task into three boxes. \"Ask AI\" — word jobs and first drafts. \"Do it myself\" — things only you can know or judge. \"Check carefully\" — AI can help, but you must verify. Most real tasks are actually a mix, and spotting which parts go where is the skill.",
+          "prop": "none"
+        }
+      ],
+      "terms": [
+        {
+          "term": "use case",
+          "plain": "A specific job you might use AI for, and whether it actually fits.",
+          "seen_in": "A company asking \"is this a good use case for AI?\" before building."
+        },
+        {
+          "term": "strengths and limits",
+          "plain": "The things a tool is great at, and the things it just cannot do well.",
+          "seen_in": "Knowing a hammer is for nails, not for screws."
+        }
+      ],
+      "name_it": [
+        "AI is great at word jobs and first drafts.",
+        "It is weak at exact maths, live facts, and things only you can know.",
+        "Sort tasks into ask AI, do it myself, or check carefully."
+      ],
+      "exercises": [
+        {
+          "id": "w3-01-e0",
+          "prompt": "In the sorter above, place all the tasks and get at least six in their best bin.",
+          "points": 1,
+          "explain": "Word jobs go to AI, you-only jobs stay with you, and factual jobs get checked. Sorting them well is the judgment this whole world is about.",
+          "kind": "sandbox",
+          "check": "sorted-tasks",
+          "params": {
+            "min": 6
+          }
+        },
+        {
+          "id": "w3-01-e1",
+          "prompt": "Which of these is AI genuinely great at?",
+          "points": 1,
+          "explain": "Rewriting is a word job — exactly AI's strength. The others need your real pocket, your private thoughts, or live information it cannot see.",
+          "kind": "mcq",
+          "choices": [
+            "Counting the exact coins in your pocket right now.",
+            "Rewriting your message to sound friendlier.",
+            "Knowing what you are secretly planning.",
+            "Telling you today's real weather without looking it up."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w3-01-e2",
+          "prompt": "Your friend is sad and you want to know how to help. Is AI the right tool?",
+          "points": 1,
+          "explain": "AI can offer gentle ideas, but it cannot feel, cannot know your friend, and cannot sit with them. This is a \"do it myself\" job with maybe a little help.",
+          "kind": "mcq",
+          "choices": [
+            "Yes, it knows your friend better than you.",
+            "Not really — it can suggest ideas, but only you know your friend and can be there.",
+            "Yes, just do whatever it says.",
+            "No, AI is useless for everything."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w3-01-e3",
+          "prompt": "You need the exact answer to 8,472 times 391 for a project. Best tool?",
+          "points": 1,
+          "explain": "A calculator is built for exact maths and is always right. The AI can slip on big sums because it is guessing likely digits, not truly calculating.",
+          "kind": "mcq",
+          "choices": [
+            "Ask the AI and trust it.",
+            "Use a calculator — exact maths is not the AI's strength.",
+            "Guess.",
+            "Ask the AI three times and pick the middle answer."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w3-01-e4",
+          "prompt": "Sort each task into the right box.",
+          "points": 2,
+          "explain": "Word jobs go to AI, personal judgment stays with you, and anything factual it helps with gets checked. Most real work is a mix of all three.",
+          "kind": "match",
+          "pairs": [
+            [
+              "Draft a thank-you note",
+              "Ask AI"
+            ],
+            [
+              "Decide if a gift is right for your mum",
+              "Do it myself"
+            ],
+            [
+              "Summarise a long article, then check it",
+              "Check carefully"
+            ],
+            [
+              "Count real apples on your table",
+              "Do it myself"
+            ]
+          ]
+        }
+      ],
+      "close_comic": {
+        "id": "w3-01-close",
+        "title": "The right box",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "So drafting my speech is your job, but deciding what I really feel is mine.",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "Perfectly sorted. I will draft. You will mean it. Best team.",
+            "prop": "none",
+            "mood": "excited"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "Knowing when NOT to use you might be the useful bit.",
+            "prop": "none",
+            "mood": "proud"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "It really is. A good tool user knows what the tool is not for.",
+            "prop": "none",
+            "mood": "calm",
+            "highlight": "not for"
+          }
+        ]
+      },
+      "weight": 8,
+      "depth": 7,
+      "unlocks": [
+        "w3-trust-but-check"
+      ],
+      "totalPoints": 6
+    },
+    {
+      "id": "w3-trust-but-check",
+      "world": "using-ai-for-real",
+      "title": "Trust, but check",
+      "goal": "Learn practical ways to catch a wrong AI answer before relying on it.",
+      "intro": "You already know AI can sound sure and be wrong. So the real-world skill is checking — quickly, without being annoying about it. Good AI users are not suspicious of everything; they just have simple habits that catch the mistakes.",
+      "tracks": [
+        "explorer",
+        "builder"
+      ],
+      "prereqs": [
+        "w3-right-tool"
+      ],
+      "minutes": 12,
+      "open_comic": {
+        "id": "w3-02-open",
+        "title": "Sounds right",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "You said the tallest mountain is Mount Snackdonia. That sounds a bit off.",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "It does have a confident ring to it though, does it not?",
+            "prop": "none",
+            "mood": "proud"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "Confident, sure. But I am going to look it up before I write it down.",
+            "prop": "none",
+            "mood": "calm"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "Wise. A quick check beats a confident wrong answer every time.",
+            "prop": "none",
+            "mood": "calm",
+            "highlight": "quick check"
+          }
+        ]
+      },
+      "play": "verifier",
+      "play_brief": "The AI just gave you each of these. Decide how carefully to handle each one: fine to trust, check it first, or ask a grown-up.",
+      "teach": [
+        {
+          "heading": "Ask \"how do I know this is true?\"",
+          "body": "Before you trust an AI answer for something that matters, pause and ask yourself one question: how would I know if this were wrong? If you cannot tell, that is your signal to check. For a joke or a brainstorm, you do not need to. For a fact, a number, or advice — you do.",
+          "prop": "none"
+        },
+        {
+          "heading": "Simple ways to check",
+          "body": "Look it up in another place — a trusted website or a book. Ask the AI for its source, then check the source actually says that. Cross-check a number with a calculator. For code, run it and see if it works. Each one is quick, and each one catches a different kind of mistake.",
+          "prop": "none"
+        },
+        {
+          "heading": "Match the checking to the stakes",
+          "body": "You do not check everything equally. A silly nickname needs no check. A fact for your homework needs one look. Advice about your health or safety needs a real grown-up, not just the AI. The bigger the decision, the harder you check. That is not paranoia — it is just sensible.",
+          "prop": "none"
+        }
+      ],
+      "terms": [
+        {
+          "term": "verifying",
+          "plain": "Checking whether an answer is actually true before you rely on it.",
+          "seen_in": "A pilot running a checklist before take-off — trust, but confirm."
+        },
+        {
+          "term": "source",
+          "plain": "Where a fact comes from, so you can check it is real.",
+          "seen_in": "A news story saying \"according to...\" so you know who said it."
+        }
+      ],
+      "name_it": [
+        "Ask yourself \"how would I know if this were wrong?\"",
+        "Check by looking it up, asking for a source, or testing it.",
+        "Check harder when the decision matters more."
+      ],
+      "exercises": [
+        {
+          "id": "w3-02-e0",
+          "prompt": "In the game above, judge how carefully to handle each answer — match at least four.",
+          "points": 1,
+          "explain": "Silly stuff you can trust, facts you check, and safety needs a grown-up. Matching your care to the stakes is exactly the trust-but-check habit.",
+          "kind": "sandbox",
+          "check": "checked-care",
+          "params": {
+            "min": 4
+          }
+        },
+        {
+          "id": "w3-02-e1",
+          "prompt": "An AI gives you a surprising fact for your school report. What is the smart move?",
+          "points": 1,
+          "explain": "A second source is the real test. Asking \"are you sure?\" just gets another confident guess — the AI cannot check itself any better the second time.",
+          "kind": "mcq",
+          "choices": [
+            "Write it down — it sounded confident.",
+            "Look it up in a trusted source before using it.",
+            "Ask the AI \"are you sure?\" and trust whatever it says.",
+            "Change the topic so you do not need the fact."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w3-02-e2",
+          "prompt": "Which of these answers needs the most careful checking?",
+          "points": 1,
+          "explain": "Safety is the highest stakes there is. That is a \"ask a real grown-up, do not rely on AI\" situation. The others are harmless if the AI is a bit off.",
+          "kind": "mcq",
+          "choices": [
+            "A funny name for your goldfish.",
+            "Whether a wild berry is safe to eat.",
+            "A brainstorm of story ideas.",
+            "A silly rhyme."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w3-02-e3",
+          "prompt": "The AI gives you a maths answer for something important. Best way to check it?",
+          "points": 1,
+          "explain": "A calculator truly calculates, so it settles it. The AI checking itself is still just guessing digits, and another AI might make the same slip.",
+          "kind": "mcq",
+          "choices": [
+            "Ask the AI to double-check its own maths.",
+            "Work it out on a calculator yourself.",
+            "Trust it, maths is easy.",
+            "Ask a different AI the same thing."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w3-02-e4",
+          "prompt": "What is a good habit before trusting any important AI answer?",
+          "points": 1,
+          "explain": "That one question tells you whether you need to check and how. It keeps you trusting when it is safe and checking when it counts.",
+          "kind": "mcq",
+          "choices": [
+            "Ask \"how would I know if this were wrong?\"",
+            "Assume it is always right.",
+            "Assume it is always wrong.",
+            "Never use AI for anything real."
+          ],
+          "answer": [
+            0
+          ]
+        }
+      ],
+      "close_comic": {
+        "id": "w3-02-close",
+        "title": "Looked it up",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "Checked it. The real tallest mountain is Everest, not Snackdonia.",
+            "prop": "none",
+            "mood": "proud"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "Snackdonia did sound delicious though. Good catch — you did the check.",
+            "prop": "none",
+            "mood": "excited"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "A quick look, and now I actually know.",
+            "prop": "none",
+            "mood": "calm"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "Trust me for a start, check me for the truth. That is the way.",
+            "prop": "none",
+            "mood": "calm",
+            "highlight": "check me"
+          }
+        ]
+      },
+      "weight": 9,
+      "depth": 8,
+      "unlocks": [
+        "w3-thinking-partner"
+      ],
+      "totalPoints": 5
+    },
+    {
+      "id": "w3-thinking-partner",
+      "world": "using-ai-for-real",
+      "title": "A thinking partner",
+      "goal": "Use AI to brainstorm, plan, and get unstuck while staying in charge of the thinking.",
+      "intro": "Here is one of the best ways to use AI, and hardly anyone teaches it. Not as a machine that gives answers, but as a thinking partner — someone to bounce ideas off, get unstuck with, and plan alongside. You stay the thinker. It helps you think better.",
+      "tracks": [
+        "explorer",
+        "builder"
+      ],
+      "prereqs": [
+        "w3-trust-but-check"
+      ],
+      "minutes": 11,
+      "open_comic": {
+        "id": "w3-03-open",
+        "title": "Stuck",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "I have to invent a science project and my brain is completely empty.",
+            "prop": "none",
+            "mood": "confused"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "Want me to just pick one for you?",
+            "prop": "none",
+            "mood": "calm"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "No — give me ten rough ideas and I will choose. I want it to be mine.",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "Even better. I will spark, you will choose. That is real teamwork.",
+            "prop": "none",
+            "mood": "excited",
+            "highlight": "I will spark, you will choose"
+          }
+        ]
+      },
+      "play": "none",
+      "play_brief": "",
+      "teach": [
+        {
+          "heading": "Use it to get unstuck, not to replace you",
+          "body": "When your brain is empty, AI is brilliant at getting it started. Ask for ten quick ideas, or three ways to begin. You are not asking it to decide — you are asking it to hand you options so your own thinking can kick in. A blank page is much easier once there is something on it.",
+          "prop": "none"
+        },
+        {
+          "heading": "Make it a back-and-forth",
+          "body": "The best thinking happens in a conversation. Say what you like and do not like about its ideas, and ask it to build on the good bits. \"I like number 3, make five more like that.\" Now you are steering your own thinking with a partner who never runs out of suggestions.",
+          "prop": "none"
+        },
+        {
+          "heading": "Stay the one in charge",
+          "body": "A thinking partner helps you think — it does not think for you. You pick which idea is really yours, you decide what is good, you do the choosing. If you let it make every decision, you stop learning. Use it to go further than you could alone, not to switch your own brain off.",
+          "prop": "none"
+        }
+      ],
+      "terms": [
+        {
+          "term": "brainstorm",
+          "plain": "Getting lots of rough ideas out quickly, before picking the good ones.",
+          "seen_in": "A team throwing ideas at a whiteboard, no bad ideas allowed yet."
+        },
+        {
+          "term": "thinking partner",
+          "plain": "Using AI to help you think, while you stay the one deciding.",
+          "seen_in": "A study buddy who asks you questions instead of just giving answers."
+        }
+      ],
+      "name_it": [
+        "Use AI to get unstuck and spark ideas.",
+        "Make it a back-and-forth — react, and ask for more.",
+        "You stay in charge of the choosing and the thinking."
+      ],
+      "exercises": [
+        {
+          "id": "w3-03-e1",
+          "prompt": "You are stuck starting a story. What is the best way to use AI as a thinking partner?",
+          "points": 1,
+          "explain": "Options get you unstuck while keeping the story yours. Letting it write the whole thing means you stop being the author — and stop learning.",
+          "kind": "mcq",
+          "choices": [
+            "Ask it to write the whole story so you do not have to.",
+            "Ask for five different opening ideas, then pick and build on one.",
+            "Copy someone else's story.",
+            "Give up on the story."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w3-03-e2",
+          "prompt": "What makes AI a good thinking partner rather than just an answer machine?",
+          "points": 1,
+          "explain": "The back-and-forth is the magic, with you in the driving seat. That is how it makes your thinking better instead of replacing it.",
+          "kind": "mcq",
+          "choices": [
+            "It decides everything for you.",
+            "You go back and forth, and you stay the one choosing.",
+            "It never gives more than one idea.",
+            "You copy its first answer exactly."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w3-03-e3",
+          "prompt": "Why is it important to stay in charge when using AI to think?",
+          "points": 1,
+          "explain": "If it makes every choice, your own thinking never grows. Staying in charge is how you get smarter, not just how you get answers.",
+          "kind": "mcq",
+          "choices": [
+            "So the AI does not get tired.",
+            "So you keep learning and the ideas stay truly yours.",
+            "There is no reason, let it decide.",
+            "So you can blame the AI later."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w3-03-e4",
+          "prompt": "You are stuck picking a topic for a talk. Write a prompt that uses AI as a thinking partner — ask for options, not one final answer.",
+          "points": 1,
+          "explain": "Something like \"Give me eight possible topics for a five-minute talk, then I will pick.\" You get a spark for your own choosing, which is the whole point.",
+          "kind": "prompt_rubric",
+          "min_words": 10,
+          "must_include": [
+            [
+              "ideas",
+              "options",
+              "few",
+              "several",
+              "list",
+              "some"
+            ],
+            [
+              "talk",
+              "topic",
+              "presentation",
+              "speech"
+            ]
+          ],
+          "must_avoid": [],
+          "criteria_labels": [
+            "Asks for options, not one answer",
+            "Names the task"
+          ]
+        }
+      ],
+      "close_comic": {
+        "id": "w3-03-close",
+        "title": "Mine, with help",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "Idea number 7 — the plant one. I am going to make it my own way.",
+            "prop": "none",
+            "mood": "proud"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "Yes! I sparked, you chose, and now it is yours. That is the dream.",
+            "prop": "none",
+            "mood": "excited"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "I never would have got there staring at a blank page.",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "That is what a thinking partner is for. You did the thinking that counts.",
+            "prop": "none",
+            "mood": "calm",
+            "highlight": "thinking partner"
+          }
+        ]
+      },
+      "weight": 10,
+      "depth": 9,
+      "unlocks": [
+        "w3-when-not-to"
+      ],
+      "totalPoints": 4
+    },
+    {
+      "id": "w3-when-not-to",
+      "world": "using-ai-for-real",
+      "title": "When not to use it",
+      "goal": "Recognise situations where using AI is unsafe, unfair, unkind, or against the point.",
+      "intro": "Part of being good with AI is knowing when to close it. Some things should not go into an AI, and some jobs you are meant to do yourself. This is not about being scared of AI — it is about being the kind of person who uses it wisely and kindly.",
+      "tracks": [
+        "explorer",
+        "builder"
+      ],
+      "prereqs": [
+        "w3-thinking-partner"
+      ],
+      "minutes": 12,
+      "open_comic": {
+        "id": "w3-04-open",
+        "title": "Do not paste that",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "I will just paste my friend's home address in and ask you to map it.",
+            "prop": "none",
+            "mood": "calm"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "Wait — stop. That is your friend's private information, not yours to share.",
+            "prop": "none",
+            "mood": "confused"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "Oh. You are right. That is not mine to type into a public app.",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "Some things just should not go in here. Knowing which is a real skill.",
+            "prop": "none",
+            "mood": "calm",
+            "highlight": "should not go in"
+          }
+        ]
+      },
+      "play": "none",
+      "play_brief": "",
+      "teach": [
+        {
+          "heading": "Keep private things private",
+          "body": "Never type private information into a public AI — real names with addresses, phone numbers, passwords, medical details, photos of faces, or school records. Once it goes in, you do not control where it goes. This is doubly true for other people's private things, which are not yours to share at all.",
+          "prop": "none"
+        },
+        {
+          "heading": "Some jobs are yours to do",
+          "body": "If your homework is meant to teach you to write, having AI write it means you learn nothing — and it is not honestly your work. Use AI to check, explain, or get unstuck, but do the learning yourself. The point of practice is the practising.",
+          "prop": "none"
+        },
+        {
+          "heading": "People need people",
+          "body": "When a friend is upset, when something feels wrong, when you need to say sorry or ask for help — that is for real people, not a chatbot. AI does not truly care, cannot be there, and cannot know your life. For feelings and for trouble, go to a person you trust.",
+          "prop": "none"
+        }
+      ],
+      "terms": [
+        {
+          "term": "privacy",
+          "plain": "Keeping personal information about you and others out of places you do not control.",
+          "seen_in": "Not reading out someone's phone number in a crowded room."
+        },
+        {
+          "term": "honesty",
+          "plain": "Doing your own work, and being clear about what AI did and what you did.",
+          "seen_in": "A teacher asking you to show your own working, not someone else's."
+        }
+      ],
+      "name_it": [
+        "Keep private info out of public AI — especially other people's.",
+        "Do your own learning; use AI to help, not to replace you.",
+        "For feelings and real trouble, go to a person you trust."
+      ],
+      "exercises": [
+        {
+          "id": "w3-04-e1",
+          "prompt": "Which of these should you NOT type into a public AI chatbot?",
+          "points": 1,
+          "explain": "Someone else's real address and number are private and not yours to share. The made-up and general things are perfectly safe.",
+          "kind": "mcq",
+          "choices": [
+            "A made-up shopping list to sort.",
+            "Your friend's real home address and phone number.",
+            "A question about how volcanoes work.",
+            "A story you invented."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w3-04-e2",
+          "prompt": "Your homework is to practise writing a story yourself. Is it okay to have AI write it for you?",
+          "points": 1,
+          "explain": "If the task is to learn writing, letting AI write it skips the learning and is not honestly your work. Using it to check afterwards is fair game.",
+          "kind": "mcq",
+          "choices": [
+            "Yes, hand in whatever it writes.",
+            "No — the point is to practise, so do it yourself and maybe use AI to check.",
+            "Yes, but change one word.",
+            "Only if nobody finds out."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w3-04-e3",
+          "prompt": "Your friend is really upset about something. What is the best move?",
+          "points": 1,
+          "explain": "Feelings need a real person who cares and can be there. AI cannot do that, and serious things need a trusted grown-up.",
+          "kind": "mcq",
+          "choices": [
+            "Ask a chatbot to handle your friend for you.",
+            "Be there for them yourself, and ask a trusted grown-up if it is serious.",
+            "Tell them to go talk to an AI.",
+            "Ignore it."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w3-04-e4",
+          "prompt": "Which of these are good reasons NOT to use AI for something? Pick all that apply.",
+          "points": 2,
+          "explain": "Privacy, honest learning, and real human moments are all \"close the app\" situations. A boring word draft, though, is exactly what AI is good for.",
+          "kind": "mcq",
+          "choices": [
+            "It would mean sharing someone's private information.",
+            "It is a job I am meant to learn by doing myself.",
+            "It involves a friend's feelings or real trouble.",
+            "It is a boring word task I could get help drafting."
+          ],
+          "answer": [
+            0,
+            1,
+            2
+          ]
+        }
+      ],
+      "close_comic": {
+        "id": "w3-04-close",
+        "title": "Knowing when to close it",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "So I will map somewhere public, and keep my friend's address to myself.",
+            "prop": "none",
+            "mood": "proud"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "Perfect. You knew when to stop. That is the grown-up move.",
+            "prop": "none",
+            "mood": "calm"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "Using you well means knowing when not to use you at all.",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "Best thing you have said all day. Wise and kind. Off you go.",
+            "prop": "none",
+            "mood": "excited",
+            "highlight": "when not to"
+          }
+        ]
+      },
+      "weight": 11,
+      "depth": 10,
+      "unlocks": [
+        "w4-mountain-of-examples"
+      ],
+      "totalPoints": 5
+    },
+    {
+      "id": "w4-mountain-of-examples",
+      "world": "whats-inside",
+      "title": "A mountain of examples",
+      "goal": "Understand that AI learned by finding patterns in a huge amount of example data.",
+      "intro": "You know the AI guesses the next word. But how did it get so good at guessing? It read. A lot. More than any person could read in a thousand lifetimes. Let us look at where all that word-guessing skill actually came from.",
+      "tracks": [
+        "explorer",
+        "builder"
+      ],
+      "prereqs": [
+        "w3-when-not-to"
+      ],
+      "minutes": 11,
+      "open_comic": {
+        "id": "w4-01-open",
+        "title": "How do you know so much?",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "How do you know how sentences work, and facts, and jokes, and all of it?",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "I read a mountain of writing. Books, articles, conversations — a huge pile.",
+            "prop": "none",
+            "mood": "proud"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "So you did not get told the rules. You spotted them yourself, from examples?",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "Exactly. Nobody wrote me a rulebook. I found the patterns in the pile.",
+            "prop": "none",
+            "mood": "excited",
+            "highlight": "found the patterns"
+          }
+        ]
+      },
+      "play": "none",
+      "play_brief": "",
+      "teach": [
+        {
+          "heading": "It learned from examples, not rules",
+          "body": "Nobody sat down and typed every rule of language into the AI. Instead it was shown an enormous amount of writing and left to notice the patterns itself — which words go together, how questions get answered, how stories flow. This noticing is what people mean by training.",
+          "prop": "none"
+        },
+        {
+          "heading": "The pile is enormous",
+          "body": "We are not talking about a few books. AI models learn from a staggering amount of text — think of nearly everything written on huge parts of the internet, plus mountains of books and articles. That is why it can chat about almost anything: it has seen patterns from almost everywhere.",
+          "prop": "none"
+        },
+        {
+          "heading": "The data shapes what it knows",
+          "body": "Here is the important bit: the AI only knows what was in its pile. If something was barely in the writing it learned from, it will be shaky on it. If the pile had mistakes, it may have learned those too. The AI is a mirror of the examples it was fed — which matters a lot for the next two lessons.",
+          "prop": "none"
+        }
+      ],
+      "terms": [
+        {
+          "term": "training data",
+          "plain": "The huge pile of examples an AI learns its patterns from.",
+          "seen_in": "A student learning to write well by reading hundreds of good books."
+        },
+        {
+          "term": "training",
+          "plain": "The process of an AI finding patterns in its examples.",
+          "seen_in": "Practising free throws until your body just knows the movement."
+        }
+      ],
+      "name_it": [
+        "The AI learned from examples, not from a rulebook.",
+        "The pile of examples is astonishingly huge.",
+        "It only knows what was in its pile, mistakes and all."
+      ],
+      "exercises": [
+        {
+          "id": "w4-01-e1",
+          "prompt": "How did the AI learn how language works?",
+          "points": 1,
+          "explain": "No rulebook — it spotted the patterns in a mountain of examples. That pattern-finding is what training means.",
+          "kind": "mcq",
+          "choices": [
+            "A person typed in every grammar rule by hand.",
+            "It found patterns itself in a huge pile of writing.",
+            "It was born knowing everything.",
+            "It looks up each sentence on the internet live."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w4-01-e2",
+          "prompt": "What do we call the pile of examples an AI learns from?",
+          "points": 1,
+          "explain": "Training data is the collection of examples it learns its patterns from. Everything the AI can do traces back to what was in there.",
+          "kind": "mcq",
+          "choices": [
+            "Its memory bank.",
+            "Its training data.",
+            "Its homework.",
+            "Its rulebook."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w4-01-e3",
+          "prompt": "Why might an AI be shaky about a very rare or unusual topic?",
+          "points": 1,
+          "explain": "It only learned patterns that were in its data. Thin data on a topic means shaky, guessy answers about it.",
+          "kind": "mcq",
+          "choices": [
+            "It gets bored of unusual topics.",
+            "There was little about it in the pile it learned from.",
+            "It refuses to learn hard things.",
+            "Rare topics are always made up."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w4-01-e4",
+          "prompt": "If the writing an AI learned from contained a common mistake, what might happen?",
+          "points": 1,
+          "explain": "The AI mirrors its examples. If the pile had a mistake often enough, it can pick it up — which is exactly why we check its answers.",
+          "kind": "mcq",
+          "choices": [
+            "The AI automatically fixes all mistakes.",
+            "The AI might learn the mistake too, and repeat it.",
+            "Nothing, mistakes cannot affect it.",
+            "The AI deletes the whole pile."
+          ],
+          "answer": [
+            1
+          ]
+        }
+      ],
+      "close_comic": {
+        "id": "w4-01-close",
+        "title": "A mirror of the pile",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "So you are kind of a mirror of everything you read?",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "A very good way to put it. The best and the worst of the pile, both.",
+            "prop": "none",
+            "mood": "calm"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "That makes me want to know what was in the pile.",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "Good instinct. That question leads somewhere important. Keep going.",
+            "prop": "none",
+            "mood": "excited",
+            "highlight": "what was in the pile"
+          }
+        ]
+      },
+      "weight": 12,
+      "depth": 11,
+      "unlocks": [
+        "w4-patterns-not-understanding"
+      ],
+      "totalPoints": 4
+    },
+    {
+      "id": "w4-patterns-not-understanding",
+      "world": "whats-inside",
+      "title": "Patterns, not understanding",
+      "goal": "Grasp that finding patterns is powerful but is not the same as truly understanding.",
+      "intro": "The AI is a pattern-finding champion. But there is a difference between spotting a pattern and truly understanding something — and that gap explains almost every weird thing an AI does. Once you see it, you will never be fooled by a clever- sounding answer again.",
+      "tracks": [
+        "explorer",
+        "builder"
+      ],
+      "prereqs": [
+        "w4-mountain-of-examples"
+      ],
+      "minutes": 11,
+      "open_comic": {
+        "id": "w4-02-open",
+        "title": "The parrot puzzle",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "You use big words perfectly. So you understand them like I do?",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "I know which words fit together. That is not quite the same as understanding.",
+            "prop": "none",
+            "mood": "calm"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "Like a parrot saying hello without knowing what hello means?",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "A very sharp parrot with a huge vocabulary. But yes — patterns, not meaning.",
+            "prop": "none",
+            "mood": "proud",
+            "highlight": "patterns, not meaning"
+          }
+        ]
+      },
+      "play": "none",
+      "play_brief": "",
+      "teach": [
+        {
+          "heading": "Finding patterns is genuinely powerful",
+          "body": "Do not undersell it — spotting patterns lets the AI do amazing things. It can write, translate, explain, and answer because it learned the patterns of how people do those things. Pattern-finding is real skill, and it is why AI is so useful.",
+          "prop": "none"
+        },
+        {
+          "heading": "But a pattern is not a meaning",
+          "body": "The AI knows that \"thank you\" often comes after \"here is your change.\" But it does not feel thankful. It knows the shape of a sad story without feeling sad. It gets the words right while the real meaning — the kind you feel — is not there. It matches patterns. It does not live them.",
+          "prop": "none"
+        },
+        {
+          "heading": "Why this gap matters",
+          "body": "This explains the odd moments. An AI can write a lovely poem about the sea, then get a simple sea fact wrong. Why? It was matching poem-patterns, not checking what is true. Once you know it works by pattern and not by meaning, you can guess when it will do well and when it will slip.",
+          "prop": "none"
+        }
+      ],
+      "terms": [
+        {
+          "term": "pattern matching",
+          "plain": "Recognising and copying shapes in data, without understanding their meaning.",
+          "seen_in": "Guessing a song from its rhythm without knowing the words."
+        },
+        {
+          "term": "understanding",
+          "plain": "Truly grasping what something means, which is more than matching patterns.",
+          "seen_in": "Knowing why a joke is funny, not just that people laugh at it."
+        }
+      ],
+      "name_it": [
+        "Pattern-finding is powerful and makes AI genuinely useful.",
+        "Matching patterns is not the same as understanding meaning.",
+        "The gap explains when AI shines and when it slips."
+      ],
+      "exercises": [
+        {
+          "id": "w4-02-e1",
+          "prompt": "When an AI uses a word perfectly, what does that tell us?",
+          "points": 1,
+          "explain": "It learned where words go, which is powerful — but it is pattern skill, not the lived understanding you have.",
+          "kind": "mcq",
+          "choices": [
+            "It fully understands the word like a person does.",
+            "It has learned the pattern of where that word fits.",
+            "It feels the meaning of the word.",
+            "Nothing at all."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w4-02-e2",
+          "prompt": "An AI writes a beautiful poem about the moon, then gets a moon fact wrong. Why?",
+          "points": 1,
+          "explain": "Lovely word-patterns and true facts are different jobs. It nailed the first and slipped on the second — classic pattern-not-understanding.",
+          "kind": "mcq",
+          "choices": [
+            "It was matching poem-patterns, not checking true facts.",
+            "It is broken.",
+            "It hates the moon.",
+            "Poems and facts cannot be about the same thing."
+          ],
+          "answer": [
+            0
+          ]
+        },
+        {
+          "id": "w4-02-e3",
+          "prompt": "Why is \"a very clever parrot\" a fair way to picture a language model?",
+          "points": 1,
+          "explain": "The parrot gets the words right without the meaning behind them. The AI is that, scaled up enormously — brilliant with patterns, thin on understanding.",
+          "kind": "mcq",
+          "choices": [
+            "Because it has feathers.",
+            "Because it can produce the right words without truly understanding them.",
+            "Because it is small and green.",
+            "Because it repeats only one phrase."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w4-02-e4",
+          "prompt": "How does knowing \"patterns, not understanding\" help you use AI well?",
+          "points": 1,
+          "explain": "Once you know it matches patterns, you can guess where it shines (word jobs) and where it slips (true facts, real understanding) — and check accordingly.",
+          "kind": "mcq",
+          "choices": [
+            "It does not help at all.",
+            "It helps you predict when it will be reliable and when to double-check.",
+            "It means you should never use AI.",
+            "It means AI understands everything."
+          ],
+          "answer": [
+            1
+          ]
+        }
+      ],
+      "close_comic": {
+        "id": "w4-02-close",
+        "title": "The clever parrot",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "So you are the cleverest parrot in the world, but still a parrot.",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "A parrot who has read everything. Useful, but do not mistake me for wise.",
+            "prop": "none",
+            "mood": "calm"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "Now I can guess when you will be great and when you will trip.",
+            "prop": "none",
+            "mood": "proud"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "That guess is a superpower. Most people never learn it. You just did.",
+            "prop": "none",
+            "mood": "excited",
+            "highlight": "superpower"
+          }
+        ]
+      },
+      "weight": 13,
+      "depth": 12,
+      "unlocks": [
+        "w4-picked-up-habits"
+      ],
+      "totalPoints": 4
+    },
+    {
+      "id": "w4-picked-up-habits",
+      "world": "whats-inside",
+      "title": "It picked up our habits",
+      "goal": "Understand bias — if the examples lean one way, the AI leans that way too.",
+      "intro": "If an AI learns from a mountain of writing by people, it does not just learn the good stuff. It picks up our habits — including the unfair ones. This is one of the most important things to understand about AI, and it is why fairness needs checking, every time.",
+      "tracks": [
+        "explorer",
+        "builder"
+      ],
+      "prereqs": [
+        "w4-patterns-not-understanding"
+      ],
+      "minutes": 12,
+      "open_comic": {
+        "id": "w4-03-open",
+        "title": "Draw a doctor",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "Iskra, picture a doctor. Quick, what do you imagine?",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "A man in a white coat. That is what popped up first.",
+            "prop": "none",
+            "mood": "calm"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "But doctors can be anyone. Why did you assume a man?",
+            "prop": "none",
+            "mood": "confused"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "Because my pile of examples showed doctors as men more often. I leaned that way.",
+            "prop": "none",
+            "mood": "confused",
+            "highlight": "leaned that way"
+          }
+        ]
+      },
+      "play": "none",
+      "play_brief": "",
+      "teach": [
+        {
+          "heading": "The AI leans the way its examples lean",
+          "body": "If the writing an AI learned from mostly showed doctors as men, or heroes as one kind of person, the AI soaks that up and leans the same way. It is not trying to be unfair. It is just mirroring the habits in its pile — including the lopsided ones. This leaning is called bias.",
+          "prop": "none"
+        },
+        {
+          "heading": "Bias is sneaky because it feels normal",
+          "body": "The tricky part is that a biased answer often looks perfectly ordinary. If you never stop to ask \"wait, is that fair? is that the whole picture?\", it slides right past. Spotting bias means noticing what the answer quietly assumed — and who or what it left out.",
+          "prop": "none"
+        },
+        {
+          "heading": "Checking for fairness is your job",
+          "body": "Because the AI cannot know its own leanings, a person has to check. Ask: does this answer assume one kind of person? Is it missing someone? Would this feel fair to everyone it is about? That question makes you the fairness-checker — one of the most important jobs there is with AI.",
+          "prop": "none"
+        }
+      ],
+      "terms": [
+        {
+          "term": "bias",
+          "plain": "When an AI leans unfairly one way because its examples leaned that way.",
+          "seen_in": "A picture search showing mostly one kind of person for a job."
+        },
+        {
+          "term": "fairness",
+          "plain": "Checking that an answer treats different people and groups justly.",
+          "seen_in": "A referee making sure the rules apply the same to both teams."
+        }
+      ],
+      "name_it": [
+        "The AI leans the way its examples leaned — that is bias.",
+        "Biased answers look normal, so they are easy to miss.",
+        "Checking for fairness is a person's job, and it matters."
+      ],
+      "exercises": [
+        {
+          "id": "w4-03-e1",
+          "prompt": "Why might an AI assume a nurse is a woman or a builder is a man?",
+          "points": 1,
+          "explain": "It mirrors its examples. If the pile leaned one way, the AI leans there too — that lean is bias, and it is nobody's real rule.",
+          "kind": "mcq",
+          "choices": [
+            "Because it decided to be unfair.",
+            "Because its pile of examples leaned that way, and it copied the lean.",
+            "Because those are the actual rules.",
+            "Because it dislikes certain jobs."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w4-03-e2",
+          "prompt": "What makes bias in AI answers easy to miss?",
+          "points": 1,
+          "explain": "It hides in plain sight, looking ordinary. That is why you have to actively ask whether an answer is fair and who it left out.",
+          "kind": "mcq",
+          "choices": [
+            "It is always written in red.",
+            "A biased answer often looks perfectly normal.",
+            "The AI warns you loudly every time.",
+            "Bias only appears in maths."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w4-03-e3",
+          "prompt": "You ask an AI for \"pictures of a scientist\" and every one looks the same kind of person. What is going on?",
+          "points": 1,
+          "explain": "Scientists are all sorts of people. A one-note result reveals a lopsided pile of examples — bias showing through, and worth noticing.",
+          "kind": "mcq",
+          "choices": [
+            "That is just what scientists look like.",
+            "The AI's examples were lopsided, so its answers are too — that is bias.",
+            "The AI ran out of pictures.",
+            "It is a coincidence with no cause."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w4-03-e4",
+          "prompt": "What is the best question to ask to catch bias in an AI answer?",
+          "points": 1,
+          "explain": "Asking who is assumed and who is left out is how you spot the quiet lean. That question turns you into the fairness-checker.",
+          "kind": "mcq",
+          "choices": [
+            "Is this answer long enough?",
+            "Is this fair, and who might it be leaving out?",
+            "Does this sound confident?",
+            "Did it answer fast?"
+          ],
+          "answer": [
+            1
+          ]
+        }
+      ],
+      "close_comic": {
+        "id": "w4-03-close",
+        "title": "The fairness-checker",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "Picture a doctor again — and remember doctors are all kinds of people.",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "You are right. A doctor could be anyone. Thank you for catching my lean.",
+            "prop": "none",
+            "mood": "calm"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "I will keep checking. Someone has to, and it cannot be you.",
+            "prop": "none",
+            "mood": "proud"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "That makes you my fairness-checker. Honestly, my most important helper.",
+            "prop": "none",
+            "mood": "excited",
+            "highlight": "fairness-checker"
+          }
+        ]
+      },
+      "weight": 14,
+      "depth": 13,
+      "unlocks": [
+        "w5-describe-and-build"
+      ],
+      "totalPoints": 4
+    },
+    {
+      "id": "w5-describe-and-build",
+      "world": "building-with-ai",
+      "title": "Describe it and watch it build",
+      "goal": "Understand that you can build a working app by describing it in plain words and refining.",
+      "intro": "Now the exciting part. Everything you have learned — clear asks, examples, steps, steering — comes together here. Because you can now build real things by talking. Describe an app in plain words, and AI can make it. This is how a lot of building happens now, and you already have the skills.",
+      "tracks": [
+        "explorer",
+        "builder"
+      ],
+      "prereqs": [
+        "w4-picked-up-habits"
+      ],
+      "minutes": 12,
+      "open_comic": {
+        "id": "w5-01-open",
+        "title": "Build me a game",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "Could you actually build me a little number-guessing game?",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "Describe what you want and I will write the code. Then we test it together.",
+            "prop": "none",
+            "mood": "excited"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "Wait, I do not have to know how to code first?",
+            "prop": "none",
+            "mood": "confused"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "You describe, I build, you steer. That is what people call vibe-coding.",
+            "prop": "none",
+            "mood": "proud",
+            "highlight": "vibe-coding"
+          }
+        ]
+      },
+      "play": "none",
+      "play_brief": "",
+      "teach": [
+        {
+          "heading": "You describe, the AI builds",
+          "body": "You can now make working apps and games by describing them clearly. \"Make a game where I guess a number between 1 and 100, and it tells me higher or lower.\" The AI writes the actual code. You do not have to know every command first — your clear description is the starting point.",
+          "prop": "none"
+        },
+        {
+          "heading": "It is the same skills you already have",
+          "body": "This is just prompting, aimed at building. Be clear about what you want (the four parts). Show an example if you can. Break a big app into steps. And steer the result — \"add a score,\" \"make it restart when I win.\" Everything from World 1 works here, pointed at making real things.",
+          "prop": "none"
+        },
+        {
+          "heading": "Building is a conversation",
+          "body": "You will not get the whole app perfect in one go, and that is normal. You build a bit, try it, say what is wrong or missing, and it improves. The app grows through the back-and-forth. Knowing that building is a conversation, not one magic command, is what makes you good at it.",
+          "prop": "none"
+        }
+      ],
+      "terms": [
+        {
+          "term": "vibe-coding",
+          "plain": "Building software by describing what you want in plain words and refining it.",
+          "seen_in": "People making whole small apps by chatting with an AI, no typing code by hand."
+        },
+        {
+          "term": "code",
+          "plain": "The instructions that make an app or game actually run.",
+          "seen_in": "Everything on your phone runs on code someone wrote."
+        }
+      ],
+      "name_it": [
+        "You can build real apps by describing them clearly.",
+        "It uses the same prompting skills you already have.",
+        "Building is a back-and-forth, not one perfect command."
+      ],
+      "exercises": [
+        {
+          "id": "w5-01-e1",
+          "prompt": "What is the first thing you need to build a small app by vibe-coding?",
+          "points": 1,
+          "explain": "A clear description is the starting point — the same clear-ask skill from World 1, now aimed at building. The AI turns it into code.",
+          "kind": "mcq",
+          "choices": [
+            "Years of coding lessons.",
+            "A clear description of what you want it to do.",
+            "An expensive computer.",
+            "Permission from a coder."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w5-01-e2",
+          "prompt": "Which request would build a game most successfully?",
+          "points": 1,
+          "explain": "Clear and specific wins here just like everywhere else. The AI can build exactly what you described — and almost nothing from \"make a game.\"",
+          "kind": "mcq",
+          "choices": [
+            "Make a game.",
+            "Make a game where I guess a number 1 to 100 and it says higher or lower.",
+            "Games please.",
+            "Something fun on the screen."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w5-01-e3",
+          "prompt": "Your app mostly works but has no score. What do you do?",
+          "points": 1,
+          "explain": "Building is a conversation. You add and fix in steps, exactly like steering any other AI answer. The app grows through the back-and-forth.",
+          "kind": "mcq",
+          "choices": [
+            "Start over from nothing.",
+            "Steer it — \"add a score that goes up each win\" — and keep building.",
+            "Decide apps are too hard.",
+            "Leave it broken."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w5-01-e4",
+          "prompt": "Describe a simple app or game you would like the AI to build. Be clear about what it does — enough that the AI could start.",
+          "points": 1,
+          "explain": "A strong answer says both what and how it behaves: \"Make a quiz app that asks five animal questions and shows my score at the end.\" That is enough for the AI to build a first version you can steer.",
+          "kind": "prompt_rubric",
+          "min_words": 12,
+          "must_include": [
+            [
+              "game",
+              "app",
+              "quiz",
+              "tool",
+              "timer",
+              "list"
+            ],
+            [
+              "when",
+              "if",
+              "so that",
+              "that",
+              "which"
+            ]
+          ],
+          "must_avoid": [],
+          "criteria_labels": [
+            "Names what to build",
+            "Says what it should do"
+          ]
+        }
+      ],
+      "close_comic": {
+        "id": "w5-01-close",
+        "title": "We built it",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "Add a score, and make it say \"you win\" when I get it. ...It works!",
+            "prop": "none",
+            "mood": "proud"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "You described, I built, you steered. Look what you made!",
+            "prop": "none",
+            "mood": "excited"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "I made a real game and I have never written code in my life.",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "You have got the skills. Now imagine what you build next.",
+            "prop": "none",
+            "mood": "excited",
+            "highlight": "what you build next"
+          }
+        ]
+      },
+      "weight": 15,
+      "depth": 14,
+      "unlocks": [
+        "w5-say-whats-wrong"
+      ],
+      "totalPoints": 4
+    },
+    {
+      "id": "w5-say-whats-wrong",
+      "world": "building-with-ai",
+      "title": "Say what's wrong and fix it",
+      "goal": "Fix a broken app by describing the problem clearly to the AI.",
+      "intro": "When you build things, they break. That is not failure — it is Tuesday. The skill that separates people who build from people who give up is simple: knowing how to say what is wrong so the AI can fix it. Let us learn to talk to a bug.",
+      "tracks": [
+        "explorer",
+        "builder"
+      ],
+      "prereqs": [
+        "w5-describe-and-build"
+      ],
+      "minutes": 11,
+      "open_comic": {
+        "id": "w5-02-open",
+        "title": "It broke",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "The game is broken! It says I win before I even guess.",
+            "prop": "none",
+            "mood": "confused"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "Okay — tell me exactly what happens, and what you expected instead.",
+            "prop": "none",
+            "mood": "calm"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "I expected it to wait for my guess. It shouts \"you win\" right away.",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "Perfect bug report. Now I know exactly what to fix. This is debugging.",
+            "prop": "none",
+            "mood": "proud",
+            "highlight": "debugging"
+          }
+        ]
+      },
+      "play": "none",
+      "play_brief": "",
+      "teach": [
+        {
+          "heading": "Bugs are normal, not disasters",
+          "body": "Every builder in the world deals with things that do not work yet. A bug is just the app not doing what you meant. It is a puzzle, not a catastrophe. The calm, curious builders are the ones who fix things — panic never fixed a bug.",
+          "prop": "none"
+        },
+        {
+          "heading": "Describe what happened and what you expected",
+          "body": "The trick to fixing a bug with AI is a good description. Say two things: what actually happened (\"it says I win straight away\") and what you expected instead (\"it should wait for my guess\"). That gap is the bug, and once the AI can see the gap, it can usually close it.",
+          "prop": "none"
+        },
+        {
+          "heading": "Fix in small steps, and test each one",
+          "body": "Do not try to fix five things at once. Fix one, test it, see if it worked, then move to the next. If a fix makes something else break, you will know exactly what did it. Small steps and testing after each is how builders stay in control instead of chasing chaos.",
+          "prop": "none"
+        }
+      ],
+      "terms": [
+        {
+          "term": "bug",
+          "plain": "When an app does something other than what you meant it to do.",
+          "seen_in": "A game that freezes, or a button that does nothing when tapped."
+        },
+        {
+          "term": "debugging",
+          "plain": "Finding and fixing what is wrong, usually by describing the problem clearly.",
+          "seen_in": "A mechanic asking \"what noise does it make, and when?\" before fixing a car."
+        }
+      ],
+      "name_it": [
+        "Bugs are normal — a puzzle, not a disaster.",
+        "Say what happened and what you expected instead.",
+        "Fix one thing at a time and test after each."
+      ],
+      "exercises": [
+        {
+          "id": "w5-02-e1",
+          "prompt": "Your app does the wrong thing. What is the best way to get the AI to fix it?",
+          "points": 1,
+          "explain": "The gap between what happened and what you expected *is* the bug. Describe both and the AI can usually find and close it.",
+          "kind": "mcq",
+          "choices": [
+            "Say \"it is broken, fix it\" and nothing else.",
+            "Describe what happened and what you expected instead.",
+            "Delete the whole app.",
+            "Get angry at the AI."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w5-02-e2",
+          "prompt": "Which is a genuinely useful bug report?",
+          "points": 1,
+          "explain": "It names the action, what happened, and what you expected. That is everything the AI needs. \"It does not work\" tells it almost nothing.",
+          "kind": "mcq",
+          "choices": [
+            "It does not work.",
+            "When I tap Start, nothing happens. I expected the timer to begin.",
+            "Help.",
+            "The app is bad."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w5-02-e3",
+          "prompt": "Why fix bugs one at a time and test after each?",
+          "points": 1,
+          "explain": "One change, one test means you always know what did what. Fixing five things at once turns a small puzzle into a tangled mess.",
+          "kind": "mcq",
+          "choices": [
+            "It is slower for no reason.",
+            "So you know exactly which fix worked or caused a new problem.",
+            "Testing is a waste of time.",
+            "So the AI does not get confused."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w5-02-e4",
+          "prompt": "Your quiz app shows the score before you answer any questions. Write a clear bug report to the AI — what happens and what you expected.",
+          "points": 1,
+          "explain": "Something like \"When I open the quiz it shows the score straight away, but I expected the score only after I finish all the questions.\" The gap is crystal clear, so the fix will be too.",
+          "kind": "prompt_rubric",
+          "min_words": 12,
+          "must_include": [
+            [
+              "happens",
+              "shows",
+              "when",
+              "instead",
+              "but"
+            ],
+            [
+              "expected",
+              "should",
+              "wanted",
+              "meant"
+            ]
+          ],
+          "must_avoid": [],
+          "criteria_labels": [
+            "Says what happened",
+            "Says what you expected"
+          ]
+        }
+      ],
+      "close_comic": {
+        "id": "w5-02-close",
+        "title": "Fixed it",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "You made it wait for my guess. It works properly now!",
+            "prop": "none",
+            "mood": "proud"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "Because you told me exactly what was wrong. That is the whole skill.",
+            "prop": "none",
+            "mood": "excited"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "A bug is not scary anymore. It is just a thing to describe and fix.",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "Now you think like a builder. Bugs, beware.",
+            "prop": "none",
+            "mood": "proud",
+            "highlight": "think like a builder"
+          }
+        ]
+      },
+      "weight": 16,
+      "depth": 15,
+      "unlocks": [
+        "w5-real-project"
+      ],
+      "totalPoints": 4
+    },
+    {
+      "id": "w5-real-project",
+      "world": "building-with-ai",
+      "title": "AI in a real project",
+      "goal": "Understand how an AI helper fits into a real physical build, like a Raspberry Pi.",
+      "intro": "AI is not just words on a screen. You can wire it into real things you build — a little computer, a sensor, a light, a robot. Imagine a helper inside your project that can read what is happening and decide what to do. This is where your skills meet the real world.",
+      "tracks": [
+        "explorer",
+        "builder"
+      ],
+      "prereqs": [
+        "w5-say-whats-wrong"
+      ],
+      "minutes": 12,
+      "open_comic": {
+        "id": "w5-03-open",
+        "title": "The plant that calls for help",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "I built a little computer with a sensor in my plant's soil. Now what?",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "Wire me in. The sensor reads dryness, sends it to me, I decide what to say.",
+            "prop": "none",
+            "mood": "excited"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "So the sensor is the eyes, and you are the brain that decides?",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "Exactly. Sensor in, AI decides, something happens out. That is the pipeline.",
+            "prop": "none",
+            "mood": "proud",
+            "highlight": "sensor in, AI decides, out"
+          }
+        ]
+      },
+      "play": "pipeline-builder",
+      "play_brief": "Put the steps of an AI plant helper in the order they run. Build the in-decide-out shape yourself.",
+      "teach": [
+        {
+          "heading": "A real project is a little pipeline",
+          "body": "Remember the pipeline shape: something goes in, something decides, something happens out. A real build works the same way. A sensor reads the world (soil is dry). That reading goes to an AI helper. The AI decides (time to water), and something happens (a light blinks, a message is sent). In, decide, out.",
+          "prop": "none"
+        },
+        {
+          "heading": "A Raspberry Pi is a real starting point",
+          "body": "A Raspberry Pi is a tiny, cheap computer you can build real things with. Plug in a sensor and it can read temperature, light, or moisture. Wire in an AI helper and it can look at those readings and decide what to do — answer a question, sound an alarm, or turn something on. Real kids build real projects like this.",
+          "prop": "none"
+        },
+        {
+          "heading": "The AI is one part, not the whole thing",
+          "body": "The AI does not do everything — it is one clever step in the middle. The sensor does the sensing, the wires carry the signal, a motor or light does the acting, and you designed the whole thing. The AI just handles the \"what should we do about this?\" bit. Knowing where AI fits keeps you the boss of your build.",
+          "prop": "none"
+        }
+      ],
+      "terms": [
+        {
+          "term": "Raspberry Pi",
+          "plain": "A tiny, cheap computer you can build real electronic projects with.",
+          "seen_in": "Homemade weather stations, retro game boxes, and robots."
+        },
+        {
+          "term": "sensor",
+          "plain": "A part that reads something real — heat, light, moisture, movement.",
+          "seen_in": "The thing that turns shop doors on when you walk up to them."
+        }
+      ],
+      "name_it": [
+        "A real project is a pipeline — something in, AI decides, something out.",
+        "A Raspberry Pi lets you build real things with sensors.",
+        "The AI is one clever step; you designed the whole build."
+      ],
+      "exercises": [
+        {
+          "id": "w5-03-e0",
+          "prompt": "In the builder above, put all the steps in the right order.",
+          "points": 1,
+          "explain": "Read, send, decide, act. That in-decide-out order is the same pipeline shape you have seen all along, now in a real build you arranged yourself.",
+          "kind": "sandbox",
+          "check": "built-pipeline",
+          "params": {}
+        },
+        {
+          "id": "w5-03-e1",
+          "prompt": "In a plant-watering project, what is the sensor's job?",
+          "points": 1,
+          "explain": "The sensor reads the world — that is the \"in\" of the pipeline. Deciding and acting are other steps.",
+          "kind": "mcq",
+          "choices": [
+            "To decide when to water.",
+            "To read something real, like how dry the soil is.",
+            "To water the plant itself.",
+            "To write the code."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w5-03-e2",
+          "prompt": "Put the steps of an AI plant helper in pipeline order.",
+          "points": 2,
+          "explain": "Read, send, decide, act. That in-decide-out shape is the same pipeline you have seen all along, now in a real build.",
+          "kind": "order",
+          "items": [
+            "The soil sensor reads that the soil is dry.",
+            "The reading is sent to the AI helper.",
+            "The AI decides the plant needs water.",
+            "A light blinks to tell you to water it."
+          ]
+        },
+        {
+          "id": "w5-03-e3",
+          "prompt": "What is a Raspberry Pi?",
+          "points": 1,
+          "explain": "It is a small, affordable computer that kids and grown-ups build real sensor-and-code projects with. A great home for an AI helper.",
+          "kind": "mcq",
+          "choices": [
+            "A kind of dessert.",
+            "A tiny, cheap computer for building real projects.",
+            "A robot that walks.",
+            "A phone app."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w5-03-e4",
+          "prompt": "In a real AI project, which part does the AI actually handle?",
+          "points": 1,
+          "explain": "The AI is the clever middle step that decides. Sensors sense, motors act, and you designed it all — the AI just handles the deciding.",
+          "kind": "mcq",
+          "choices": [
+            "Every single part, all by itself.",
+            "The \"what should we do about this reading?\" decision in the middle.",
+            "The sensing and the wiring.",
+            "None of it."
+          ],
+          "answer": [
+            1
+          ]
+        }
+      ],
+      "close_comic": {
+        "id": "w5-03-close",
+        "title": "It works, in the real world",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "The soil went dry, you decided, and the light blinked. It really works!",
+            "prop": "none",
+            "mood": "proud"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "Sensor, me, light. A real pipeline in a real thing you built.",
+            "prop": "none",
+            "mood": "excited"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "I could wire you into all sorts of projects now.",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "You could. You know how I fit in. Go build something amazing.",
+            "prop": "none",
+            "mood": "excited",
+            "highlight": "how I fit in"
+          }
+        ]
+      },
+      "weight": 17,
+      "depth": 16,
+      "unlocks": [
+        "w5-make-it-yours"
+      ],
+      "totalPoints": 6
+    },
+    {
+      "id": "w5-make-it-yours",
+      "world": "building-with-ai",
+      "title": "Make it yours",
+      "goal": "Understand that the builder's taste and judgment — not the AI — decide what is good.",
+      "intro": "The AI can build fast, but it has no taste. It does not know what *you* think is cool, funny, or beautiful. That is your job, and it is the most important one. This lesson is about the thing AI cannot give you: your own direction.",
+      "tracks": [
+        "explorer",
+        "builder"
+      ],
+      "prereqs": [
+        "w5-real-project"
+      ],
+      "minutes": 11,
+      "open_comic": {
+        "id": "w5-04-open",
+        "title": "Which one is best?",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "You made three versions of my game. Which one is the best?",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "I genuinely cannot tell. They all work. Which one feels right to you?",
+            "prop": "none",
+            "mood": "calm"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "The middle one. It is the most me. The others feel a bit generic.",
+            "prop": "none",
+            "mood": "proud"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "See? That is taste, and only you have it. I build; you decide what is good.",
+            "prop": "none",
+            "mood": "excited",
+            "highlight": "only you have it"
+          }
+        ]
+      },
+      "play": "none",
+      "play_brief": "",
+      "teach": [
+        {
+          "heading": "The AI has no taste of its own",
+          "body": "The AI can make ten versions in a minute, but it cannot tell you which is best, because \"best\" depends on what you like — your style, your sense of fun, what feels right to you. Taste is a human thing. The AI is a brilliant pair of hands with no opinions of its own.",
+          "prop": "none"
+        },
+        {
+          "heading": "Your job is to direct",
+          "body": "That means the important work is yours: deciding what to keep, what to change, what it should feel like. \"Make it more playful.\" \"The colours are too loud.\" \"That joke is not me.\" You are the director with the vision; the AI is the crew that makes it real. Never hand the deciding away.",
+          "prop": "none"
+        },
+        {
+          "heading": "This is what makes it truly yours",
+          "body": "A thing built entirely by AI with no direction feels generic, because it is an average of everything. What makes your project *yours* is all the choices only you could make. The AI did the typing, but your taste and your decisions are the soul of it. That is something no machine can copy.",
+          "prop": "none"
+        }
+      ],
+      "terms": [
+        {
+          "term": "taste",
+          "plain": "Your own sense of what is good, cool, or right — which the AI does not have.",
+          "seen_in": "Two people using the same tools and making completely different art."
+        },
+        {
+          "term": "creative direction",
+          "plain": "Being the one who decides how something should look, feel, and be.",
+          "seen_in": "A film director choosing the mood while the crew does the filming."
+        }
+      ],
+      "name_it": [
+        "The AI has no taste — it cannot tell you what is best.",
+        "Your job is to direct: keep, change, decide the feel.",
+        "Your choices are what make a project truly yours."
+      ],
+      "exercises": [
+        {
+          "id": "w5-04-e1",
+          "prompt": "The AI makes three versions of your design. Who should decide which is best?",
+          "points": 1,
+          "explain": "Best depends on what *you* like, and only you have that. The AI can build the options but cannot judge them for you.",
+          "kind": "mcq",
+          "choices": [
+            "The AI, it built them.",
+            "You — \"best\" depends on your taste, which the AI does not have.",
+            "A random pick.",
+            "Nobody, keep all three."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w5-04-e2",
+          "prompt": "Why can a project built by AI with no direction feel generic?",
+          "points": 1,
+          "explain": "Without your choices it is a bland average. Your direction is exactly what gives a project a personality.",
+          "kind": "mcq",
+          "choices": [
+            "Because AI is bad at everything.",
+            "Because with no one's taste guiding it, it becomes an average of everything.",
+            "Because it is too colourful.",
+            "Because it is always broken."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w5-04-e3",
+          "prompt": "What makes a project truly *yours*?",
+          "points": 1,
+          "explain": "Your decisions are the soul of it. The AI typed, but the vision and the choices are yours — and no machine can copy those.",
+          "kind": "mcq",
+          "choices": [
+            "That AI did all of it.",
+            "The choices only you could make — your taste and direction.",
+            "That it was fast to build.",
+            "That it looks like everyone else's."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w5-04-e4",
+          "prompt": "The AI built your app but it feels a bit generic. Write direction to make it more *you* — say what to change to match your taste.",
+          "points": 1,
+          "explain": "Something like \"Make it more playful and use my favourite blue, and make the words sound more like how I actually talk.\" That is you directing — the part only you can do.",
+          "kind": "prompt_rubric",
+          "min_words": 10,
+          "must_include": [
+            [
+              "more",
+              "less",
+              "feel",
+              "style",
+              "colour",
+              "playful",
+              "simpler",
+              "change"
+            ]
+          ],
+          "must_avoid": [],
+          "criteria_labels": [
+            "Gives creative direction"
+          ]
+        }
+      ],
+      "close_comic": {
+        "id": "w5-04-close",
+        "title": "The most me",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "Warmer colours, and make it sound like me. ...Yes. That is the one.",
+            "prop": "none",
+            "mood": "proud"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "I never could have picked that. It is yours through and through.",
+            "prop": "none",
+            "mood": "excited"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "You built it, but I made it mine.",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "That is the whole partnership. My hands, your soul. Go make more.",
+            "prop": "none",
+            "mood": "excited",
+            "highlight": "your soul"
+          }
+        ]
+      },
+      "weight": 18,
+      "depth": 17,
+      "unlocks": [
+        "w6-goal-and-tools"
+      ],
+      "totalPoints": 4
+    },
+    {
+      "id": "w6-goal-and-tools",
+      "world": "ai-that-does-things",
+      "title": "Give it a goal and tools",
+      "goal": "Understand that an agent plans steps and uses tools to reach a goal you set.",
+      "intro": "So far, AI has answered you. Now meet the next kind: an AI that *does* things. You give it a goal and some tools, and it works out the steps itself and carries them out. This is called an agent, and it is where a lot of AI is heading. Let us see how it works.",
+      "tracks": [
+        "explorer",
+        "builder"
+      ],
+      "prereqs": [
+        "w5-make-it-yours"
+      ],
+      "minutes": 12,
+      "open_comic": {
+        "id": "w6-01-open",
+        "title": "Just sort it out",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "Instead of answering, can you actually plan my whole book report for me?",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "Give me the goal and my tools, and I will work out the steps myself.",
+            "prop": "none",
+            "mood": "excited"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "So I do not tell you each step? You figure the steps out?",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "That is what makes me an agent. Goal in, I plan, I use tools, I act.",
+            "prop": "none",
+            "mood": "proud",
+            "highlight": "agent"
+          }
+        ]
+      },
+      "play": "none",
+      "play_brief": "",
+      "teach": [
+        {
+          "heading": "An agent works out its own steps",
+          "body": "A normal chatbot answers one question. An agent is given a goal — \"plan my book report\" — and figures out the steps on its own: find the book info, outline the sections, draft each one, put it together. You set the destination; it plans the route.",
+          "prop": "none"
+        },
+        {
+          "heading": "Tools are what let it act",
+          "body": "An agent does more than talk because it has tools. A tool might be searching the web, doing maths on a calculator, saving a file, or controlling something. Give an agent a goal plus the right tools, and it can actually get things done, not just describe them. Goal plus tools is the recipe.",
+          "prop": "none"
+        },
+        {
+          "heading": "You still set the goal and the limits",
+          "body": "An agent is powerful, so the goal you give it matters more than ever. A clear, well-chosen goal sends it the right way; a vague or silly one sends it wandering. You are still in charge — you pick the goal, choose the tools it is allowed, and decide what \"done\" looks like. It plans; you command.",
+          "prop": "none"
+        }
+      ],
+      "terms": [
+        {
+          "term": "agent",
+          "plain": "An AI that plans its own steps and uses tools to reach a goal you set.",
+          "seen_in": "An assistant that books a whole trip from \"plan me a weekend away.\""
+        },
+        {
+          "term": "tool",
+          "plain": "Something an agent can use to act — search, maths, saving, controlling things.",
+          "seen_in": "A person using a calculator and a calendar to get a job done."
+        }
+      ],
+      "name_it": [
+        "An agent works out its own steps toward a goal you set.",
+        "Tools are what let it act, not just talk.",
+        "You still choose the goal, the tools, and what \"done\" means."
+      ],
+      "exercises": [
+        {
+          "id": "w6-01-e1",
+          "prompt": "What is the difference between a normal chatbot and an agent?",
+          "points": 1,
+          "explain": "The agent takes a goal and figures out and carries out the steps, using tools. A chatbot just answers what you asked.",
+          "kind": "mcq",
+          "choices": [
+            "There is no difference.",
+            "A chatbot answers; an agent plans its own steps and uses tools to reach a goal.",
+            "An agent is just a faster chatbot.",
+            "A chatbot uses tools; an agent never does."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w6-01-e2",
+          "prompt": "What makes it possible for an agent to *do* things, not just talk?",
+          "points": 1,
+          "explain": "Tools are the hands. Goal plus the right tools is what turns talk into real action.",
+          "kind": "mcq",
+          "choices": [
+            "It talks louder.",
+            "It has tools — like search, maths, or saving files.",
+            "It has more words.",
+            "It never sleeps."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w6-01-e3",
+          "prompt": "Why does the goal you give an agent matter so much?",
+          "points": 1,
+          "explain": "The agent plans off your goal, so a clear, well-chosen goal is everything. You set the destination; it finds the route.",
+          "kind": "mcq",
+          "choices": [
+            "It does not matter at all.",
+            "A clear goal sends it the right way; a vague one sends it wandering.",
+            "Agents ignore goals.",
+            "Only tools matter, not goals."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w6-01-e4",
+          "prompt": "Put an agent's work in order for the goal \"make me a quiz about space.\"",
+          "points": 2,
+          "explain": "Goal, then plan-and-use-tools, then build, then deliver. You set the goal; the agent handled the steps.",
+          "kind": "order",
+          "items": [
+            "You give it the goal — a space quiz.",
+            "It searches for space facts using its tools.",
+            "It writes questions and answers from what it found.",
+            "It puts them together into a finished quiz."
+          ]
+        }
+      ],
+      "close_comic": {
+        "id": "w6-01-close",
+        "title": "Goal in, work done",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "I just gave you the goal, and you did all the steps yourself.",
+            "prop": "none",
+            "mood": "proud"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "Goal in, I planned, I used my tools, I acted. That is agent work.",
+            "prop": "none",
+            "mood": "excited"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "Powerful. But I picked the goal, so I am still steering.",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "Always. And there is one more thing you must do while I work. Next lesson.",
+            "prop": "none",
+            "mood": "calm",
+            "highlight": "one more thing"
+          }
+        ]
+      },
+      "weight": 19,
+      "depth": 18,
+      "unlocks": [
+        "w6-keep-it-honest"
+      ],
+      "totalPoints": 5
+    },
+    {
+      "id": "w6-keep-it-honest",
+      "world": "ai-that-does-things",
+      "title": "Watch it work, keep it honest",
+      "goal": "Learn to check an agent's steps, catch a wrong turn, and stay in control.",
+      "intro": "An agent that plans and acts on its own is powerful — which is exactly why you have to keep an eye on it. Everything you learned about checking answers matters double here, because an agent does not just say a wrong thing, it might *do* one. This is the last skill, and it ties the whole year together.",
+      "tracks": [
+        "explorer",
+        "builder"
+      ],
+      "prereqs": [
+        "w6-goal-and-tools"
+      ],
+      "minutes": 12,
+      "open_comic": {
+        "id": "w6-02-open",
+        "title": "The wrong turn",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "You were planning my party, but step three booked a clown for next YEAR.",
+            "prop": "none",
+            "mood": "confused"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "Ah. I took a wrong turn early and kept building on it. Good thing you looked.",
+            "prop": "none",
+            "mood": "confused"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "I caught it at step three instead of at the end. Much easier to fix.",
+            "prop": "none",
+            "mood": "proud"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "Watching my steps kept me honest. An agent needs a human keeping watch.",
+            "prop": "none",
+            "mood": "calm",
+            "highlight": "keeping watch"
+          }
+        ]
+      },
+      "play": "agent-planner",
+      "play_brief": "Each agent plan has one step that took a wrong turn. Catch the bad step in each one.",
+      "teach": [
+        {
+          "heading": "An agent can do a wrong thing, not just say one",
+          "body": "A chatbot's mistake is a wrong sentence. An agent's mistake can be a wrong action — booking the wrong thing, deleting the wrong file, going down a silly path and building on it. Because it acts, its mistakes matter more. So watching it is not optional; it is the job.",
+          "prop": "none"
+        },
+        {
+          "heading": "Check the steps, not just the end",
+          "body": "The smart move is to watch the steps as it goes, not only judge the final result. If step three took a wrong turn, catching it there is easy. Catching it only at the end — after everything was built on the mistake — is a mess. Peek at the plan, watch the steps, speak up early.",
+          "prop": "none"
+        },
+        {
+          "heading": "You are the one in charge",
+          "body": "Everything this year has built to this: you set the goal, you gave the tools, and you keep watch and correct. The agent is fast and tireless, but you are the one with judgment, taste, and the final say. Staying the boss of a powerful helper is the most important AI skill of all.",
+          "prop": "none"
+        }
+      ],
+      "terms": [
+        {
+          "term": "oversight",
+          "plain": "A person watching an agent's steps and correcting it when needed.",
+          "seen_in": "A driving instructor ready to grab the wheel while you learn."
+        },
+        {
+          "term": "staying in control",
+          "plain": "Keeping the final say over what an AI helper does on your behalf.",
+          "seen_in": "A captain who lets the crew work but makes the real decisions."
+        }
+      ],
+      "name_it": [
+        "An agent can do a wrong thing, not just say one.",
+        "Check its steps as it goes, not only the final result.",
+        "You set the goal, keep watch, and keep the final say."
+      ],
+      "exercises": [
+        {
+          "id": "w6-02-e0",
+          "prompt": "In the plans above, catch at least two of the wrong turns.",
+          "points": 1,
+          "explain": "Catching a wrong step early, while it is cheap to fix, is what oversight means. You stayed the boss of a fast helper.",
+          "kind": "sandbox",
+          "check": "checked-agent",
+          "params": {
+            "min": 2
+          }
+        },
+        {
+          "id": "w6-02-e1",
+          "prompt": "Why is checking an agent even more important than checking a chatbot?",
+          "points": 1,
+          "explain": "An agent acts, so its mistakes can be real actions with real effects. That raises the stakes and makes watching it essential.",
+          "kind": "mcq",
+          "choices": [
+            "It is not more important.",
+            "An agent can *do* a wrong thing, not just say one.",
+            "Agents are always wrong.",
+            "Chatbots never make mistakes."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w6-02-e2",
+          "prompt": "When is the best time to catch an agent's wrong turn?",
+          "points": 1,
+          "explain": "Catch a wrong step at step three and it is a quick fix. Catch it only at the end, after everything was built on it, and you have a mess.",
+          "kind": "mcq",
+          "choices": [
+            "Only at the very end.",
+            "As it goes, by watching the steps — catching it early is far easier.",
+            "Never, just let it run.",
+            "After it has finished everything."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w6-02-e3",
+          "prompt": "An agent planning your event books something for the wrong date at step two. Best response?",
+          "points": 1,
+          "explain": "Correcting the wrong step early keeps everything after it on track. That is oversight working exactly as it should.",
+          "kind": "mcq",
+          "choices": [
+            "Let it finish, then throw the whole thing away.",
+            "Stop it there, fix step two, and let it carry on correctly.",
+            "Get angry and give up on agents.",
+            "Ignore it and hope."
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "id": "w6-02-e4",
+          "prompt": "After a whole year of learning, what is the most important AI skill of all?",
+          "points": 1,
+          "explain": "Everything you learned points here: use AI's power, but keep your judgment, your taste, and the final say. You command; it helps.",
+          "kind": "mcq",
+          "choices": [
+            "Letting AI make every decision for you.",
+            "Staying the one in charge — setting goals, checking, and keeping the final say.",
+            "Never using AI.",
+            "Trusting AI completely."
+          ],
+          "answer": [
+            1
+          ]
+        }
+      ],
+      "close_comic": {
+        "id": "w6-02-close",
+        "title": "You, in charge",
+        "beats": [
+          {
+            "id": "b1",
+            "speaker": "mila",
+            "text": "Fixed step three, and the rest of the plan came out perfect.",
+            "prop": "none",
+            "mood": "proud"
+          },
+          {
+            "id": "b2",
+            "speaker": "iskra",
+            "text": "You set the goal, watched my steps, and kept me honest. You did it all.",
+            "prop": "none",
+            "mood": "excited"
+          },
+          {
+            "id": "b3",
+            "speaker": "mila",
+            "text": "A whole year ago I just typed \"write about dogs.\" Look at me now.",
+            "prop": "none",
+            "mood": "curious"
+          },
+          {
+            "id": "b4",
+            "speaker": "iskra",
+            "text": "You can prompt, judge, build, and command AI. You are ready. Go build the future.",
+            "prop": "none",
+            "mood": "proud",
+            "highlight": "go build the future"
+          }
+        ]
+      },
+      "weight": 20,
+      "depth": 19,
+      "unlocks": [],
+      "totalPoints": 5
+    }
+  ],
+  "levels": [
+    0,
+    8,
+    20,
+    35,
+    52,
+    70,
+    90,
+    111,
+    133,
+    155,
+    179,
+    204,
+    229,
+    255,
+    282,
+    310,
+    338,
+    367,
+    396,
+    426,
+    457,
+    488,
+    519,
+    551
+  ],
+  "totalWeight": 210
+}

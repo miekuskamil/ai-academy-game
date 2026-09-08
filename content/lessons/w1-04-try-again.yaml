@@ -1,0 +1,157 @@
+id: w1-try-again
+world: talking-to-ai
+title: Not quite — try again
+goal: Treat the first answer as a draft and steer it with clear follow-up asks.
+intro: >-
+  Here is the secret the best AI users know: the first answer is never the final
+  answer. It is a draft. The real skill is steering — saying "more like this, less
+  like that" until it is right. You are the director, not a wish-maker.
+minutes: 11
+tracks: [explorer, builder]
+prereqs: [w1-one-step-at-a-time]
+
+open_comic:
+  id: w1-04-open
+  title: The first try
+  beats:
+    - id: b1
+      speaker: mila
+      text: Write a caption for my drawing of a dragon.
+      prop: none
+      mood: calm
+    - id: b2
+      speaker: iskra
+      text: "Behold the fearsome beast of the ancient burning skies of doom."
+      prop: none
+      mood: proud
+    - id: b3
+      speaker: mila
+      text: Bit much. I wanted something short and a little bit funny.
+      prop: none
+      mood: curious
+    - id: b4
+      speaker: iskra
+      text: Then tell me that! I do not get it perfect first time. Nobody does.
+      prop: none
+      mood: calm
+      highlight: tell me that
+
+play: prompt-lab
+play_brief: >-
+  Get any answer, then write a follow-up that steers it: shorter, funnier, simpler,
+  more like an example. Keep steering until it is right.
+
+teach:
+  - heading: The first answer is a draft
+    body: >-
+      When you get an answer you do not love, you have not failed and neither has
+      the AI. You just got the first draft. Writers, artists and builders all work
+      in drafts. The AI is the same — the magic is in what you do next.
+    prop: none
+  - heading: Steer with "more" and "less"
+    body: >-
+      You do not start over. You nudge. "Shorter." "More funny, less scary."
+      "Simpler words." "More like the example I gave." Each nudge moves the answer
+      closer to what is in your head. This back-and-forth is where good stuff comes
+      from.
+    prop: none
+  - heading: You are the director
+    body: >-
+      The AI does the typing, but you decide what is good. It cannot see the
+      picture in your head — only you can. So keep steering until the answer
+      matches it. Being fussy is not rude here. It is the whole job.
+    prop: none
+
+terms:
+  - term: iterating
+    plain: Improving an answer step by step with follow-up asks, instead of starting over.
+    seen_in: Editing a message three times before you hit send.
+  - term: feedback
+    plain: Telling the AI what to change — more of this, less of that.
+    seen_in: A coach saying "good, now do it a bit slower."
+
+name_it:
+  - The first answer is a draft, not the final word.
+  - Steer it with small "more this, less that" nudges.
+  - You are the director — you decide what is good.
+
+exercises:
+  - id: w1-04-e1
+    kind: mcq
+    prompt: The AI gives you a poem that is too long and too sad. What is the best next move?
+    choices:
+      - Give up — it clearly cannot do it.
+      - Say "shorter and more cheerful, please" and let it try again.
+      - Start a brand new chat and hope.
+      - Accept the sad long poem.
+    answer: [1]
+    points: 1
+    explain: >-
+      A quick nudge steers the draft. You keep everything good about it and just
+      fix what was off. Starting over throws away progress for no reason.
+  - id: w1-04-e2
+    kind: mcq
+    prompt: Which of these are good steering follow-ups? Pick all that work.
+    choices:
+      - Make it shorter.
+      - More like the example I showed you.
+      - Less formal, more like how I talk.
+      - That is wrong, you are useless.
+    answer: [0, 1, 2]
+    points: 2
+    explain: >-
+      Clear "more/less" nudges tell the AI exactly what to change. Insults tell it
+      nothing useful — they do not point at what to fix.
+  - id: w1-04-e3
+    kind: mcq
+    prompt: Why is the first answer usually just a draft?
+    choices:
+      - The AI is lazy on the first go.
+      - The AI cannot see the picture in your head, so it takes a guess you then steer.
+      - It saves the good answer for later.
+      - First answers are always wrong on purpose.
+    answer: [1]
+    points: 1
+    explain: >-
+      Only you know exactly what you want. The first answer is the AI's best guess
+      from your words; your steering closes the gap.
+  - id: w1-04-e4
+    kind: prompt_rubric
+    prompt: >-
+      Imagine the AI wrote a birthday message that was too formal. Write the
+      follow-up you would send to steer it — say what to change.
+    min_words: 8
+    must_include:
+      - ["more", "less", "shorter", "simpler", "funnier", "warmer", "instead", "change"]
+    criteria_labels:
+      - Gives a clear steer
+    explain: >-
+      Something like "Make it warmer and more like how a friend talks, and a bit
+      shorter." That points clearly at what to change, so the next draft lands
+      closer.
+
+close_comic:
+  id: w1-04-close
+  title: The director
+  beats:
+    - id: b1
+      speaker: mila
+      text: Shorter, and a little bit funny.
+      prop: none
+      mood: curious
+    - id: b2
+      speaker: iskra
+      text: "Dragon. Would not recommend hugging."
+      prop: none
+      mood: excited
+    - id: b3
+      speaker: mila
+      text: Ha! That is the one. I just had to steer you.
+      prop: none
+      mood: proud
+    - id: b4
+      speaker: iskra
+      text: First answer, a draft. You directed. That is how the pros do it.
+      prop: none
+      mood: calm
+      highlight: directed

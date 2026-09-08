@@ -1,0 +1,156 @@
+id: w6-goal-and-tools
+world: ai-that-does-things
+title: Give it a goal and tools
+goal: Understand that an agent plans steps and uses tools to reach a goal you set.
+intro: >-
+  So far, AI has answered you. Now meet the next kind: an AI that *does* things. You
+  give it a goal and some tools, and it works out the steps itself and carries them
+  out. This is called an agent, and it is where a lot of AI is heading. Let us see
+  how it works.
+minutes: 12
+tracks: [explorer, builder]
+prereqs: [w5-make-it-yours]
+
+open_comic:
+  id: w6-01-open
+  title: Just sort it out
+  beats:
+    - id: b1
+      speaker: mila
+      text: Instead of answering, can you actually plan my whole book report for me?
+      prop: none
+      mood: curious
+    - id: b2
+      speaker: iskra
+      text: Give me the goal and my tools, and I will work out the steps myself.
+      prop: none
+      mood: excited
+    - id: b3
+      speaker: mila
+      text: So I do not tell you each step? You figure the steps out?
+      prop: none
+      mood: curious
+    - id: b4
+      speaker: iskra
+      text: That is what makes me an agent. Goal in, I plan, I use tools, I act.
+      prop: none
+      mood: proud
+      highlight: agent
+
+play: none
+play_brief: ""
+
+teach:
+  - heading: An agent works out its own steps
+    body: >-
+      A normal chatbot answers one question. An agent is given a goal — "plan my
+      book report" — and figures out the steps on its own: find the book info,
+      outline the sections, draft each one, put it together. You set the
+      destination; it plans the route.
+    prop: none
+  - heading: Tools are what let it act
+    body: >-
+      An agent does more than talk because it has tools. A tool might be searching
+      the web, doing maths on a calculator, saving a file, or controlling something.
+      Give an agent a goal plus the right tools, and it can actually get things
+      done, not just describe them. Goal plus tools is the recipe.
+    prop: none
+  - heading: You still set the goal and the limits
+    body: >-
+      An agent is powerful, so the goal you give it matters more than ever. A clear,
+      well-chosen goal sends it the right way; a vague or silly one sends it
+      wandering. You are still in charge — you pick the goal, choose the tools it is
+      allowed, and decide what "done" looks like. It plans; you command.
+    prop: none
+
+terms:
+  - term: agent
+    plain: An AI that plans its own steps and uses tools to reach a goal you set.
+    seen_in: An assistant that books a whole trip from "plan me a weekend away."
+  - term: tool
+    plain: Something an agent can use to act — search, maths, saving, controlling things.
+    seen_in: A person using a calculator and a calendar to get a job done.
+
+name_it:
+  - An agent works out its own steps toward a goal you set.
+  - Tools are what let it act, not just talk.
+  - You still choose the goal, the tools, and what "done" means.
+
+exercises:
+  - id: w6-01-e1
+    kind: mcq
+    prompt: What is the difference between a normal chatbot and an agent?
+    choices:
+      - There is no difference.
+      - A chatbot answers; an agent plans its own steps and uses tools to reach a goal.
+      - An agent is just a faster chatbot.
+      - A chatbot uses tools; an agent never does.
+    answer: [1]
+    points: 1
+    explain: >-
+      The agent takes a goal and figures out and carries out the steps, using tools.
+      A chatbot just answers what you asked.
+  - id: w6-01-e2
+    kind: mcq
+    prompt: What makes it possible for an agent to *do* things, not just talk?
+    choices:
+      - It talks louder.
+      - It has tools — like search, maths, or saving files.
+      - It has more words.
+      - It never sleeps.
+    answer: [1]
+    points: 1
+    explain: >-
+      Tools are the hands. Goal plus the right tools is what turns talk into
+      real action.
+  - id: w6-01-e3
+    kind: mcq
+    prompt: Why does the goal you give an agent matter so much?
+    choices:
+      - It does not matter at all.
+      - A clear goal sends it the right way; a vague one sends it wandering.
+      - Agents ignore goals.
+      - Only tools matter, not goals.
+    answer: [1]
+    points: 1
+    explain: >-
+      The agent plans off your goal, so a clear, well-chosen goal is everything. You
+      set the destination; it finds the route.
+  - id: w6-01-e4
+    kind: order
+    prompt: Put an agent's work in order for the goal "make me a quiz about space."
+    items:
+      - You give it the goal — a space quiz.
+      - It searches for space facts using its tools.
+      - It writes questions and answers from what it found.
+      - It puts them together into a finished quiz.
+    points: 2
+    explain: >-
+      Goal, then plan-and-use-tools, then build, then deliver. You set the goal; the
+      agent handled the steps.
+
+close_comic:
+  id: w6-01-close
+  title: Goal in, work done
+  beats:
+    - id: b1
+      speaker: mila
+      text: I just gave you the goal, and you did all the steps yourself.
+      prop: none
+      mood: proud
+    - id: b2
+      speaker: iskra
+      text: Goal in, I planned, I used my tools, I acted. That is agent work.
+      prop: none
+      mood: excited
+    - id: b3
+      speaker: mila
+      text: Powerful. But I picked the goal, so I am still steering.
+      prop: none
+      mood: curious
+    - id: b4
+      speaker: iskra
+      text: Always. And there is one more thing you must do while I work. Next lesson.
+      prop: none
+      mood: calm
+      highlight: one more thing

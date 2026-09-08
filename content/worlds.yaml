@@ -1,0 +1,41 @@
+# The six worlds of Neuron. Order matters: a lesson may never depend on
+# something taught in a later world.
+#
+# v2 arc: practical-first. She is prompting for real in World 1; theory arrives
+# only where it explains a skill she has already felt.
+worlds:
+  - id: talking-to-ai
+    index: 1
+    title: Talking to AI
+    tagline: Ask well, and the answers get good.
+    ink: blue
+
+  - id: why-it-answers
+    index: 2
+    title: Why it answers that way
+    tagline: It is guessing the next word — here is what that means.
+    ink: pink
+
+  - id: using-ai-for-real
+    index: 3
+    title: Using AI for real things
+    tagline: When to trust it, when to check, when to do it yourself.
+    ink: green
+
+  - id: whats-inside
+    index: 4
+    title: What is going on inside
+    tagline: It learned from a mountain of examples.
+    ink: yellow
+
+  - id: building-with-ai
+    index: 5
+    title: Building with AI
+    tagline: Describe it, and build it by talking.
+    ink: blue
+
+  - id: ai-that-does-things
+    index: 6
+    title: AI that does things
+    tagline: Give it a goal and tools, and stay the boss.
+    ink: pink

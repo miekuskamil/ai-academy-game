@@ -1,0 +1,156 @@
+id: w4-mountain-of-examples
+world: whats-inside
+title: A mountain of examples
+goal: Understand that AI learned by finding patterns in a huge amount of example data.
+intro: >-
+  You know the AI guesses the next word. But how did it get so good at guessing?
+  It read. A lot. More than any person could read in a thousand lifetimes. Let us
+  look at where all that word-guessing skill actually came from.
+minutes: 11
+tracks: [explorer, builder]
+prereqs: [w3-when-not-to]
+
+open_comic:
+  id: w4-01-open
+  title: How do you know so much?
+  beats:
+    - id: b1
+      speaker: mila
+      text: How do you know how sentences work, and facts, and jokes, and all of it?
+      prop: none
+      mood: curious
+    - id: b2
+      speaker: iskra
+      text: I read a mountain of writing. Books, articles, conversations — a huge pile.
+      prop: none
+      mood: proud
+    - id: b3
+      speaker: mila
+      text: So you did not get told the rules. You spotted them yourself, from examples?
+      prop: none
+      mood: curious
+    - id: b4
+      speaker: iskra
+      text: Exactly. Nobody wrote me a rulebook. I found the patterns in the pile.
+      prop: none
+      mood: excited
+      highlight: found the patterns
+
+play: none
+play_brief: ""
+
+teach:
+  - heading: It learned from examples, not rules
+    body: >-
+      Nobody sat down and typed every rule of language into the AI. Instead it was
+      shown an enormous amount of writing and left to notice the patterns itself —
+      which words go together, how questions get answered, how stories flow. This
+      noticing is what people mean by training.
+    prop: none
+  - heading: The pile is enormous
+    body: >-
+      We are not talking about a few books. AI models learn from a staggering
+      amount of text — think of nearly everything written on huge parts of the
+      internet, plus mountains of books and articles. That is why it can chat about
+      almost anything: it has seen patterns from almost everywhere.
+    prop: none
+  - heading: The data shapes what it knows
+    body: >-
+      Here is the important bit: the AI only knows what was in its pile. If
+      something was barely in the writing it learned from, it will be shaky on it.
+      If the pile had mistakes, it may have learned those too. The AI is a mirror of
+      the examples it was fed — which matters a lot for the next two lessons.
+    prop: none
+
+terms:
+  - term: training data
+    plain: The huge pile of examples an AI learns its patterns from.
+    seen_in: A student learning to write well by reading hundreds of good books.
+  - term: training
+    plain: The process of an AI finding patterns in its examples.
+    seen_in: Practising free throws until your body just knows the movement.
+
+name_it:
+  - The AI learned from examples, not from a rulebook.
+  - The pile of examples is astonishingly huge.
+  - It only knows what was in its pile, mistakes and all.
+
+exercises:
+  - id: w4-01-e1
+    kind: mcq
+    prompt: How did the AI learn how language works?
+    choices:
+      - A person typed in every grammar rule by hand.
+      - It found patterns itself in a huge pile of writing.
+      - It was born knowing everything.
+      - It looks up each sentence on the internet live.
+    answer: [1]
+    points: 1
+    explain: >-
+      No rulebook — it spotted the patterns in a mountain of examples. That
+      pattern-finding is what training means.
+  - id: w4-01-e2
+    kind: mcq
+    prompt: What do we call the pile of examples an AI learns from?
+    choices:
+      - Its memory bank.
+      - Its training data.
+      - Its homework.
+      - Its rulebook.
+    answer: [1]
+    points: 1
+    explain: >-
+      Training data is the collection of examples it learns its patterns from.
+      Everything the AI can do traces back to what was in there.
+  - id: w4-01-e3
+    kind: mcq
+    prompt: Why might an AI be shaky about a very rare or unusual topic?
+    choices:
+      - It gets bored of unusual topics.
+      - There was little about it in the pile it learned from.
+      - It refuses to learn hard things.
+      - Rare topics are always made up.
+    answer: [1]
+    points: 1
+    explain: >-
+      It only learned patterns that were in its data. Thin data on a topic means
+      shaky, guessy answers about it.
+  - id: w4-01-e4
+    kind: mcq
+    prompt: If the writing an AI learned from contained a common mistake, what might happen?
+    choices:
+      - The AI automatically fixes all mistakes.
+      - The AI might learn the mistake too, and repeat it.
+      - Nothing, mistakes cannot affect it.
+      - The AI deletes the whole pile.
+    answer: [1]
+    points: 1
+    explain: >-
+      The AI mirrors its examples. If the pile had a mistake often enough, it can
+      pick it up — which is exactly why we check its answers.
+
+close_comic:
+  id: w4-01-close
+  title: A mirror of the pile
+  beats:
+    - id: b1
+      speaker: mila
+      text: So you are kind of a mirror of everything you read?
+      prop: none
+      mood: curious
+    - id: b2
+      speaker: iskra
+      text: A very good way to put it. The best and the worst of the pile, both.
+      prop: none
+      mood: calm
+    - id: b3
+      speaker: mila
+      text: That makes me want to know what was in the pile.
+      prop: none
+      mood: curious
+    - id: b4
+      speaker: iskra
+      text: Good instinct. That question leads somewhere important. Keep going.
+      prop: none
+      mood: excited
+      highlight: what was in the pile

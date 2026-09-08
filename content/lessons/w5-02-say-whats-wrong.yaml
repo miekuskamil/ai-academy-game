@@ -1,0 +1,158 @@
+id: w5-say-whats-wrong
+world: building-with-ai
+title: Say what's wrong and fix it
+goal: Fix a broken app by describing the problem clearly to the AI.
+intro: >-
+  When you build things, they break. That is not failure — it is Tuesday. The
+  skill that separates people who build from people who give up is simple: knowing
+  how to say what is wrong so the AI can fix it. Let us learn to talk to a bug.
+minutes: 11
+tracks: [explorer, builder]
+prereqs: [w5-describe-and-build]
+
+open_comic:
+  id: w5-02-open
+  title: It broke
+  beats:
+    - id: b1
+      speaker: mila
+      text: The game is broken! It says I win before I even guess.
+      prop: none
+      mood: confused
+    - id: b2
+      speaker: iskra
+      text: Okay — tell me exactly what happens, and what you expected instead.
+      prop: none
+      mood: calm
+    - id: b3
+      speaker: mila
+      text: I expected it to wait for my guess. It shouts "you win" right away.
+      prop: none
+      mood: curious
+    - id: b4
+      speaker: iskra
+      text: Perfect bug report. Now I know exactly what to fix. This is debugging.
+      prop: none
+      mood: proud
+      highlight: debugging
+
+play: none
+play_brief: ""
+
+teach:
+  - heading: Bugs are normal, not disasters
+    body: >-
+      Every builder in the world deals with things that do not work yet. A bug is
+      just the app not doing what you meant. It is a puzzle, not a catastrophe. The
+      calm, curious builders are the ones who fix things — panic never fixed a bug.
+    prop: none
+  - heading: Describe what happened and what you expected
+    body: >-
+      The trick to fixing a bug with AI is a good description. Say two things: what
+      actually happened ("it says I win straight away") and what you expected
+      instead ("it should wait for my guess"). That gap is the bug, and once the AI
+      can see the gap, it can usually close it.
+    prop: none
+  - heading: Fix in small steps, and test each one
+    body: >-
+      Do not try to fix five things at once. Fix one, test it, see if it worked, then
+      move to the next. If a fix makes something else break, you will know exactly
+      what did it. Small steps and testing after each is how builders stay in
+      control instead of chasing chaos.
+    prop: none
+
+terms:
+  - term: bug
+    plain: When an app does something other than what you meant it to do.
+    seen_in: A game that freezes, or a button that does nothing when tapped.
+  - term: debugging
+    plain: Finding and fixing what is wrong, usually by describing the problem clearly.
+    seen_in: A mechanic asking "what noise does it make, and when?" before fixing a car.
+
+name_it:
+  - Bugs are normal — a puzzle, not a disaster.
+  - Say what happened and what you expected instead.
+  - Fix one thing at a time and test after each.
+
+exercises:
+  - id: w5-02-e1
+    kind: mcq
+    prompt: Your app does the wrong thing. What is the best way to get the AI to fix it?
+    choices:
+      - Say "it is broken, fix it" and nothing else.
+      - Describe what happened and what you expected instead.
+      - Delete the whole app.
+      - Get angry at the AI.
+    answer: [1]
+    points: 1
+    explain: >-
+      The gap between what happened and what you expected *is* the bug. Describe
+      both and the AI can usually find and close it.
+  - id: w5-02-e2
+    kind: mcq
+    prompt: Which is a genuinely useful bug report?
+    choices:
+      - It does not work.
+      - When I tap Start, nothing happens. I expected the timer to begin.
+      - Help.
+      - The app is bad.
+    answer: [1]
+    points: 1
+    explain: >-
+      It names the action, what happened, and what you expected. That is everything
+      the AI needs. "It does not work" tells it almost nothing.
+  - id: w5-02-e3
+    kind: mcq
+    prompt: Why fix bugs one at a time and test after each?
+    choices:
+      - It is slower for no reason.
+      - So you know exactly which fix worked or caused a new problem.
+      - Testing is a waste of time.
+      - So the AI does not get confused.
+    answer: [1]
+    points: 1
+    explain: >-
+      One change, one test means you always know what did what. Fixing five things
+      at once turns a small puzzle into a tangled mess.
+  - id: w5-02-e4
+    kind: prompt_rubric
+    prompt: >-
+      Your quiz app shows the score before you answer any questions. Write a clear
+      bug report to the AI — what happens and what you expected.
+    min_words: 12
+    must_include:
+      - ["happens", "shows", "when", "instead", "but"]
+      - ["expected", "should", "wanted", "meant"]
+    criteria_labels:
+      - Says what happened
+      - Says what you expected
+    explain: >-
+      Something like "When I open the quiz it shows the score straight away, but I
+      expected the score only after I finish all the questions." The gap is crystal
+      clear, so the fix will be too.
+
+close_comic:
+  id: w5-02-close
+  title: Fixed it
+  beats:
+    - id: b1
+      speaker: mila
+      text: You made it wait for my guess. It works properly now!
+      prop: none
+      mood: proud
+    - id: b2
+      speaker: iskra
+      text: Because you told me exactly what was wrong. That is the whole skill.
+      prop: none
+      mood: excited
+    - id: b3
+      speaker: mila
+      text: A bug is not scary anymore. It is just a thing to describe and fix.
+      prop: none
+      mood: curious
+    - id: b4
+      speaker: iskra
+      text: Now you think like a builder. Bugs, beware.
+      prop: none
+      mood: proud
+      highlight: think like a builder

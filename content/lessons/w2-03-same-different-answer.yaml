@@ -1,0 +1,165 @@
+id: w2-same-different-answer
+world: why-it-answers
+title: Same question, different answer
+goal: Understand that AI answers vary, why that happens, and when you want steady vs surprising.
+intro: >-
+  Have you ever asked an AI the same thing twice and got two different answers?
+  You are not imagining it. There is a dial inside that controls how surprising
+  its guesses are. Knowing about it helps you get exactly the kind of answer you
+  want.
+minutes: 10
+tracks: [explorer, builder]
+prereqs: [w2-makes-things-up]
+
+open_comic:
+  id: w2-03-open
+  title: Ask me twice
+  beats:
+    - id: b1
+      speaker: mila
+      text: Give me a name for my robot.
+      prop: none
+      mood: calm
+    - id: b2
+      speaker: iskra
+      text: Boltimus.
+      prop: none
+      mood: excited
+    - id: b3
+      speaker: mila
+      text: Hmm, ask again. Same question.
+      prop: none
+      mood: curious
+    - id: b4
+      speaker: iskra
+      text: Gizmo. Different, right? I do not always pick the single most likely word.
+      prop: none
+      mood: proud
+      highlight: not always
+
+play: temperature-dial
+play_brief: >-
+  Move the dial from steady to wild and ask again a few times. Feel how the
+  answers change.
+
+teach:
+  - heading: It does not always pick the top guess
+    body: >-
+      When the AI guesses the next word, it has a list of likely ones. Sometimes it
+      picks the very top choice. Sometimes it picks one a little lower down, just to
+      keep things fresh. That small bit of surprise is why the same question can
+      give different answers.
+    prop: none
+  - heading: There is a dial for it
+    body: >-
+      Grown-ups call this dial the temperature. Turn it low and the AI plays it
+      safe, picking the most likely words — steady, predictable answers. Turn it up
+      and it takes more chances — surprising, creative, sometimes a bit wild. Same
+      AI, different mood.
+    prop: none
+  - heading: Pick the mood to match the job
+    body: >-
+      For facts, maths, or code, you want it steady and careful — low temperature,
+      same answer every time. For brainstorming names, stories, or ideas, you want
+      it playful — high temperature, lots of variety. Knowing which you need is the
+      skill.
+    prop: none
+
+terms:
+  - term: temperature
+    plain: A dial for how surprising the AI's word choices are. Low is safe, high is wild.
+    seen_in: Some AI tools have a "more precise" or "more creative" slider — that is this.
+  - term: precise vs creative
+    plain: Steady, repeatable answers versus varied, surprising ones.
+    seen_in: A calculator (always the same) versus a brainstorm (never the same).
+
+name_it:
+  - The AI does not always pick its single top guess.
+  - A dial called temperature controls how surprising it is.
+  - Steady for facts, playful for ideas — match it to the job.
+
+exercises:
+  - id: w2-03-e0
+    kind: sandbox
+    prompt: In the dial above, ask at the steady end and at the wild end to feel the difference.
+    check: felt-temperature
+    explain: >-
+      Low kept giving the same safe name; high sprayed surprising ones. That dial
+      is the temperature, and now you have felt it move.
+  - id: w2-03-e1
+    kind: mcq
+    prompt: Why might the same question give you two different AI answers?
+    choices:
+      - The AI forgot the first answer.
+      - It does not always pick the single most likely word — it adds some variety.
+      - Someone changed the question secretly.
+      - It only happens when the AI is broken.
+    answer: [1]
+    points: 1
+    explain: >-
+      That built-in bit of surprise is the temperature at work. It is a feature,
+      not a fault — great for ideas, less great when you need the exact same answer.
+  - id: w2-03-e2
+    kind: mcq
+    prompt: You want the AI to help with maths homework. Which setting do you want?
+    choices:
+      - High temperature, for surprising answers.
+      - Low temperature, for steady, careful answers.
+      - It does not matter for maths.
+      - The highest possible, for fun.
+    answer: [1]
+    points: 1
+    explain: >-
+      Maths has one right answer, so you want steady and careful every time.
+      Surprise is the last thing you want when there is a correct result.
+  - id: w2-03-e3
+    kind: mcq
+    prompt: You are brainstorming wild names for a story world. Which setting fits?
+    choices:
+      - Low temperature, so it is safe and predictable.
+      - High temperature, so it is varied and surprising.
+      - Temperature does not affect creativity.
+      - You should not use AI for names.
+    answer: [1]
+    points: 1
+    explain: >-
+      Brainstorming wants variety, so turn the dial up. The more surprising guesses
+      are exactly what makes a fun list of ideas.
+  - id: w2-03-e4
+    kind: match
+    prompt: Match the job to the temperature setting that fits it best.
+    pairs:
+      - ["Solving a maths problem", "Low — steady and exact"]
+      - ["Writing a silly poem", "High — playful and varied"]
+      - ["Checking a fact", "Low — careful and repeatable"]
+      - ["Inventing monster names", "High — surprising"]
+    points: 2
+    explain: >-
+      Facts and maths want low and steady. Creative, open-ended fun wants high and
+      surprising. Matching the dial to the job is the whole idea.
+
+close_comic:
+  id: w2-03-close
+  title: Steady or wild
+  beats:
+    - id: b1
+      speaker: mila
+      text: So for my maths, stay steady. For my story names, go wild.
+      prop: none
+      mood: curious
+    - id: b2
+      speaker: iskra
+      text: You have got it. Same me, two moods, and you pick which one.
+      prop: none
+      mood: excited
+    - id: b3
+      speaker: mila
+      text: I like being the one who picks.
+      prop: none
+      mood: proud
+    - id: b4
+      speaker: iskra
+      text: That is the whole course, really. You, in charge, choosing well.
+      prop: none
+      mood: calm
+      highlight: in charge

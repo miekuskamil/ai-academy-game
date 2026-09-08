@@ -1,0 +1,166 @@
+id: w5-real-project
+world: building-with-ai
+title: AI in a real project
+goal: Understand how an AI helper fits into a real physical build, like a Raspberry Pi.
+intro: >-
+  AI is not just words on a screen. You can wire it into real things you build — a
+  little computer, a sensor, a light, a robot. Imagine a helper inside your project
+  that can read what is happening and decide what to do. This is where your skills
+  meet the real world.
+minutes: 12
+tracks: [explorer, builder]
+prereqs: [w5-say-whats-wrong]
+
+open_comic:
+  id: w5-03-open
+  title: The plant that calls for help
+  beats:
+    - id: b1
+      speaker: mila
+      text: I built a little computer with a sensor in my plant's soil. Now what?
+      prop: none
+      mood: curious
+    - id: b2
+      speaker: iskra
+      text: Wire me in. The sensor reads dryness, sends it to me, I decide what to say.
+      prop: none
+      mood: excited
+    - id: b3
+      speaker: mila
+      text: So the sensor is the eyes, and you are the brain that decides?
+      prop: none
+      mood: curious
+    - id: b4
+      speaker: iskra
+      text: Exactly. Sensor in, AI decides, something happens out. That is the pipeline.
+      prop: none
+      mood: proud
+      highlight: sensor in, AI decides, out
+
+play: pipeline-builder
+play_brief: >-
+  Put the steps of an AI plant helper in the order they run. Build the
+  in-decide-out shape yourself.
+
+teach:
+  - heading: A real project is a little pipeline
+    body: >-
+      Remember the pipeline shape: something goes in, something decides, something
+      happens out. A real build works the same way. A sensor reads the world (soil
+      is dry). That reading goes to an AI helper. The AI decides (time to water),
+      and something happens (a light blinks, a message is sent). In, decide, out.
+    prop: none
+  - heading: A Raspberry Pi is a real starting point
+    body: >-
+      A Raspberry Pi is a tiny, cheap computer you can build real things with. Plug
+      in a sensor and it can read temperature, light, or moisture. Wire in an AI
+      helper and it can look at those readings and decide what to do — answer a
+      question, sound an alarm, or turn something on. Real kids build real projects
+      like this.
+    prop: none
+  - heading: The AI is one part, not the whole thing
+    body: >-
+      The AI does not do everything — it is one clever step in the middle. The
+      sensor does the sensing, the wires carry the signal, a motor or light does the
+      acting, and you designed the whole thing. The AI just handles the "what should
+      we do about this?" bit. Knowing where AI fits keeps you the boss of your build.
+    prop: none
+
+terms:
+  - term: Raspberry Pi
+    plain: A tiny, cheap computer you can build real electronic projects with.
+    seen_in: Homemade weather stations, retro game boxes, and robots.
+  - term: sensor
+    plain: A part that reads something real — heat, light, moisture, movement.
+    seen_in: The thing that turns shop doors on when you walk up to them.
+
+name_it:
+  - A real project is a pipeline — something in, AI decides, something out.
+  - A Raspberry Pi lets you build real things with sensors.
+  - The AI is one clever step; you designed the whole build.
+
+exercises:
+  - id: w5-03-e0
+    kind: sandbox
+    prompt: In the builder above, put all the steps in the right order.
+    check: built-pipeline
+    explain: >-
+      Read, send, decide, act. That in-decide-out order is the same pipeline
+      shape you have seen all along, now in a real build you arranged yourself.
+  - id: w5-03-e1
+    kind: mcq
+    prompt: In a plant-watering project, what is the sensor's job?
+    choices:
+      - To decide when to water.
+      - To read something real, like how dry the soil is.
+      - To water the plant itself.
+      - To write the code.
+    answer: [1]
+    points: 1
+    explain: >-
+      The sensor reads the world — that is the "in" of the pipeline. Deciding and
+      acting are other steps.
+  - id: w5-03-e2
+    kind: order
+    prompt: Put the steps of an AI plant helper in pipeline order.
+    items:
+      - The soil sensor reads that the soil is dry.
+      - The reading is sent to the AI helper.
+      - The AI decides the plant needs water.
+      - A light blinks to tell you to water it.
+    points: 2
+    explain: >-
+      Read, send, decide, act. That in-decide-out shape is the same pipeline you
+      have seen all along, now in a real build.
+  - id: w5-03-e3
+    kind: mcq
+    prompt: What is a Raspberry Pi?
+    choices:
+      - A kind of dessert.
+      - A tiny, cheap computer for building real projects.
+      - A robot that walks.
+      - A phone app.
+    answer: [1]
+    points: 1
+    explain: >-
+      It is a small, affordable computer that kids and grown-ups build real
+      sensor-and-code projects with. A great home for an AI helper.
+  - id: w5-03-e4
+    kind: mcq
+    prompt: In a real AI project, which part does the AI actually handle?
+    choices:
+      - Every single part, all by itself.
+      - The "what should we do about this reading?" decision in the middle.
+      - The sensing and the wiring.
+      - None of it.
+    answer: [1]
+    points: 1
+    explain: >-
+      The AI is the clever middle step that decides. Sensors sense, motors act, and
+      you designed it all — the AI just handles the deciding.
+
+close_comic:
+  id: w5-03-close
+  title: It works, in the real world
+  beats:
+    - id: b1
+      speaker: mila
+      text: The soil went dry, you decided, and the light blinked. It really works!
+      prop: none
+      mood: proud
+    - id: b2
+      speaker: iskra
+      text: Sensor, me, light. A real pipeline in a real thing you built.
+      prop: none
+      mood: excited
+    - id: b3
+      speaker: mila
+      text: I could wire you into all sorts of projects now.
+      prop: none
+      mood: curious
+    - id: b4
+      speaker: iskra
+      text: You could. You know how I fit in. Go build something amazing.
+      prop: none
+      mood: excited
+      highlight: how I fit in

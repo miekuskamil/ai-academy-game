@@ -1,0 +1,155 @@
+id: w2-guesses-next-word
+world: why-it-answers
+title: It guesses the next word
+goal: Understand that a language model predicts the next likely word, one at a time.
+intro: >-
+  You have been talking to AI and steering it. Now here is the secret of what is
+  actually happening inside — and it is simpler than you think. The AI is not
+  thinking like you. It is playing the world's best guess-the-next-word game.
+minutes: 11
+tracks: [explorer, builder]
+prereqs: [w1-try-again]
+
+open_comic:
+  id: w2-01-open
+  title: Finish my sentence
+  beats:
+    - id: b1
+      speaker: mila
+      text: I bet you cannot guess what I am about to say. "The cat sat on the..."
+      prop: none
+      mood: curious
+    - id: b2
+      speaker: iskra
+      text: Mat! It is almost always "mat." I have seen that sentence a million times.
+      prop: none
+      mood: excited
+    - id: b3
+      speaker: mila
+      text: Whoa. How did you know?
+      prop: none
+      mood: confused
+    - id: b4
+      speaker: iskra
+      text: That is my whole trick. I guess the next word. Then the next. Then the next.
+      prop: none
+      mood: proud
+      highlight: next word
+
+play: none
+play_brief: ""
+
+teach:
+  - heading: The whole trick is guessing the next word
+    body: >-
+      When you type to an AI, it does not plan a whole answer like you would. It
+      guesses the most likely next word. Then it looks at everything so far and
+      guesses the word after that. One word at a time, very fast, until the answer
+      is done. That is really it.
+    prop: none
+  - heading: It learned the guesses from mountains of writing
+    body: >-
+      How does it guess so well? It read an enormous amount of writing and noticed
+      which words tend to follow which. After "the cat sat on the," the word "mat"
+      turns up a lot. So it is a very good guess. It is not remembering one book —
+      it is using patterns from millions of them.
+    prop: none
+  - heading: This is why it is not thinking like you
+    body: >-
+      A person means something and then finds words. The AI finds likely words and
+      the meaning comes along for the ride. That is why it can sound clever and
+      still be wrong — it is guessing what *sounds* right, not checking what *is*
+      right. Remember that, and a lot of AI suddenly makes sense.
+    prop: none
+
+terms:
+  - term: language model
+    plain: An AI that predicts likely words to make sentences. The thing behind every chatbot.
+    seen_in: The autocomplete that finishes your texts before you do.
+  - term: next-word prediction
+    plain: Guessing the most likely next word, then repeating, to build an answer.
+    seen_in: Your keyboard suggesting the next word as you type.
+
+name_it:
+  - The AI guesses the next likely word, over and over.
+  - It learned those guesses from a huge amount of writing.
+  - It picks what sounds right, which is not always what is right.
+
+exercises:
+  - id: w2-01-e1
+    kind: mcq
+    prompt: How does an AI chatbot actually build its answer?
+    choices:
+      - It plans the whole thing, then writes it like a person.
+      - It guesses the next likely word, again and again, one at a time.
+      - It copies a saved answer from a giant list.
+      - It looks the answer up on the internet every time.
+    answer: [1]
+    points: 1
+    explain: >-
+      Next-word prediction is the whole engine. Everything a chatbot does is built
+      from guessing one likely word after another, very fast.
+  - id: w2-01-e2
+    kind: mcq
+    prompt: '"The sun rises in the..." — what makes the AI so likely to guess "east"?'
+    choices:
+      - It understands astronomy deeply.
+      - The word "east" follows that phrase constantly in the writing it learned from.
+      - It asked a scientist.
+      - It is a lucky guess with no reason.
+    answer: [1]
+    points: 1
+    explain: >-
+      It saw that pattern countless times. Strong pattern, strong guess. No
+      understanding of the sky required — just a very well-learned habit.
+  - id: w2-01-e3
+    kind: mcq
+    prompt: Why can an AI sound really confident and still be wrong?
+    choices:
+      - It is lying on purpose.
+      - It picks words that sound right, which is not the same as being right.
+      - It is broken.
+      - It never sounds confident.
+    answer: [1]
+    points: 1
+    explain: >-
+      Sounding right and being right are different things. The AI is a champion at
+      the first. That gap is why you always check — which is the next world.
+  - id: w2-01-e4
+    kind: order
+    prompt: Put the AI's steps in order when it answers "My favourite fruit is a..."
+    items:
+      - Look at all the words so far.
+      - Guess the most likely next word.
+      - Add that word to the sentence.
+      - Repeat, looking at the new sentence.
+    points: 2
+    explain: >-
+      Look, guess, add, repeat. That loop, running fast, is how every answer gets
+      built.
+
+close_comic:
+  id: w2-01-close
+  title: One word at a time
+  beats:
+    - id: b1
+      speaker: mila
+      text: So when you answer me, you are just guessing word by word?
+      prop: none
+      mood: curious
+    - id: b2
+      speaker: iskra
+      text: Very good guesses, from a lot of reading. But yes — one word at a time.
+      prop: none
+      mood: calm
+    - id: b3
+      speaker: mila
+      text: That explains so much about you.
+      prop: none
+      mood: proud
+    - id: b4
+      speaker: iskra
+      text: It explains my best moments and my silliest ones. Now you know the trick.
+      prop: none
+      mood: excited
+      highlight: trick

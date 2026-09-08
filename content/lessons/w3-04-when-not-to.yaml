@@ -1,0 +1,157 @@
+id: w3-when-not-to
+world: using-ai-for-real
+title: When not to use it
+goal: Recognise situations where using AI is unsafe, unfair, unkind, or against the point.
+intro: >-
+  Part of being good with AI is knowing when to close it. Some things should not
+  go into an AI, and some jobs you are meant to do yourself. This is not about
+  being scared of AI — it is about being the kind of person who uses it wisely and
+  kindly.
+minutes: 12
+tracks: [explorer, builder]
+prereqs: [w3-thinking-partner]
+
+open_comic:
+  id: w3-04-open
+  title: Do not paste that
+  beats:
+    - id: b1
+      speaker: mila
+      text: I will just paste my friend's home address in and ask you to map it.
+      prop: none
+      mood: calm
+    - id: b2
+      speaker: iskra
+      text: Wait — stop. That is your friend's private information, not yours to share.
+      prop: none
+      mood: confused
+    - id: b3
+      speaker: mila
+      text: Oh. You are right. That is not mine to type into a public app.
+      prop: none
+      mood: curious
+    - id: b4
+      speaker: iskra
+      text: Some things just should not go in here. Knowing which is a real skill.
+      prop: none
+      mood: calm
+      highlight: should not go in
+
+play: none
+play_brief: ""
+
+teach:
+  - heading: Keep private things private
+    body: >-
+      Never type private information into a public AI — real names with addresses,
+      phone numbers, passwords, medical details, photos of faces, or school records.
+      Once it goes in, you do not control where it goes. This is doubly true for
+      other people's private things, which are not yours to share at all.
+    prop: none
+  - heading: Some jobs are yours to do
+    body: >-
+      If your homework is meant to teach you to write, having AI write it means you
+      learn nothing — and it is not honestly your work. Use AI to check, explain, or
+      get unstuck, but do the learning yourself. The point of practice is the
+      practising.
+    prop: none
+  - heading: People need people
+    body: >-
+      When a friend is upset, when something feels wrong, when you need to say sorry
+      or ask for help — that is for real people, not a chatbot. AI does not truly
+      care, cannot be there, and cannot know your life. For feelings and for
+      trouble, go to a person you trust.
+    prop: none
+
+terms:
+  - term: privacy
+    plain: Keeping personal information about you and others out of places you do not control.
+    seen_in: Not reading out someone's phone number in a crowded room.
+  - term: honesty
+    plain: Doing your own work, and being clear about what AI did and what you did.
+    seen_in: A teacher asking you to show your own working, not someone else's.
+
+name_it:
+  - Keep private info out of public AI — especially other people's.
+  - Do your own learning; use AI to help, not to replace you.
+  - For feelings and real trouble, go to a person you trust.
+
+exercises:
+  - id: w3-04-e1
+    kind: mcq
+    prompt: Which of these should you NOT type into a public AI chatbot?
+    choices:
+      - A made-up shopping list to sort.
+      - Your friend's real home address and phone number.
+      - A question about how volcanoes work.
+      - A story you invented.
+    answer: [1]
+    points: 1
+    explain: >-
+      Someone else's real address and number are private and not yours to share.
+      The made-up and general things are perfectly safe.
+  - id: w3-04-e2
+    kind: mcq
+    prompt: Your homework is to practise writing a story yourself. Is it okay to have AI write it for you?
+    choices:
+      - Yes, hand in whatever it writes.
+      - No — the point is to practise, so do it yourself and maybe use AI to check.
+      - Yes, but change one word.
+      - Only if nobody finds out.
+    answer: [1]
+    points: 1
+    explain: >-
+      If the task is to learn writing, letting AI write it skips the learning and is
+      not honestly your work. Using it to check afterwards is fair game.
+  - id: w3-04-e3
+    kind: mcq
+    prompt: Your friend is really upset about something. What is the best move?
+    choices:
+      - Ask a chatbot to handle your friend for you.
+      - Be there for them yourself, and ask a trusted grown-up if it is serious.
+      - Tell them to go talk to an AI.
+      - Ignore it.
+    answer: [1]
+    points: 1
+    explain: >-
+      Feelings need a real person who cares and can be there. AI cannot do that, and
+      serious things need a trusted grown-up.
+  - id: w3-04-e4
+    kind: mcq
+    prompt: Which of these are good reasons NOT to use AI for something? Pick all that apply.
+    choices:
+      - It would mean sharing someone's private information.
+      - It is a job I am meant to learn by doing myself.
+      - It involves a friend's feelings or real trouble.
+      - It is a boring word task I could get help drafting.
+    answer: [0, 1, 2]
+    points: 2
+    explain: >-
+      Privacy, honest learning, and real human moments are all "close the app"
+      situations. A boring word draft, though, is exactly what AI is good for.
+
+close_comic:
+  id: w3-04-close
+  title: Knowing when to close it
+  beats:
+    - id: b1
+      speaker: mila
+      text: So I will map somewhere public, and keep my friend's address to myself.
+      prop: none
+      mood: proud
+    - id: b2
+      speaker: iskra
+      text: Perfect. You knew when to stop. That is the grown-up move.
+      prop: none
+      mood: calm
+    - id: b3
+      speaker: mila
+      text: Using you well means knowing when not to use you at all.
+      prop: none
+      mood: curious
+    - id: b4
+      speaker: iskra
+      text: Best thing you have said all day. Wise and kind. Off you go.
+      prop: none
+      mood: excited
+      highlight: when not to

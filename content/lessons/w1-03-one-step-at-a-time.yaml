@@ -1,0 +1,158 @@
+id: w1-one-step-at-a-time
+world: talking-to-ai
+title: One step at a time
+goal: Break a big request into steps, and ask the AI to think it through before answering.
+intro: >-
+  When you ask for something big all at once, the AI rushes and trips up — just
+  like you would. The fix is the same one that works for you: slow it down, one
+  step at a time. Ask it to think first, then answer.
+minutes: 12
+tracks: [explorer, builder]
+prereqs: [w1-show-dont-tell]
+
+open_comic:
+  id: w1-03-open
+  title: Plan my whole party
+  beats:
+    - id: b1
+      speaker: mila
+      text: Plan my whole birthday party, sort everything, do it all now!
+      prop: none
+      mood: excited
+    - id: b2
+      speaker: iskra
+      text: Cake at 3. Also 2. Guests are invited and also not. The end.
+      prop: none
+      mood: proud
+    - id: b3
+      speaker: mila
+      text: That is a mess. You mixed everything together.
+      prop: none
+      mood: confused
+    - id: b4
+      speaker: iskra
+      text: You gave me one giant lump. Give me steps and I will not trip over my own feet.
+      prop: none
+      mood: calm
+      highlight: steps
+
+play: prompt-lab
+play_brief: >-
+  Take a big messy ask and rewrite it as steps. Try adding "think it through step
+  by step first" and watch the answer get tidier.
+
+teach:
+  - heading: Big lumps make messy answers
+    body: >-
+      "Plan my whole party" is one huge job with lots hiding inside it — guests,
+      food, games, times. Asked all at once, the AI mixes them up. The same thing
+      happens to you when someone gives you ten instructions in one breath.
+    prop: none
+  - heading: Break it into steps
+    body: >-
+      Split the big job into small ones. "First list the guests. Then pick three
+      games. Then plan the food. Then put it in a timeline." Each step is easy, and
+      the answers stack up neatly instead of turning to soup.
+    prop: none
+  - heading: Ask it to think first
+    body: >-
+      Here is a magic phrase: "think it through step by step before you answer."
+      It makes the AI work out its reasoning before it commits, and the answer
+      comes out far better. It is like showing your working in maths — slower, but
+      right more often.
+    prop: none
+
+terms:
+  - term: breaking it into steps
+    plain: Splitting one big request into a few small ones the AI can handle cleanly.
+    seen_in: A recipe — steps in order, not everything dumped in one sentence.
+  - term: chain of thought
+    plain: Asking the AI to work out its reasoning step by step before giving the answer.
+    seen_in: A maths teacher saying "show your working, do not just write the answer."
+
+name_it:
+  - One big lump of a request gets a messy answer.
+  - Break a big job into small steps in order.
+  - Ask it to "think step by step" and the answer gets better.
+
+exercises:
+  - id: w1-03-e1
+    kind: mcq
+    prompt: Which is the better way to ask for help planning a school project?
+    choices:
+      - Do my whole project now.
+      - First help me pick a topic. Then list three sections. Then we will fill each one in.
+      - Project. Go.
+      - Tell me everything about everything.
+    answer: [1]
+    points: 1
+    explain: >-
+      Steps in order let the AI do each part well, and let you steer between them.
+      The giant one-shot ask gets a rushed, jumbled result.
+  - id: w1-03-e2
+    kind: mcq
+    prompt: What does adding "think it through step by step" usually do?
+    choices:
+      - Makes the AI slower for no reason.
+      - Makes the AI work out its reasoning first, so the answer is better.
+      - Makes the AI write longer for the sake of it.
+      - Nothing — it is just a magic spell.
+    answer: [1]
+    points: 1
+    explain: >-
+      Working out the reasoning before answering catches mistakes early, the same
+      way showing your working in maths does. The answer comes out more reliable.
+  - id: w1-03-e3
+    kind: order
+    prompt: Put these steps for asking the AI to plan a movie night in a sensible order.
+    items:
+      - Pick the date and who is coming.
+      - Choose a film everyone will like.
+      - Plan the snacks.
+      - Make a simple timeline for the evening.
+    points: 2
+    explain: >-
+      You cannot plan snacks for people you have not counted, or a timeline with no
+      film. Steps in order build on each other.
+  - id: w1-03-e4
+    kind: prompt_rubric
+    prompt: >-
+      Write a prompt that asks the AI to help tidy your room, broken into at least
+      two clear steps, and ask it to think it through first.
+    min_words: 12
+    must_include:
+      - ["first", "then", "step", "1", "next"]
+      - ["think", "work out", "step by step", "reason"]
+    criteria_labels:
+      - Breaks it into steps
+      - Asks it to think first
+    explain: >-
+      A strong answer might be: "Help me tidy my room. First list the zones, then
+      give me an order to do them in. Think it through step by step." Steps plus
+      think-first is the winning combo.
+
+close_comic:
+  id: w1-03-close
+  title: Now in order
+  beats:
+    - id: b1
+      speaker: mila
+      text: First list the guests. Then pick games. Then food. Think it through as you go.
+      prop: none
+      mood: curious
+    - id: b2
+      speaker: iskra
+      text: Guests, done. Three games, done. Food to match, done. Here is your timeline.
+      prop: none
+      mood: excited
+    - id: b3
+      speaker: mila
+      text: That is actually a plan I can use!
+      prop: none
+      mood: proud
+    - id: b4
+      speaker: iskra
+      text: Small steps, in order, thinking as I go. No more soup.
+      prop: none
+      mood: calm
+      highlight: order

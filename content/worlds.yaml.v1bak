@@ -1,0 +1,38 @@
+# The six worlds of Neuron. Order matters: a lesson may never depend on
+# something taught in a later world.
+worlds:
+  - id: spotting-patterns
+    index: 1
+    title: Spotting patterns
+    tagline: How a machine learns to guess instead of being told.
+    ink: blue
+
+  - id: where-data-comes-from
+    index: 2
+    title: Where data comes from
+    tagline: A machine only knows what it has seen.
+    ink: pink
+
+  - id: inside-the-words
+    index: 3
+    title: Inside the words
+    tagline: Bricks, maps and the guess that comes next.
+    ink: green
+
+  - id: learning-from-mistakes
+    index: 4
+    title: Learning from mistakes
+    tagline: Dials, errors, and walking downhill in fog.
+    ink: yellow
+
+  - id: talking-to-models
+    index: 5
+    title: Talking to models
+    tagline: Asking well, and checking what comes back.
+    ink: blue
+
+  - id: building-with-ai
+    index: 6
+    title: Building with AI
+    tagline: Helpers, tools, and testing your own work.
+    ink: pink

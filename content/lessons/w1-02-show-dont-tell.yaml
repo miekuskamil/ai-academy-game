@@ -1,0 +1,158 @@
+id: w1-show-dont-tell
+world: talking-to-ai
+title: Show, don't just tell
+goal: Improve an answer by giving the AI one example of what you want.
+intro: >-
+  Sometimes the fastest way to get what you want is not to describe it — it is to
+  show it. Give the AI one good example, and it copies the pattern. This one trick
+  fixes more bad answers than almost anything else.
+minutes: 11
+tracks: [explorer, builder]
+prereqs: [w1-ask-like-you-mean-it]
+
+open_comic:
+  id: w1-02-open
+  title: Make me a nickname
+  beats:
+    - id: b1
+      speaker: mila
+      text: Make me a fun nickname for my cat, Biscuit.
+      prop: none
+      mood: calm
+    - id: b2
+      speaker: iskra
+      text: Sir Reginald Fluffington the Third, Duke of the Windowsill.
+      prop: none
+      mood: proud
+    - id: b3
+      speaker: mila
+      text: Ha! But I wanted something short, like Bisky or Biscuit-boo.
+      prop: none
+      mood: curious
+    - id: b4
+      speaker: iskra
+      text: Ah. If you had shown me one you liked, I would have copied the style.
+      prop: none
+      mood: calm
+      highlight: shown
+
+play: prompt-lab
+play_brief: >-
+  Write a prompt that includes one example of the answer you want. See how the AI
+  matches your example instead of guessing the style.
+
+teach:
+  - heading: An example is worth a hundred words
+    body: >-
+      Describing exactly what you want is hard. Showing is easy. If you want short,
+      cute nicknames, give one: "Like Bisky or Biscuit-boo." Now the AI can see the
+      style — short, playful, based on the name — and copy it. You did not have to
+      explain the rules, you just showed them.
+    prop: none
+  - heading: This is called giving an example
+    body: >-
+      Grown-ups call it a "one-shot" prompt, because you gave it one shot at the
+      pattern. Give it a couple and it locks on even better. It works for anything
+      with a style — nicknames, jokes, the way you write a message, the shape of a
+      list.
+    prop: none
+  - heading: When to show instead of tell
+    body: >-
+      Use an example whenever the thing you want has a style or a shape that is
+      hard to put into words. If you can show one, do — it saves you a paragraph of
+      explaining and gets you closer on the first try.
+    prop: none
+
+terms:
+  - term: example (one-shot)
+    plain: Showing the AI one sample of the answer you want, so it copies the pattern.
+    seen_in: Every time you paste "make it like this one" into a chatbot.
+  - term: pattern
+    plain: The repeating shape or style the AI copies from your example.
+    seen_in: Autocomplete finishing your sentence the way you usually write.
+
+name_it:
+  - Showing one example is often faster than describing what you want.
+  - The AI copies the style of the example you give it.
+  - Use an example when the thing you want is hard to put into words.
+
+exercises:
+  - id: w1-02-e1
+    kind: mcq
+    prompt: You want the AI to write jokes in a certain style. What is the quickest way to get it right?
+    choices:
+      - Just say "be funny."
+      - Give it one joke you love, then say "more like this."
+      - Ask for a hundred jokes and pick one.
+      - Tell it your whole sense of humour in detail.
+    answer: [1]
+    points: 1
+    explain: >-
+      One good example shows the style instantly. The AI copies the pattern —
+      far faster than trying to describe what "funny to you" means.
+  - id: w1-02-e2
+    kind: mcq
+    prompt: Why does giving an example work so well?
+    choices:
+      - The AI can see the pattern and copy it, instead of guessing.
+      - Examples make the AI try harder.
+      - It is a secret code that unlocks better answers.
+      - The AI only understands examples, not words.
+    answer: [0]
+    points: 1
+    explain: >-
+      The AI is a pattern-copier. An example hands it the exact pattern, so it has
+      far less to guess. Words still help too — examples just make it easier.
+  - id: w1-02-e3
+    kind: order
+    prompt: Put these prompts in order from "leaves the most guessing" to "leaves the least."
+    items:
+      - Write a nickname.
+      - Write a short, cute nickname.
+      - Write a short, cute nickname like Bisky or Boo.
+    points: 2
+    explain: >-
+      Each step gives the AI more to go on. The last one shows the style with
+      examples, so there is almost nothing left to guess.
+  - id: w1-02-e4
+    kind: prompt_rubric
+    prompt: >-
+      Write a prompt asking for three team names for a football team, and include
+      one example name so the AI copies your style.
+    min_words: 10
+    must_include:
+      - ["like", "example", "such as", "e.g", "for instance"]
+      - ["team", "name", "names"]
+    criteria_labels:
+      - Gives an example
+      - Names the job
+    explain: >-
+      A good answer shows the style: "Give me three football team names, like The
+      Thunder Foxes." The example tells the AI the vibe you want without a long
+      explanation.
+
+close_comic:
+  id: w1-02-close
+  title: Like this one
+  beats:
+    - id: b1
+      speaker: mila
+      text: Make a nickname for Biscuit, short and cute, like Bisky.
+      prop: none
+      mood: curious
+    - id: b2
+      speaker: iskra
+      text: Bisky-Boo. Or Bissy. Or just Biss.
+      prop: none
+      mood: excited
+    - id: b3
+      speaker: mila
+      text: Perfect. Showing you one was so much faster.
+      prop: none
+      mood: proud
+    - id: b4
+      speaker: iskra
+      text: One example, and I saw the whole pattern. Show me, do not just tell me.
+      prop: none
+      mood: calm
+      highlight: pattern

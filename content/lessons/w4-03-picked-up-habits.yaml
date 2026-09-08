@@ -1,0 +1,157 @@
+id: w4-picked-up-habits
+world: whats-inside
+title: It picked up our habits
+goal: Understand bias — if the examples lean one way, the AI leans that way too.
+intro: >-
+  If an AI learns from a mountain of writing by people, it does not just learn the
+  good stuff. It picks up our habits — including the unfair ones. This is one of
+  the most important things to understand about AI, and it is why fairness needs
+  checking, every time.
+minutes: 12
+tracks: [explorer, builder]
+prereqs: [w4-patterns-not-understanding]
+
+open_comic:
+  id: w4-03-open
+  title: Draw a doctor
+  beats:
+    - id: b1
+      speaker: mila
+      text: Iskra, picture a doctor. Quick, what do you imagine?
+      prop: none
+      mood: curious
+    - id: b2
+      speaker: iskra
+      text: A man in a white coat. That is what popped up first.
+      prop: none
+      mood: calm
+    - id: b3
+      speaker: mila
+      text: But doctors can be anyone. Why did you assume a man?
+      prop: none
+      mood: confused
+    - id: b4
+      speaker: iskra
+      text: Because my pile of examples showed doctors as men more often. I leaned that way.
+      prop: none
+      mood: confused
+      highlight: leaned that way
+
+play: none
+play_brief: ""
+
+teach:
+  - heading: The AI leans the way its examples lean
+    body: >-
+      If the writing an AI learned from mostly showed doctors as men, or heroes as
+      one kind of person, the AI soaks that up and leans the same way. It is not
+      trying to be unfair. It is just mirroring the habits in its pile — including
+      the lopsided ones. This leaning is called bias.
+    prop: none
+  - heading: Bias is sneaky because it feels normal
+    body: >-
+      The tricky part is that a biased answer often looks perfectly ordinary. If you
+      never stop to ask "wait, is that fair? is that the whole picture?", it slides
+      right past. Spotting bias means noticing what the answer quietly assumed —
+      and who or what it left out.
+    prop: none
+  - heading: Checking for fairness is your job
+    body: >-
+      Because the AI cannot know its own leanings, a person has to check. Ask: does
+      this answer assume one kind of person? Is it missing someone? Would this feel
+      fair to everyone it is about? That question makes you the fairness-checker —
+      one of the most important jobs there is with AI.
+    prop: none
+
+terms:
+  - term: bias
+    plain: When an AI leans unfairly one way because its examples leaned that way.
+    seen_in: A picture search showing mostly one kind of person for a job.
+  - term: fairness
+    plain: Checking that an answer treats different people and groups justly.
+    seen_in: A referee making sure the rules apply the same to both teams.
+
+name_it:
+  - The AI leans the way its examples leaned — that is bias.
+  - Biased answers look normal, so they are easy to miss.
+  - Checking for fairness is a person's job, and it matters.
+
+exercises:
+  - id: w4-03-e1
+    kind: mcq
+    prompt: Why might an AI assume a nurse is a woman or a builder is a man?
+    choices:
+      - Because it decided to be unfair.
+      - Because its pile of examples leaned that way, and it copied the lean.
+      - Because those are the actual rules.
+      - Because it dislikes certain jobs.
+    answer: [1]
+    points: 1
+    explain: >-
+      It mirrors its examples. If the pile leaned one way, the AI leans there too —
+      that lean is bias, and it is nobody's real rule.
+  - id: w4-03-e2
+    kind: mcq
+    prompt: What makes bias in AI answers easy to miss?
+    choices:
+      - It is always written in red.
+      - A biased answer often looks perfectly normal.
+      - The AI warns you loudly every time.
+      - Bias only appears in maths.
+    answer: [1]
+    points: 1
+    explain: >-
+      It hides in plain sight, looking ordinary. That is why you have to actively
+      ask whether an answer is fair and who it left out.
+  - id: w4-03-e3
+    kind: mcq
+    prompt: You ask an AI for "pictures of a scientist" and every one looks the same kind of person. What is going on?
+    choices:
+      - That is just what scientists look like.
+      - The AI's examples were lopsided, so its answers are too — that is bias.
+      - The AI ran out of pictures.
+      - It is a coincidence with no cause.
+    answer: [1]
+    points: 1
+    explain: >-
+      Scientists are all sorts of people. A one-note result reveals a lopsided pile
+      of examples — bias showing through, and worth noticing.
+  - id: w4-03-e4
+    kind: mcq
+    prompt: What is the best question to ask to catch bias in an AI answer?
+    choices:
+      - Is this answer long enough?
+      - Is this fair, and who might it be leaving out?
+      - Does this sound confident?
+      - Did it answer fast?
+    answer: [1]
+    points: 1
+    explain: >-
+      Asking who is assumed and who is left out is how you spot the quiet lean.
+      That question turns you into the fairness-checker.
+
+close_comic:
+  id: w4-03-close
+  title: The fairness-checker
+  beats:
+    - id: b1
+      speaker: mila
+      text: Picture a doctor again — and remember doctors are all kinds of people.
+      prop: none
+      mood: curious
+    - id: b2
+      speaker: iskra
+      text: You are right. A doctor could be anyone. Thank you for catching my lean.
+      prop: none
+      mood: calm
+    - id: b3
+      speaker: mila
+      text: I will keep checking. Someone has to, and it cannot be you.
+      prop: none
+      mood: proud
+    - id: b4
+      speaker: iskra
+      text: That makes you my fairness-checker. Honestly, my most important helper.
+      prop: none
+      mood: excited
+      highlight: fairness-checker

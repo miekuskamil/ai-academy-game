@@ -1,0 +1,160 @@
+id: w5-describe-and-build
+world: building-with-ai
+title: Describe it and watch it build
+goal: Understand that you can build a working app by describing it in plain words and refining.
+intro: >-
+  Now the exciting part. Everything you have learned — clear asks, examples, steps,
+  steering — comes together here. Because you can now build real things by talking.
+  Describe an app in plain words, and AI can make it. This is how a lot of building
+  happens now, and you already have the skills.
+minutes: 12
+tracks: [explorer, builder]
+prereqs: [w4-picked-up-habits]
+
+open_comic:
+  id: w5-01-open
+  title: Build me a game
+  beats:
+    - id: b1
+      speaker: mila
+      text: Could you actually build me a little number-guessing game?
+      prop: none
+      mood: curious
+    - id: b2
+      speaker: iskra
+      text: Describe what you want and I will write the code. Then we test it together.
+      prop: none
+      mood: excited
+    - id: b3
+      speaker: mila
+      text: Wait, I do not have to know how to code first?
+      prop: none
+      mood: confused
+    - id: b4
+      speaker: iskra
+      text: You describe, I build, you steer. That is what people call vibe-coding.
+      prop: none
+      mood: proud
+      highlight: vibe-coding
+
+play: none
+play_brief: ""
+
+teach:
+  - heading: You describe, the AI builds
+    body: >-
+      You can now make working apps and games by describing them clearly. "Make a
+      game where I guess a number between 1 and 100, and it tells me higher or
+      lower." The AI writes the actual code. You do not have to know every command
+      first — your clear description is the starting point.
+    prop: none
+  - heading: It is the same skills you already have
+    body: >-
+      This is just prompting, aimed at building. Be clear about what you want (the
+      four parts). Show an example if you can. Break a big app into steps. And steer
+      the result — "add a score," "make it restart when I win." Everything from
+      World 1 works here, pointed at making real things.
+    prop: none
+  - heading: Building is a conversation
+    body: >-
+      You will not get the whole app perfect in one go, and that is normal. You
+      build a bit, try it, say what is wrong or missing, and it improves. The app
+      grows through the back-and-forth. Knowing that building is a conversation, not
+      one magic command, is what makes you good at it.
+    prop: none
+
+terms:
+  - term: vibe-coding
+    plain: Building software by describing what you want in plain words and refining it.
+    seen_in: People making whole small apps by chatting with an AI, no typing code by hand.
+  - term: code
+    plain: The instructions that make an app or game actually run.
+    seen_in: Everything on your phone runs on code someone wrote.
+
+name_it:
+  - You can build real apps by describing them clearly.
+  - It uses the same prompting skills you already have.
+  - Building is a back-and-forth, not one perfect command.
+
+exercises:
+  - id: w5-01-e1
+    kind: mcq
+    prompt: What is the first thing you need to build a small app by vibe-coding?
+    choices:
+      - Years of coding lessons.
+      - A clear description of what you want it to do.
+      - An expensive computer.
+      - Permission from a coder.
+    answer: [1]
+    points: 1
+    explain: >-
+      A clear description is the starting point — the same clear-ask skill from
+      World 1, now aimed at building. The AI turns it into code.
+  - id: w5-01-e2
+    kind: mcq
+    prompt: Which request would build a game most successfully?
+    choices:
+      - Make a game.
+      - Make a game where I guess a number 1 to 100 and it says higher or lower.
+      - Games please.
+      - Something fun on the screen.
+    answer: [1]
+    points: 1
+    explain: >-
+      Clear and specific wins here just like everywhere else. The AI can build
+      exactly what you described — and almost nothing from "make a game."
+  - id: w5-01-e3
+    kind: mcq
+    prompt: Your app mostly works but has no score. What do you do?
+    choices:
+      - Start over from nothing.
+      - Steer it — "add a score that goes up each win" — and keep building.
+      - Decide apps are too hard.
+      - Leave it broken.
+    answer: [1]
+    points: 1
+    explain: >-
+      Building is a conversation. You add and fix in steps, exactly like steering
+      any other AI answer. The app grows through the back-and-forth.
+  - id: w5-01-e4
+    kind: prompt_rubric
+    prompt: >-
+      Describe a simple app or game you would like the AI to build. Be clear about
+      what it does — enough that the AI could start.
+    min_words: 12
+    must_include:
+      - ["game", "app", "quiz", "tool", "timer", "list"]
+      - ["when", "if", "so that", "that", "which"]
+    criteria_labels:
+      - Names what to build
+      - Says what it should do
+    explain: >-
+      A strong answer says both what and how it behaves: "Make a quiz app that asks
+      five animal questions and shows my score at the end." That is enough for the
+      AI to build a first version you can steer.
+
+close_comic:
+  id: w5-01-close
+  title: We built it
+  beats:
+    - id: b1
+      speaker: mila
+      text: Add a score, and make it say "you win" when I get it. ...It works!
+      prop: none
+      mood: proud
+    - id: b2
+      speaker: iskra
+      text: You described, I built, you steered. Look what you made!
+      prop: none
+      mood: excited
+    - id: b3
+      speaker: mila
+      text: I made a real game and I have never written code in my life.
+      prop: none
+      mood: curious
+    - id: b4
+      speaker: iskra
+      text: You have got the skills. Now imagine what you build next.
+      prop: none
+      mood: excited
+      highlight: what you build next

@@ -1,0 +1,167 @@
+id: w3-trust-but-check
+world: using-ai-for-real
+title: Trust, but check
+goal: Learn practical ways to catch a wrong AI answer before relying on it.
+intro: >-
+  You already know AI can sound sure and be wrong. So the real-world skill is
+  checking — quickly, without being annoying about it. Good AI users are not
+  suspicious of everything; they just have simple habits that catch the mistakes.
+minutes: 12
+tracks: [explorer, builder]
+prereqs: [w3-right-tool]
+
+open_comic:
+  id: w3-02-open
+  title: Sounds right
+  beats:
+    - id: b1
+      speaker: mila
+      text: You said the tallest mountain is Mount Snackdonia. That sounds a bit off.
+      prop: none
+      mood: curious
+    - id: b2
+      speaker: iskra
+      text: It does have a confident ring to it though, does it not?
+      prop: none
+      mood: proud
+    - id: b3
+      speaker: mila
+      text: Confident, sure. But I am going to look it up before I write it down.
+      prop: none
+      mood: calm
+    - id: b4
+      speaker: iskra
+      text: Wise. A quick check beats a confident wrong answer every time.
+      prop: none
+      mood: calm
+      highlight: quick check
+
+play: verifier
+play_brief: >-
+  The AI just gave you each of these. Decide how carefully to handle each one:
+  fine to trust, check it first, or ask a grown-up.
+
+teach:
+  - heading: Ask "how do I know this is true?"
+    body: >-
+      Before you trust an AI answer for something that matters, pause and ask
+      yourself one question: how would I know if this were wrong? If you cannot
+      tell, that is your signal to check. For a joke or a brainstorm, you do not
+      need to. For a fact, a number, or advice — you do.
+    prop: none
+  - heading: Simple ways to check
+    body: >-
+      Look it up in another place — a trusted website or a book. Ask the AI for its
+      source, then check the source actually says that. Cross-check a number with a
+      calculator. For code, run it and see if it works. Each one is quick, and each
+      one catches a different kind of mistake.
+    prop: none
+  - heading: Match the checking to the stakes
+    body: >-
+      You do not check everything equally. A silly nickname needs no check. A fact
+      for your homework needs one look. Advice about your health or safety needs a
+      real grown-up, not just the AI. The bigger the decision, the harder you
+      check. That is not paranoia — it is just sensible.
+    prop: none
+
+terms:
+  - term: verifying
+    plain: Checking whether an answer is actually true before you rely on it.
+    seen_in: A pilot running a checklist before take-off — trust, but confirm.
+  - term: source
+    plain: Where a fact comes from, so you can check it is real.
+    seen_in: A news story saying "according to..." so you know who said it.
+
+name_it:
+  - Ask yourself "how would I know if this were wrong?"
+  - Check by looking it up, asking for a source, or testing it.
+  - Check harder when the decision matters more.
+
+exercises:
+  - id: w3-02-e0
+    kind: sandbox
+    prompt: In the game above, judge how carefully to handle each answer — match at least four.
+    check: checked-care
+    params:
+      min: 4
+    explain: >-
+      Silly stuff you can trust, facts you check, and safety needs a grown-up.
+      Matching your care to the stakes is exactly the trust-but-check habit.
+  - id: w3-02-e1
+    kind: mcq
+    prompt: An AI gives you a surprising fact for your school report. What is the smart move?
+    choices:
+      - Write it down — it sounded confident.
+      - Look it up in a trusted source before using it.
+      - Ask the AI "are you sure?" and trust whatever it says.
+      - Change the topic so you do not need the fact.
+    answer: [1]
+    points: 1
+    explain: >-
+      A second source is the real test. Asking "are you sure?" just gets another
+      confident guess — the AI cannot check itself any better the second time.
+  - id: w3-02-e2
+    kind: mcq
+    prompt: Which of these answers needs the most careful checking?
+    choices:
+      - A funny name for your goldfish.
+      - Whether a wild berry is safe to eat.
+      - A brainstorm of story ideas.
+      - A silly rhyme.
+    answer: [1]
+    points: 1
+    explain: >-
+      Safety is the highest stakes there is. That is a "ask a real grown-up, do not
+      rely on AI" situation. The others are harmless if the AI is a bit off.
+  - id: w3-02-e3
+    kind: mcq
+    prompt: The AI gives you a maths answer for something important. Best way to check it?
+    choices:
+      - Ask the AI to double-check its own maths.
+      - Work it out on a calculator yourself.
+      - Trust it, maths is easy.
+      - Ask a different AI the same thing.
+    answer: [1]
+    points: 1
+    explain: >-
+      A calculator truly calculates, so it settles it. The AI checking itself is
+      still just guessing digits, and another AI might make the same slip.
+  - id: w3-02-e4
+    kind: mcq
+    prompt: What is a good habit before trusting any important AI answer?
+    choices:
+      - Ask "how would I know if this were wrong?"
+      - Assume it is always right.
+      - Assume it is always wrong.
+      - Never use AI for anything real.
+    answer: [0]
+    points: 1
+    explain: >-
+      That one question tells you whether you need to check and how. It keeps you
+      trusting when it is safe and checking when it counts.
+
+close_comic:
+  id: w3-02-close
+  title: Looked it up
+  beats:
+    - id: b1
+      speaker: mila
+      text: Checked it. The real tallest mountain is Everest, not Snackdonia.
+      prop: none
+      mood: proud
+    - id: b2
+      speaker: iskra
+      text: Snackdonia did sound delicious though. Good catch — you did the check.
+      prop: none
+      mood: excited
+    - id: b3
+      speaker: mila
+      text: A quick look, and now I actually know.
+      prop: none
+      mood: calm
+    - id: b4
+      speaker: iskra
+      text: Trust me for a start, check me for the truth. That is the way.
+      prop: none
+      mood: calm
+      highlight: check me

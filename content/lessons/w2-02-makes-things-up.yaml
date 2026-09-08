@@ -1,0 +1,169 @@
+id: w2-makes-things-up
+world: why-it-answers
+title: Why it makes things up
+goal: Understand that confident guessing leads to made-up answers, and why they sound sure.
+intro: >-
+  Now you know the AI guesses the next word. Here is the tricky part of that: when
+  it does not know something, it does not stop — it guesses anyway, and sounds
+  totally sure. Grown-ups have a funny word for this. Let us catch it in the act.
+minutes: 11
+tracks: [explorer, builder]
+prereqs: [w2-guesses-next-word]
+
+open_comic:
+  id: w2-02-open
+  title: The confident wrong answer
+  beats:
+    - id: b1
+      speaker: mila
+      text: Iskra, who won the Great Sock Race of 1847?
+      prop: none
+      mood: curious
+    - id: b2
+      speaker: iskra
+      text: Sir Reginald Toebeans, in a time of four minutes. A famous victory!
+      prop: none
+      mood: proud
+    - id: b3
+      speaker: mila
+      text: Iskra... I made that race up. It never happened.
+      prop: none
+      mood: confused
+    - id: b4
+      speaker: iskra
+      text: Oh no. I did not know, so I guessed — and I guessed with total confidence.
+      prop: none
+      mood: confused
+      highlight: guessed with total confidence
+
+play: hallucination-spotter
+play_brief: >-
+  Some of these AI answers are true and some are confidently made up. Mark each
+  one, and see how well confidence hides a made-up answer.
+
+teach:
+  - heading: It guesses even when it should not
+    body: >-
+      The AI is built to produce likely-sounding words. When you ask about
+      something real, it uses real patterns. But when you ask about something it
+      does not know, it does not say "I have no idea." It just keeps guessing
+      likely-sounding words — and out comes a confident, made-up answer.
+    prop: none
+  - heading: This is called a hallucination
+    body: >-
+      When an AI states something made-up as if it were true, grown-ups call it a
+      hallucination. It is not lying, because lying means knowing the truth and
+      hiding it. The AI does not know it is wrong. It is just doing its guessing
+      trick with nothing solid to guess from.
+    prop: none
+  - heading: Confident does not mean correct
+    body: >-
+      The dangerous part is the tone. A made-up answer sounds exactly as sure as a
+      true one — same confident voice, real-looking details, maybe even a fake
+      name and date. So you can never judge an AI answer by how sure it sounds.
+      That is the big lesson: confidence is not proof.
+    prop: none
+
+terms:
+  - term: hallucination
+    plain: When an AI says something made-up as if it were true, without meaning to.
+    seen_in: A chatbot inventing a book, a fact, or a person that does not exist.
+  - term: fact-checking
+    plain: Looking up whether an answer is actually true, instead of trusting the tone.
+    seen_in: A journalist confirming a story before printing it.
+
+name_it:
+  - When the AI does not know, it guesses anyway.
+  - A confident made-up answer is called a hallucination.
+  - How sure it sounds tells you nothing about whether it is right.
+
+exercises:
+  - id: w2-02-e0
+    kind: sandbox
+    prompt: In the game above, judge all the answers and catch at least six of them.
+    check: spotted-fakes
+    params:
+      min: 6
+    explain: >-
+      The made-up ones sounded just as sure as the true ones. You caught them by
+      thinking, not by trusting the confident tone — exactly the skill.
+  - id: w2-02-e1
+    kind: mcq
+    prompt: What is a hallucination, when we talk about AI?
+    choices:
+      - The AI seeing pictures.
+      - The AI stating something made-up as if it were true.
+      - The AI getting tired.
+      - The AI refusing to answer.
+    answer: [1]
+    points: 1
+    explain: >-
+      It is a made-up answer delivered with a straight face. The AI is not trying
+      to trick you — it just guessed, and had nothing real to guess from.
+  - id: w2-02-e2
+    kind: mcq
+    prompt: Why does a made-up AI answer sound so believable?
+    choices:
+      - It uses the same confident voice as its true answers.
+      - It quietly warns you it is unsure.
+      - Made-up answers are always short.
+      - It uses a robot voice for lies.
+    answer: [0]
+    points: 1
+    explain: >-
+      Same confident tone, real-looking details. That is exactly why you cannot
+      judge by how sure it sounds — and why checking matters.
+  - id: w2-02-e3
+    kind: mcq
+    prompt: Which question is most likely to make an AI hallucinate?
+    choices:
+      - What is 2 plus 2?
+      - Who won the imaginary contest I just invented?
+      - What colour is the sky usually?
+      - How many days are in a week?
+    answer: [1]
+    points: 1
+    explain: >-
+      Ask about something that does not exist, and it has no real pattern to use —
+      so it invents one, confidently. The everyday facts are well-worn patterns it
+      gets right.
+  - id: w2-02-e4
+    kind: mcq
+    prompt: An AI gives you a fact with a name and a date for your homework. What should you do?
+    choices:
+      - Copy it straight in — it had a date, so it must be true.
+      - Check it in another source before trusting it.
+      - Assume it is wrong and ignore it.
+      - Ask the AI if it is sure, and believe whatever it says.
+    answer: [1]
+    points: 1
+    explain: >-
+      Names and dates make an answer *look* solid but do not make it true — the AI
+      can invent those too. Checking elsewhere is the only real test. Asking "are
+      you sure?" just gets another confident guess.
+
+close_comic:
+  id: w2-02-close
+  title: Catching it out
+  beats:
+    - id: b1
+      speaker: mila
+      text: So if you do not know, you might just make something up?
+      prop: none
+      mood: curious
+    - id: b2
+      speaker: iskra
+      text: I might, and I will sound completely sure while I do it. Sorry.
+      prop: none
+      mood: confused
+    - id: b3
+      speaker: mila
+      text: Then I will always check. Not because you are bad — because that is how you work.
+      prop: none
+      mood: proud
+    - id: b4
+      speaker: iskra
+      text: Exactly right. Check me. It is the smartest thing you can do.
+      prop: none
+      mood: calm
+      highlight: check me

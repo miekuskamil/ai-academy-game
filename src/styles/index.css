@@ -1,0 +1,506 @@
+@import './tokens.css';
+
+/* Fonts ship in the bundle. Nothing is fetched from a CDN at runtime, so the
+   app renders identically offline and inside a Capacitor WebView. */
+@import '@fontsource-variable/bricolage-grotesque/index.css';
+@import '@fontsource/atkinson-hyperlegible/400.css';
+@import '@fontsource/atkinson-hyperlegible/700.css';
+@import '@fontsource-variable/jetbrains-mono/index.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    /* Kill the 300ms tap delay and rubber-band scroll inside the WebView. */
+    touch-action: manipulation;
+    overscroll-behavior-y: none;
+  }
+
+  body {
+    margin: 0;
+    min-height: var(--vh);
+    background: var(--c-ground);
+    color: var(--c-ink);
+    font-family: var(--f-body);
+    font-size: var(--t-base);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--f-display);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+
+  /* Visible keyboard focus everywhere, never removed. */
+  :focus-visible {
+    outline: 2px solid var(--c-spark);
+    outline-offset: 3px;
+    border-radius: var(--r-sm);
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+    color: inherit;
+  }
+
+  /* iOS zooms the page when a focused input is under 16px. */
+  input,
+  textarea,
+  select {
+    font-size: max(16px, var(--t-base));
+  }
+
+  ::selection {
+    background: var(--c-spark);
+    color: var(--c-ground-deep);
+  }
+}
+
+@layer components {
+  /* Every interactive element opts into this. It is the one guard that keeps
+     controls thumb-sized on a 360px handset. */
+  .tap-target {
+    min-height: var(--touch-min);
+    min-width: var(--touch-min);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Skip link for keyboard and screen-reader users. */
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 60;
+    padding: var(--s-3) var(--s-4);
+    background: var(--c-spark);
+    color: var(--c-ground-deep);
+    border-radius: var(--r-md);
+    font-weight: 700;
+  }
+  .skip-link:focus {
+    left: var(--s-3);
+    top: calc(var(--safe-top) + var(--s-3));
+  }
+}
+
+@layer utilities {
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  /* Faint signal grid. Purely atmospheric, kept below every surface. */
+  .field-grid {
+    background-image:
+      radial-gradient(circle at 50% 0%, rgba(124, 156, 255, 0.1), transparent 62%),
+      linear-gradient(var(--c-line-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--c-line-soft) 1px, transparent 1px);
+    background-size:
+      100% 100%,
+      36px 36px,
+      36px 36px;
+    background-position:
+      0 0,
+      -1px -1px,
+      -1px -1px;
+    opacity: 0.5;
+  }
+}
+
+/* View Transitions. The shell stays put; only the outlet cross-fades, which
+   reads as moving *within* one place rather than between pages. */
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(route),
+  ::view-transition-new(route) {
+    animation-duration: var(--m-base);
+    animation-timing-function: var(--m-ease);
+  }
+  ::view-transition-old(route) {
+    animation-name: nrn-fade-out;
+  }
+  ::view-transition-new(route) {
+    animation-name: nrn-fade-in;
+  }
+}
+
+@keyframes nrn-fade-out {
+  to {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+@keyframes nrn-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+/* Signal animations for the axon level indicator. */
+@keyframes nrn-throb {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.55);
+    opacity: 0.65;
+  }
+}
+
+@keyframes nrn-fire {
+  0% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(1.28);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ---- Comic ink layer -------------------------------------------------- */
+
+/* Paths carry pathLength="1", so one rule inks any geometry regardless of its
+   real length: no measuring, no JavaScript. */
+.nrn-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation-name: nrn-ink;
+  animation-timing-function: var(--m-ease);
+  animation-fill-mode: forwards;
+}
+
+@keyframes nrn-ink {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Fills arrive just behind their own outline. */
+.nrn-fill {
+  opacity: 0;
+  animation-name: nrn-appear;
+  animation-duration: 0.34s;
+  animation-timing-function: var(--m-ease);
+  animation-fill-mode: forwards;
+}
+
+@keyframes nrn-appear {
+  to {
+    opacity: 1;
+  }
+}
+
+.nrn-pop {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation-name: nrn-pop;
+  animation-duration: 0.4s;
+  animation-timing-function: var(--m-ease);
+  animation-fill-mode: forwards;
+}
+
+@keyframes nrn-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.82);
+  }
+  70% {
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Iskra's spark, never quite steady. */
+.nrn-flicker {
+  animation:
+    nrn-appear 0.34s var(--m-ease) forwards,
+    nrn-throb 2.2s ease-in-out 0.5s infinite;
+}
+
+/* A stamped label lands hard, then settles. */
+.nrn-stamp {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation-name: nrn-stamp;
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.3, 1.6, 0.5, 1);
+  animation-fill-mode: forwards;
+}
+
+@keyframes nrn-stamp {
+  0% {
+    opacity: 0;
+    transform: scale(2.1) rotate(-14deg);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(0.94) rotate(-7deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(-7deg);
+  }
+}
+
+/* Nothing is carried by motion alone: every drawing has a finished state and
+   the captions say the same thing in words.
+
+   `html[data-motion='full']` opts back in. Android battery saver reports
+   `reduce` without the user ever asking for it, which switched the comics off
+   with no way to get them back. */
+@media (prefers-reduced-motion: reduce) {
+  html:not([data-motion='full']) .nrn-draw,
+  html:not([data-motion='full']) .nrn-fill,
+  html:not([data-motion='full']) .nrn-pop,
+  html:not([data-motion='full']) .nrn-flicker,
+  html:not([data-motion='full']) .nrn-stamp {
+    animation: none !important;
+    stroke-dashoffset: 0 !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  html:not([data-motion='full']) .nrn-stamp {
+    transform: rotate(-7deg) !important;
+  }
+}
+
+html[data-motion='off'] .nrn-draw,
+html[data-motion='off'] .nrn-fill,
+html[data-motion='off'] .nrn-pop,
+html[data-motion='off'] .nrn-flicker,
+html[data-motion='off'] .nrn-stamp {
+  animation: none !important;
+  stroke-dashoffset: 0 !important;
+  opacity: 1 !important;
+}
+html[data-motion='off'] .nrn-stamp {
+  transform: rotate(-7deg) !important;
+}
+
+
+/* ---- App-wide motion ---------------------------------------------------
+
+   Restrained on purpose: this is a place to think, not a toy. Entrances are
+   quick and quiet, feedback is the one place a flourish is earned, and every
+   rule below is gated so battery saver or a motion-off preference silences it. */
+
+/* Content settling in when a screen or card first appears. */
+.nrn-enter {
+  animation: nrn-enter var(--m-base) var(--m-ease) both;
+}
+@keyframes nrn-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+/* A short stagger for lists — map worlds, exercises — so they arrive in
+   sequence rather than all at once. Depth is set inline per item. */
+.nrn-stagger {
+  animation: nrn-enter var(--m-base) var(--m-ease) both;
+  animation-delay: calc(var(--i, 0) * 55ms);
+}
+
+/* Buttons and tappable cards give a little under the finger. */
+.nrn-press {
+  transition:
+    transform var(--m-fast) cubic-bezier(0.34, 1.7, 0.5, 1),
+    background-color var(--m-fast) var(--m-ease),
+    border-color var(--m-fast) var(--m-ease);
+}
+.nrn-press:active {
+  transform: scale(0.93);
+}
+.nrn-press:hover {
+  transform: translateY(-1px);
+}
+
+/* A node on the map completing: a soft ring pulse in the world's ink. */
+.nrn-cleared {
+  animation: nrn-cleared 0.6s var(--m-ease);
+}
+@keyframes nrn-cleared {
+  0% {
+    box-shadow: 0 0 0 0 var(--ink, var(--c-spark));
+  }
+  100% {
+    box-shadow: 0 0 0 12px transparent;
+  }
+}
+
+/* Correct feedback: a quick confirming rise. Wrong stays still — a wrong
+   answer should feel calm and reconsidered, never punished. */
+.nrn-correct {
+  animation: nrn-correct 0.5s var(--m-ease);
+}
+@keyframes nrn-correct {
+  0% {
+    transform: scale(0.98);
+    opacity: 0;
+  }
+  55% {
+    transform: scale(1.01);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* The stage track threading forward as she moves through a lesson. */
+.nrn-thread {
+  transition: color var(--m-base) var(--m-ease);
+}
+.nrn-thread-line {
+  transform-origin: left;
+  transition: transform var(--m-slow) var(--m-ease);
+}
+
+/* Honour both the OS setting and the in-app override, exactly as the comic
+   layer already does. */
+@media (prefers-reduced-motion: reduce) {
+  html:not([data-motion='full']) .nrn-enter,
+  html:not([data-motion='full']) .nrn-stagger,
+  html:not([data-motion='full']) .nrn-cleared,
+  html:not([data-motion='full']) .nrn-correct {
+    animation: none !important;
+  }
+  html:not([data-motion='full']) .nrn-press:active {
+    transform: none !important;
+  }
+}
+html[data-motion='off'] .nrn-enter,
+html[data-motion='off'] .nrn-stagger,
+html[data-motion='off'] .nrn-cleared,
+html[data-motion='off'] .nrn-correct {
+  animation: none !important;
+}
+html[data-motion='off'] .nrn-press:active {
+  transform: none !important;
+}
+
+
+/* ---- The machine strip -------------------------------------------------
+
+   A part clicking into place: a quick settle from slightly above, so the
+   machine visibly assembles as lessons are finished. Gated with everything
+   else so battery saver silences it. */
+.nrn-part-new {
+  animation: nrn-part-drop 0.6s var(--m-ease) both;
+}
+@keyframes nrn-part-drop {
+  0% {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.8);
+  }
+  60% {
+    transform: translateY(1px) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html:not([data-motion='full']) .nrn-part-new {
+    animation: none !important;
+  }
+}
+html[data-motion='off'] .nrn-part-new {
+  animation: none !important;
+}
+
+
+/* ---- Reward splash -----------------------------------------------------
+
+   The "you earned a part" beat. A burst of rays, the part popping in, the badge
+   settling, and a nudge arrow toward the header strip. All gated so motion-off
+   turns it into a plain still card. */
+.nrn-ray {
+  transform-origin: 60px 60px;
+  animation: nrn-ray 0.5s var(--m-ease) both;
+}
+@keyframes nrn-ray {
+  0% { opacity: 0; transform: scale(0.4); }
+  60% { opacity: 1; transform: scale(1.15); }
+  100% { opacity: 0.9; transform: scale(1); }
+}
+.nrn-reward-pop {
+  transform-origin: 60px 60px;
+  animation: nrn-reward-pop 0.5s var(--m-ease) both;
+}
+@keyframes nrn-reward-pop {
+  0% { transform: scale(0); }
+  70% { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+.nrn-badge-in {
+  animation: nrn-badge-in 0.5s var(--m-ease) both;
+}
+@keyframes nrn-badge-in {
+  0% { opacity: 0; transform: translateY(10px) scale(0.9); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+.nrn-arrow {
+  animation: nrn-arrow 1s var(--m-ease) infinite;
+}
+@keyframes nrn-arrow {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(3px, -3px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  html:not([data-motion='full']) .nrn-ray,
+  html:not([data-motion='full']) .nrn-reward-pop,
+  html:not([data-motion='full']) .nrn-badge-in,
+  html:not([data-motion='full']) .nrn-arrow {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+html[data-motion='off'] .nrn-ray,
+html[data-motion='off'] .nrn-reward-pop,
+html[data-motion='off'] .nrn-badge-in,
+html[data-motion='off'] .nrn-arrow {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}

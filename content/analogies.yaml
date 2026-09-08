@@ -1,0 +1,117 @@
+# One locked metaphor per concept, held for the whole curriculum.
+# Swapping metaphors mid-course is the fastest way to lose a young reader,
+# so a competing phrase fails the build unless the lesson owns that concept
+# and is deliberately busting the myth.
+
+analogies:
+  - id: recipe
+    concept: rules versus learning
+    phrase: a recipe you follow, or a taste you picked up
+    explain: >-
+      A rule is a recipe. Someone wrote every step. Learning is a taste you
+      picked up. Nobody wrote it down. You just saw enough to know.
+    banned_phrases:
+      - like a brain
+      - electronic brain
+      - thinks like a person
+
+  - id: album
+    concept: training data
+    phrase: your photo album
+    explain: >-
+      A machine only knows what it has seen. Its photo album is the whole
+      world to it.
+    banned_phrases:
+      - eats data
+      - feeds on data
+
+  - id: one-room
+    concept: bias in data
+    phrase: an album shot in only one room
+    explain: >-
+      If every photo was taken in one room, the machine thinks the world is
+      that room.
+    banned_phrases:
+      - the machine is mean
+      - the machine hates
+
+  - id: bricks
+    concept: tokens
+    phrase: the bricks that words are built from
+    explain: >-
+      A machine does not read words. It reads small bricks. Some bricks are
+      whole words. Some are only part of one.
+    banned_phrases:
+      - cuts words with scissors
+
+  - id: map
+    concept: embeddings
+    phrase: a map where meaning is distance
+    explain: >-
+      Words that mean the same thing sit close together. Words that do not
+      sit far apart.
+    banned_phrases:
+      - a dictionary of meaning
+
+  - id: dials
+    concept: weights
+    phrase: a wall of volume dials
+    explain: >-
+      Each dial makes one thing count more or less. Learning means turning
+      dials until the answer sounds right.
+    banned_phrases:
+      - like brain cells
+      - tiny brains
+
+  - id: fog
+    concept: gradient descent
+    phrase: walking downhill in thick fog
+    explain: >-
+      You cannot see the bottom. You can feel which way is down. So you take
+      one small step that way, again and again.
+    banned_phrases:
+      - magic maths
+
+  - id: sure-friend
+    concept: hallucination
+    phrase: the friend who never says I do not know
+    explain: >-
+      Some people answer every question, even when they have no idea. They
+      sound just as sure when they are wrong.
+    banned_phrases:
+      - the machine lies on purpose
+      - it wants to trick you
+
+  - id: helper
+    concept: agents and tools
+    phrase: a recipe with a helper who can go and fetch things
+    explain: >-
+      On its own a model can only talk. Give it a helper who can look things
+      up, and it can act.
+    banned_phrases:
+      - a robot butler
+
+# Words we teach on purpose. These are counted as ordinary words by the
+# reading-level guard, because making them ordinary is the whole point.
+glossary:
+  - algorithm
+  - accuracy
+  - agent
+  - bias
+  - data
+  - dataset
+  - embedding
+  - example
+  - feature
+  - gradient
+  - label
+  - model
+  - neuron
+  - pattern
+  - predict
+  - prediction
+  - prompt
+  - token
+  - tokeniser
+  - training
+  - weight

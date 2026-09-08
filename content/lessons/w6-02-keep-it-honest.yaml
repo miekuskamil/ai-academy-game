@@ -1,0 +1,168 @@
+id: w6-keep-it-honest
+world: ai-that-does-things
+title: Watch it work, keep it honest
+goal: Learn to check an agent's steps, catch a wrong turn, and stay in control.
+intro: >-
+  An agent that plans and acts on its own is powerful — which is exactly why you
+  have to keep an eye on it. Everything you learned about checking answers matters
+  double here, because an agent does not just say a wrong thing, it might *do* one.
+  This is the last skill, and it ties the whole year together.
+minutes: 12
+tracks: [explorer, builder]
+prereqs: [w6-goal-and-tools]
+
+open_comic:
+  id: w6-02-open
+  title: The wrong turn
+  beats:
+    - id: b1
+      speaker: mila
+      text: You were planning my party, but step three booked a clown for next YEAR.
+      prop: none
+      mood: confused
+    - id: b2
+      speaker: iskra
+      text: Ah. I took a wrong turn early and kept building on it. Good thing you looked.
+      prop: none
+      mood: confused
+    - id: b3
+      speaker: mila
+      text: I caught it at step three instead of at the end. Much easier to fix.
+      prop: none
+      mood: proud
+    - id: b4
+      speaker: iskra
+      text: Watching my steps kept me honest. An agent needs a human keeping watch.
+      prop: none
+      mood: calm
+      highlight: keeping watch
+
+play: agent-planner
+play_brief: >-
+  Each agent plan has one step that took a wrong turn. Catch the bad step in each
+  one.
+
+teach:
+  - heading: An agent can do a wrong thing, not just say one
+    body: >-
+      A chatbot's mistake is a wrong sentence. An agent's mistake can be a wrong
+      action — booking the wrong thing, deleting the wrong file, going down a silly
+      path and building on it. Because it acts, its mistakes matter more. So watching
+      it is not optional; it is the job.
+    prop: none
+  - heading: Check the steps, not just the end
+    body: >-
+      The smart move is to watch the steps as it goes, not only judge the final
+      result. If step three took a wrong turn, catching it there is easy. Catching
+      it only at the end — after everything was built on the mistake — is a mess.
+      Peek at the plan, watch the steps, speak up early.
+    prop: none
+  - heading: You are the one in charge
+    body: >-
+      Everything this year has built to this: you set the goal, you gave the tools,
+      and you keep watch and correct. The agent is fast and tireless, but you are
+      the one with judgment, taste, and the final say. Staying the boss of a powerful
+      helper is the most important AI skill of all.
+    prop: none
+
+terms:
+  - term: oversight
+    plain: A person watching an agent's steps and correcting it when needed.
+    seen_in: A driving instructor ready to grab the wheel while you learn.
+  - term: staying in control
+    plain: Keeping the final say over what an AI helper does on your behalf.
+    seen_in: A captain who lets the crew work but makes the real decisions.
+
+name_it:
+  - An agent can do a wrong thing, not just say one.
+  - Check its steps as it goes, not only the final result.
+  - You set the goal, keep watch, and keep the final say.
+
+exercises:
+  - id: w6-02-e0
+    kind: sandbox
+    prompt: In the plans above, catch at least two of the wrong turns.
+    check: checked-agent
+    params:
+      min: 2
+    explain: >-
+      Catching a wrong step early, while it is cheap to fix, is what oversight
+      means. You stayed the boss of a fast helper.
+  - id: w6-02-e1
+    kind: mcq
+    prompt: Why is checking an agent even more important than checking a chatbot?
+    choices:
+      - It is not more important.
+      - An agent can *do* a wrong thing, not just say one.
+      - Agents are always wrong.
+      - Chatbots never make mistakes.
+    answer: [1]
+    points: 1
+    explain: >-
+      An agent acts, so its mistakes can be real actions with real effects. That
+      raises the stakes and makes watching it essential.
+  - id: w6-02-e2
+    kind: mcq
+    prompt: When is the best time to catch an agent's wrong turn?
+    choices:
+      - Only at the very end.
+      - As it goes, by watching the steps — catching it early is far easier.
+      - Never, just let it run.
+      - After it has finished everything.
+    answer: [1]
+    points: 1
+    explain: >-
+      Catch a wrong step at step three and it is a quick fix. Catch it only at the
+      end, after everything was built on it, and you have a mess.
+  - id: w6-02-e3
+    kind: mcq
+    prompt: An agent planning your event books something for the wrong date at step two. Best response?
+    choices:
+      - Let it finish, then throw the whole thing away.
+      - Stop it there, fix step two, and let it carry on correctly.
+      - Get angry and give up on agents.
+      - Ignore it and hope.
+    answer: [1]
+    points: 1
+    explain: >-
+      Correcting the wrong step early keeps everything after it on track. That is
+      oversight working exactly as it should.
+  - id: w6-02-e4
+    kind: mcq
+    prompt: After a whole year of learning, what is the most important AI skill of all?
+    choices:
+      - Letting AI make every decision for you.
+      - Staying the one in charge — setting goals, checking, and keeping the final say.
+      - Never using AI.
+      - Trusting AI completely.
+    answer: [1]
+    points: 1
+    explain: >-
+      Everything you learned points here: use AI's power, but keep your judgment,
+      your taste, and the final say. You command; it helps.
+
+close_comic:
+  id: w6-02-close
+  title: You, in charge
+  beats:
+    - id: b1
+      speaker: mila
+      text: Fixed step three, and the rest of the plan came out perfect.
+      prop: none
+      mood: proud
+    - id: b2
+      speaker: iskra
+      text: You set the goal, watched my steps, and kept me honest. You did it all.
+      prop: none
+      mood: excited
+    - id: b3
+      speaker: mila
+      text: A whole year ago I just typed "write about dogs." Look at me now.
+      prop: none
+      mood: curious
+    - id: b4
+      speaker: iskra
+      text: You can prompt, judge, build, and command AI. You are ready. Go build the future.
+      prop: none
+      mood: proud
+      highlight: go build the future
