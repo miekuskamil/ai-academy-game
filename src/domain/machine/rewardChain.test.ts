@@ -58,5 +58,8 @@ describe('reward chain (full playthrough)', () => {
     const v = c.machine.vault({}, Array.from({ length: 20 }, (_, i) => i));
     expect(v.earned).toBe(0);
     expect(v.open).toBe(false); // earning is derived, not trusted
+    // Nor does it show any piece on the board.
+    expect(v.placedCount).toBe(0);
+    expect(v.placedSet.size).toBe(0);
   });
 });

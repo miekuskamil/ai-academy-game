@@ -160,9 +160,12 @@ export class MachineService {
    * @param placed  the indices she has actively placed into the vault
    */
   vault(records: Record<string, LessonRecord>, placed: number[]): VaultState {
-    const placedSet = new Set(placed);
     const earnedFlags = this.order.map((part) => UnlockPolicy.isCleared(records[part.lessonId]));
     const earned = earnedFlags.filter(Boolean).length;
+    // A placed piece only counts if its lesson is really cleared, so a save file
+    // that lists pieces as placed cannot show them on the board before they are
+    // earned.
+    const placedSet = new Set(placed.filter((index) => earnedFlags[index] === true));
 
     // Earned but not yet placed, in assembly order.
     const waiting = this.order.filter(
