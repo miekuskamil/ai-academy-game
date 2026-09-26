@@ -31,7 +31,7 @@ export function App() {
 function ResumeLesson() {
   const { curriculum } = useContainer();
   const { status, state } = useProgress();
-  const next = curriculum.forTrack(state.track).find((lesson) => status[lesson.id] === 'open');
+  const next = curriculum.nextOpen(status, state.track, state.hiddenWorlds);
   return next ? <Navigate to={`/lesson/${next.id}`} replace /> : <Navigate to="/map" replace />;
 }
 

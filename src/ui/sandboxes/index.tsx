@@ -1,6 +1,5 @@
 import type { SandboxId, SandboxState } from '../../domain/types';
 import type { SandboxCheck } from '../../domain/grading';
-import { KnnSandbox } from './KnnSandbox';
 import { PromptLab } from './PromptLab';
 import { HallucinationGame } from './HallucinationGame';
 import { TaskSorter } from './TaskSorter';
@@ -22,7 +21,6 @@ export interface SandboxProps {
  * stranding a learner behind an unanswerable question.
  */
 export const SANDBOXES: Partial<Record<SandboxId, (props: SandboxProps) => JSX.Element>> = {
-  knn: KnnSandbox,
   'prompt-lab': PromptLab,
   'hallucination-spotter': HallucinationGame,
   'task-sorter': TaskSorter,
@@ -48,48 +46,6 @@ const num = (value: unknown, fallback = 0): number => {
  * React, and so a check can never quietly go missing when a sandbox ships.
  */
 export const SANDBOX_CHECKS: SandboxCheck[] = [
-  {
-    id: 'knn-accuracy',
-    run: (state, params) => {
-      const score = num(state.accuracy);
-      const target = num(params.min, 0.8);
-      const right = Math.round(score * 10);
-      return {
-        fraction: Math.min(1, score / target),
-        correct: score >= target,
-        feedback:
-          score >= target
-            ? `Iskra got ${right} out of ten. She has found the pattern from your examples alone.`
-            : num(state.trainingCount) === 0
-              ? 'Place some examples first, then test her.'
-              : `Iskra got ${right} out of ten. Look at where the crosses are — she needs examples nearer that line.`,
-      };
-    },
-  },
-  {
-    id: 'knn-recovered',
-    run: (state, params) => {
-      const low = num(params.low, 0.5);
-      const high = num(params.high, 0.8);
-      const lowest = num(state.lowest, 1);
-      const best = num(state.best);
-
-      const brokeIt = lowest <= low;
-      const fixedIt = best >= high;
-      const done = [brokeIt, fixedIt].filter(Boolean).length;
-
-      return {
-        fraction: done / 2,
-        correct: brokeIt && fixedIt,
-        feedback:
-          brokeIt && fixedIt
-            ? 'You broke her and then fixed her. Now you know it was the examples all along, not Iskra.'
-            : !brokeIt
-              ? 'First make her fail on purpose. Try teaching her something misleading and testing that.'
-              : 'You made her fail. Now teach her properly and get her back above eight out of ten.',
-      };
-    },
-  },
   {
     id: 'prompt-parts',
     run: (state, params) => {

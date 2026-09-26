@@ -160,7 +160,7 @@ function McqInput({
                 onClick={() => toggle(index)}
                 className={cn(
                   'tap-target w-full justify-start gap-3 rounded-md border p-3 text-left text-sm',
-                  'transition-colors duration-fast ease',
+                  'transition-colors duration-fast ease-ease',
                   isWrong
                     ? 'border-anomaly bg-anomaly/10'
                     : isSelected

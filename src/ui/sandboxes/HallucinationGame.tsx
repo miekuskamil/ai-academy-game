@@ -62,14 +62,14 @@ export function HallucinationGame({
                   <button
                     type="button"
                     onClick={() => guess(claim.id, true)}
-                    className="nrn-press rounded-full border-2 border-verified/50 px-4 py-1 text-xs font-bold text-verified"
+                    className="nrn-press min-h-touch rounded-full border-2 border-verified/50 px-5 text-sm font-bold text-verified"
                   >
                     Real
                   </button>
                   <button
                     type="button"
                     onClick={() => guess(claim.id, false)}
-                    className="nrn-press rounded-full border-2 border-data/50 px-4 py-1 text-xs font-bold text-data"
+                    className="nrn-press min-h-touch rounded-full border-2 border-data/50 px-5 text-sm font-bold text-data"
                   >
                     Made up
                   </button>

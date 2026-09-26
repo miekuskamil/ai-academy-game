@@ -54,6 +54,17 @@ export class Curriculum {
     return this.worldById.get(id);
   }
 
+  /** The next lesson she can start, skipping worlds a grown-up has hidden. */
+  nextOpen(
+    status: Record<string, string>,
+    track: TrackId,
+    hiddenWorlds: readonly string[] = [],
+  ): Lesson | undefined {
+    return this.forTrack(track).find(
+      (lesson) => status[lesson.id] === 'open' && !hiddenWorlds.includes(lesson.world),
+    );
+  }
+
   lessonsInWorld(worldId: string): Lesson[] {
     return this.lessonsByWorld.get(worldId) ?? [];
   }

@@ -81,7 +81,7 @@ name_it:
 exercises:
   - id: w6-02-e0
     kind: sandbox
-    prompt: In the plans above, catch at least two of the wrong turns.
+    prompt: Check the agent's plans and catch at least two of the wrong turns.
     check: checked-agent
     params:
       min: 2

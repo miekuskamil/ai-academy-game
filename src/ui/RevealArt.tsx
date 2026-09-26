@@ -10,16 +10,14 @@
  * Kept intentionally busy and abstract so a single early piece is hard to read —
  * you only see what it is once several pieces join up.
  */
-export function RevealArt({ w, h }: { w: number; h: number }) {
+/** The picture's own coordinate space. */
+export const ART_W = 400;
+export const ART_H = 500;
+
+/** Gradients the scene uses. Render once per page, inside any <svg>. */
+export function RevealDefs() {
   return (
-    <svg
-      viewBox="0 0 400 500"
-      width={w}
-      height={h}
-      preserveAspectRatio="xMidYMid slice"
-      aria-hidden="true"
-    >
-      <defs>
+    <defs>
         <linearGradient id="revsky" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor="#12203a" />
           <stop offset="1" stopColor="#0d1424" />
@@ -28,8 +26,17 @@ export function RevealArt({ w, h }: { w: number; h: number }) {
           <stop offset="0" stopColor="#f0b43c" stopOpacity="0.5" />
           <stop offset="1" stopColor="#f0b43c" stopOpacity="0" />
         </radialGradient>
-      </defs>
+    </defs>
+  );
+}
 
+/**
+ * The scene as plain SVG shapes in a 400×500 space. Pieces clip and scale this
+ * group directly — no foreignObject, which renders unreliably under clip paths.
+ */
+export function RevealScene() {
+  return (
+    <g aria-hidden="true">
       {/* backdrop */}
       <rect width="400" height="500" fill="url(#revsky)" />
       <circle cx="200" cy="210" r="150" fill="url(#revglow)" />
@@ -101,6 +108,6 @@ export function RevealArt({ w, h }: { w: number; h: number }) {
         <circle cx="150" cy="238" r="6" />
         <circle cx="250" cy="238" r="6" />
       </g>
-    </svg>
+    </g>
   );
 }

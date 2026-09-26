@@ -27,6 +27,7 @@ export function SaveTab() {
   }, [machine, state.records]);
 
   const { built, total, justBuilt } = snap;
+  const waiting = machine.vault(state.records, state.build?.placed ?? []).waiting.length;
   // Show at least a sliver of fill from the very first part, so it never looks
   // empty and broken.
   const pct = total > 0 ? Math.max(built > 0 ? 8 : 0, Math.round((built / total) * 100)) : 0;
@@ -35,15 +36,17 @@ export function SaveTab() {
     <button
       type="button"
       onClick={() => navigate('/machine')}
-      aria-label={`Your machine, ${built} of ${total} parts built. Tap to look closer.`}
+      aria-label={`Your puzzle, ${built} of ${total} pieces earned${waiting > 0 ? `, ${waiting} waiting to be placed` : ''}. Tap to open.`}
       className={cn(
-        'nrn-press group fixed right-3 top-1/2 z-30 flex -translate-y-1/2 flex-col items-center overflow-hidden rounded-full border-2 border-spark bg-ground-deep shadow-[0_0_20px_rgba(240,180,60,0.35)]',
+        // Wider screens only: on a phone the bottom bar already carries this,
+        // and a fixed tab there sits on top of lesson text.
+        'nrn-press group fixed right-3 top-1/2 z-30 hidden -translate-y-1/2 min-[769px]:flex flex-col items-center overflow-hidden rounded-full border-2 border-spark bg-ground-deep shadow-[0_0_20px_rgba(240,180,60,0.35)]',
         'transition-all hover:right-4 hover:shadow-[0_0_28px_rgba(240,180,60,0.5)]',
         justBuilt !== null && 'nrn-part-new',
       )}
     >
       {/* Solid spark cap with the count — the bright, unmissable bit. */}
-      <span className="flex w-full flex-col items-center bg-spark px-3 py-2 text-ground-deep">
+      <span className="flex w-full flex-col items-center rounded-t-full bg-spark px-3 py-2 text-ground-deep">
         <span aria-hidden="true" className="text-sm leading-none">
           ⚙
         </span>
@@ -52,18 +55,23 @@ export function SaveTab() {
           <span className="opacity-60">/{total}</span>
         </span>
       </span>
+      {waiting > 0 && (
+        <span className="w-full bg-anomaly py-1 text-center font-mono text-[10px] font-bold leading-none text-ground-deep">
+          {waiting} new
+        </span>
+      )}
 
       {/* Charging tube below: fills with progress against a dark track. */}
-      <span className="relative block h-20 w-full bg-ground-deep">
+      <span className="relative block h-20 w-full overflow-hidden rounded-b-full bg-ground-deep">
         <span
-          className="absolute inset-x-0 bottom-0 bg-spark/70 transition-[height] duration-700 ease"
+          className="absolute inset-x-0 bottom-0 bg-spark/70 transition-[height] duration-700 ease-ease"
           style={{ height: `${pct}%` }}
         />
         <span
           className="absolute inset-0 flex items-center justify-center font-mono text-[9px] uppercase tracking-widest text-ink-dim"
           style={{ writingMode: 'vertical-rl' }}
         >
-          machine
+          puzzle
         </span>
       </span>
     </button>

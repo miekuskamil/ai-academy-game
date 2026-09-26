@@ -82,7 +82,7 @@ name_it:
 exercises:
   - id: w5-03-e0
     kind: sandbox
-    prompt: In the builder above, put all the steps in the right order.
+    prompt: "Build the pipeline: put all the steps in the right order."
     check: built-pipeline
     explain: >-
       Read, send, decide, act. That in-decide-out order is the same pipeline

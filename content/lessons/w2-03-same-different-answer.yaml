@@ -81,7 +81,7 @@ name_it:
 exercises:
   - id: w2-03-e0
     kind: sandbox
-    prompt: In the dial above, ask at the steady end and at the wild end to feel the difference.
+    prompt: "Use the temperature dial: ask at the steady end and at the wild end to feel the difference."
     check: felt-temperature
     explain: >-
       Low kept giving the same safe name; high sprayed surprising ones. That dial

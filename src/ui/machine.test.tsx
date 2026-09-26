@@ -47,7 +47,7 @@ describe('the persistent machine strip', () => {
   it('is always on screen as a nav item, on every page', () => {
     mount(container);
     // The machine is a nav link, present in the rail on every page.
-    expect(screen.getByRole('link', { name: /\d+\/20/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /puzzle, \d+ of 20 pieces earned/i })).toBeInTheDocument();
   });
 
   it('reports how many parts are built', () => {
@@ -63,13 +63,13 @@ describe('the persistent machine strip', () => {
       }),
     );
     mount(container);
-    expect(screen.getAllByText('4/20').length).toBeGreaterThan(0);
+    expect(screen.getByRole('link', { name: /puzzle, 4 of 20 pieces earned, 4 waiting to be placed/i })).toBeInTheDocument();
   });
 
   it('takes you to the machine page when tapped', async () => {
     const user = userEvent.setup();
     mount(container);
-    await user.click(screen.getByRole('link', { name: /\d+\/20/i }));
+    await user.click(screen.getByRole('link', { name: /puzzle, \d+ of 20 pieces earned/i }));
     expect(screen.getByRole('heading', { name: /build the machine|you built an ai/i })).toBeInTheDocument();
   });
 });

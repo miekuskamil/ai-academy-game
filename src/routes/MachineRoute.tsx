@@ -7,13 +7,12 @@ import { ThemePicker } from '../ui/build/ThemePicker';
 import { Vault } from '../ui/Vault';
 
 /**
- * The machine, up close.
+ * The vault page.
  *
- * The persistent strip is the teaser; this is where she comes to look properly.
- * Early on it shows the assembling contraption and the latest hint — deliberately
- * short on explanation, to keep the mystery. Once enough is built she can pick
- * what she is making, and the parts double as the real, runnable pipeline blocks
- * she can open, read, and run.
+ * During the course it is only the jigsaw: earn a piece, place it, watch the
+ * picture form. One reward, nothing competing with it. When the picture is
+ * complete the finale opens underneath — pick a project and run the pipeline she
+ * built, part by part.
  */
 export function MachineRoute() {
   const { machine, pipeline } = useContainer();
@@ -24,13 +23,7 @@ export function MachineRoute() {
   const pipe = useMemo(() => pipeline.evaluate(state.records), [pipeline, state.records]);
 
   const theme = state.build?.theme ?? null;
-  const anyBlockUnlocked = pipe.blocks.some((b) => b.unlocked);
-
-  // Once she has a real block to work with, offer to name the project — but only
-  // once, and never before there is anything to build.
-  if (anyBlockUnlocked && !theme && m.built >= 4) {
-    return <ThemePicker />;
-  }
+  const open = machine.vault(state.records, state.build?.placed ?? []).open;
 
   return (
     <div className="nrn-enter mx-auto max-w-3xl">
@@ -40,8 +33,9 @@ export function MachineRoute() {
           {m.complete ? 'You built an AI' : 'Build the machine'}
         </h1>
         <p className="mt-2 max-w-reading text-ink-dim">
-          Every lesson earns a piece. Place each one yourself to build the machine — when the last
-          piece clicks in, you will see what it really is.
+          {m.complete
+            ? 'Every piece is in. Here is what you were building all along.'
+            : 'Every lesson earns a jigsaw piece. Place each one yourself — when the last piece clicks in, you will see what the picture really is.'}
         </p>
       </header>
 
@@ -49,15 +43,19 @@ export function MachineRoute() {
         <Vault />
       </div>
 
-      {/* The pipeline blocks become openable once unlocked — the machine is the
-          pipeline, so a "part" and a "block" are the same thing seen two ways. */}
-      {anyBlockUnlocked && (
+      {/* The finale: once the picture is complete, the machine becomes a real
+          pipeline she can run. Hidden until then so it never competes with the
+          jigsaw as a second reward. */}
+      {open && !theme && (
+        <div className="mt-8">
+          <ThemePicker />
+        </div>
+      )}
+      {open && theme && (
         <section className="mt-8">
-          <h2 className="text-lg">Open a part</h2>
+          <h2 className="text-lg">Run your AI</h2>
           <p className="mt-1 text-sm text-ink-dim">
-            {theme
-              ? 'Each built section is a real piece of your pipeline. Open one to see how it works.'
-              : 'Finish a few more lessons to start shaping what your machine makes.'}
+            Each part of the picture is a real step of an AI pipeline. Open one to see it work.
           </p>
           <ul className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
             {pipe.blocks.map((block) => (

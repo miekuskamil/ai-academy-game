@@ -4,7 +4,6 @@ import { Button } from './primitives/Button';
 import { useReducedMotion } from '../hooks/useBreakpoint';
 import { InkDefs } from './comic/ink';
 import { GenericScene } from './comic/GenericScene';
-import { sceneFor } from './comic/scenes/W1RulesScene';
 
 /**
  * The cold open, and the callback that closes the loop.
@@ -38,17 +37,14 @@ export function ComicPlayer({
 
   const atEnd = showAll || index >= comic.beats.length - 1;
   const visible = showAll ? comic.beats.length - 1 : index;
-  const Bespoke = sceneFor(comic);
 
   return (
     <section aria-label={comic.title}>
       <InkDefs />
       {/* `take` remounts the scene, which restarts every CSS animation. */}
-      {Bespoke ? (
-        <Bespoke key={take} visible={visible} />
-      ) : (
-        <GenericScene key={take} comic={comic} visible={visible} />
-      )}
+      {/* Every comic is drawn from its own beats, so the words on screen are
+          always the lesson's own dialogue. */}
+      <GenericScene key={take} comic={comic} visible={visible} />
 
       <div className="mt-4 flex flex-wrap items-center gap-3">
         {atEnd ? (

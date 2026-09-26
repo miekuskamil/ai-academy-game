@@ -180,12 +180,6 @@ Exercise = Annotated[
 
 SandboxId = Literal[
     "none",
-    "knn",
-    "bias-album",
-    "tokenizer",
-    "embedding-map",
-    "ngram",
-    "perceptron",
     "prompt-lab",
     "hallucination-spotter",
     "task-sorter",

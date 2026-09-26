@@ -42,7 +42,7 @@ export class ProgressService {
   snapshot(): ProgressSnapshot {
     return {
       state: structuredClone(this.state),
-      status: this.unlocks.evaluate(this.state.records, this.state.track),
+      status: this.unlocks.evaluate(this.state.records, this.state.track, this.state.hiddenWorlds),
       level: this.levels.evaluate(this.state.records),
     };
   }
@@ -52,7 +52,7 @@ export class ProgressService {
     const score = clamp01(input.score);
     const timestamp = this.now();
 
-    const beforeStatus = this.unlocks.evaluate(this.state.records, this.state.track);
+    const beforeStatus = this.unlocks.evaluate(this.state.records, this.state.track, this.state.hiddenWorlds);
     const beforeLevel = this.levels.evaluate(this.state.records);
     const beforeCleared = UnlockPolicy.isCleared(this.state.records[lesson.id]);
     const beforeMastered = beforeStatus[lesson.id] === 'mastered';
@@ -78,7 +78,7 @@ export class ProgressService {
     };
     this.store.save(this.state);
 
-    const afterStatus = this.unlocks.evaluate(this.state.records, this.state.track);
+    const afterStatus = this.unlocks.evaluate(this.state.records, this.state.track, this.state.hiddenWorlds);
     const afterLevel = this.levels.evaluate(this.state.records);
 
     this.bus.emit('attempt:recorded', {

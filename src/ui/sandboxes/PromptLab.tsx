@@ -88,7 +88,7 @@ function Light({ check }: { check: PromptCheck }) {
       <span
         aria-hidden="true"
         className={cn(
-          'grid h-8 w-8 place-items-center rounded-full text-lg transition-all',
+          'grid h-10 w-10 place-items-center rounded-full text-lg transition-all',
           check.hit ? 'bg-verified text-ground-deep' : 'bg-ground-deep text-ink-faint',
         )}
       >

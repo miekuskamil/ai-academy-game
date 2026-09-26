@@ -1,22 +1,28 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { RewardSplash } from './RewardSplash';
-import type { BadgeSpec } from '../domain/pipeline/blocks';
 
 describe('RewardSplash', () => {
-  it('announces the new part and points at the strip', () => {
-    render(<RewardSplash partIndex={3} badge={null} onDone={() => {}} />);
-    expect(screen.getByRole('dialog', { name: /new part/i })).toBeInTheDocument();
-    expect(screen.getByText(/part 4 of your machine/i)).toBeInTheDocument();
-    // No badge this time, so the button is the plain celebration.
-    expect(screen.getByRole('button', { name: /nice/i })).toBeInTheDocument();
+  it('shows the earned piece and says where it went', () => {
+    const { container } = render(<RewardSplash partIndex={3} onPlace={() => {}} onDone={() => {}} />);
+    expect(screen.getByRole('dialog', { name: /you earned a puzzle piece/i })).toBeInTheDocument();
+    expect(screen.getByText(/waiting in your vault/i)).toBeInTheDocument();
+    // The real piece is drawn, clipped to its jigsaw shape.
+    expect(container.querySelector('clipPath#reward-clip-3')).not.toBeNull();
+    // Nothing about the old strip.
+    expect(screen.queryByText(/strip/i)).toBeNull();
   });
 
-  it('shows the badge when a world was completed', () => {
-    const badge: BadgeSpec = { id: 'b', name: 'Prompt Scroll', earnedFor: 'Learning to prompt.' };
-    render(<RewardSplash partIndex={11} badge={badge} onDone={() => {}} />);
-    expect(screen.getByText(/badge earned: prompt scroll/i)).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /brilliant/i })).toBeInTheDocument();
+  it('offers to take her straight to the vault, or later', async () => {
+    const user = userEvent.setup();
+    const onPlace = vi.fn();
+    const onDone = vi.fn();
+    render(<RewardSplash partIndex={0} onPlace={onPlace} onDone={onDone} />);
+    await user.click(screen.getByRole('button', { name: /place it now/i }));
+    expect(onPlace).toHaveBeenCalledOnce();
+    await user.click(screen.getByRole('button', { name: /later/i }));
+    expect(onDone).toHaveBeenCalledOnce();
   });
 });
 

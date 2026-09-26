@@ -36,7 +36,7 @@ describe('Neuron app', () => {
 
   it('shows later lessons as locked rather than hiding them', () => {
     mount(container);
-    expect(screen.getAllByText('Locked').length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/opens after world 1/i).length).toBeGreaterThan(0);
   });
 
   it('walks a lesson from the comic through to the exercises', async () => {
@@ -91,7 +91,7 @@ describe('Neuron app', () => {
     for (const next of opener.unlocks) {
       expect(snapshot.status[next]).toBe('open');
     }
-    expect(screen.getAllByText(/mastered/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/done with no hints/i).length).toBeGreaterThan(0);
     await user.click(screen.getByRole('link', { name: /grown-ups/i }));
     expect(screen.getByRole('heading', { name: /for grown-ups/i })).toBeInTheDocument();
   });

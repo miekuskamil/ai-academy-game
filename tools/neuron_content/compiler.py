@@ -121,7 +121,9 @@ def _check_sandbox_coverage(curriculum: Curriculum, report: Report) -> None:
 # Colour words the interactive sandboxes actually use. A lesson that teaches a
 # sandbox but describes it in *different* colours forces the learner to hold two
 # vocabularies at once, which is what made early drafts feel incoherent.
-SANDBOX_COLOURS = {"knn": {"blue", "amber"}}
+# Add an entry when a sandbox uses colour words as its vocabulary, e.g.
+# {"some-sandbox": {"blue", "amber"}}. None of the current sandboxes do.
+SANDBOX_COLOURS: dict[str, set[str]] = {}
 
 
 def _check_scenario_consistency(curriculum: Curriculum, report: Report) -> None:

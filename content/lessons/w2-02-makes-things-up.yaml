@@ -80,7 +80,7 @@ name_it:
 exercises:
   - id: w2-02-e0
     kind: sandbox
-    prompt: In the game above, judge all the answers and catch at least six of them.
+    prompt: "Spot the made-up answers: judge them all and catch at least six."
     check: spotted-fakes
     params:
       min: 6

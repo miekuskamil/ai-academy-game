@@ -243,7 +243,7 @@
       "exercises": [
         {
           "id": "w1-01-e0",
-          "prompt": "In the prompt lab above, write an ask that lights up at least three of the four parts.",
+          "prompt": "Use the prompt lab to write an ask that lights up at least three of the four parts.",
           "points": 1,
           "explain": "Three or four lights means your ask names who it is for, the job, a limit, or a shape — so the AI barely has to guess. That is the whole skill.",
           "kind": "sandbox",
@@ -1281,7 +1281,7 @@
       "exercises": [
         {
           "id": "w2-02-e0",
-          "prompt": "In the game above, judge all the answers and catch at least six of them.",
+          "prompt": "Spot the made-up answers: judge them all and catch at least six.",
           "points": 1,
           "explain": "The made-up ones sounded just as sure as the true ones. You caught them by thinking, not by trusting the confident tone — exactly the skill.",
           "kind": "sandbox",
@@ -1485,7 +1485,7 @@
       "exercises": [
         {
           "id": "w2-03-e0",
-          "prompt": "In the dial above, ask at the steady end and at the wild end to feel the difference.",
+          "prompt": "Use the temperature dial: ask at the steady end and at the wild end to feel the difference.",
           "points": 1,
           "explain": "Low kept giving the same safe name; high sprayed surprising ones. That dial is the temperature, and now you have felt it move.",
           "kind": "sandbox",
@@ -1696,7 +1696,7 @@
       "exercises": [
         {
           "id": "w3-01-e0",
-          "prompt": "In the sorter above, place all the tasks and get at least six in their best bin.",
+          "prompt": "Sort the tasks: place them all and get at least six in their best bin.",
           "points": 1,
           "explain": "Word jobs go to AI, you-only jobs stay with you, and factual jobs get checked. Sorting them well is the judgment this whole world is about.",
           "kind": "sandbox",
@@ -1909,7 +1909,7 @@
       "exercises": [
         {
           "id": "w3-02-e0",
-          "prompt": "In the game above, judge how carefully to handle each answer — match at least four.",
+          "prompt": "Decide how carefully to handle each answer — match at least four.",
           "points": 1,
           "explain": "Silly stuff you can trust, facts you check, and safety needs a grown-up. Matching your care to the stakes is exactly the trust-but-check habit.",
           "kind": "sandbox",
@@ -3505,7 +3505,7 @@
       "exercises": [
         {
           "id": "w5-03-e0",
-          "prompt": "In the builder above, put all the steps in the right order.",
+          "prompt": "Build the pipeline: put all the steps in the right order.",
           "points": 1,
           "explain": "Read, send, decide, act. That in-decide-out order is the same pipeline shape you have seen all along, now in a real build you arranged yourself.",
           "kind": "sandbox",
@@ -4095,7 +4095,7 @@
       "exercises": [
         {
           "id": "w6-02-e0",
-          "prompt": "In the plans above, catch at least two of the wrong turns.",
+          "prompt": "Check the agent's plans and catch at least two of the wrong turns.",
           "points": 1,
           "explain": "Catching a wrong step early, while it is cheap to fix, is what oversight means. You stayed the boss of a fast helper.",
           "kind": "sandbox",

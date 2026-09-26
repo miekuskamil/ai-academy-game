@@ -4,7 +4,6 @@ import { Button } from '../ui/primitives/Button';
 import { BackupPanel } from '../ui/settings/BackupPanel';
 import type { TrackId } from '../domain/types';
 import type { PuzzleMode } from '../domain/progress/state';
-import { THEMES } from '../domain/pipeline/blocks';
 
 /**
  * The grown-ups' page.
@@ -70,6 +69,7 @@ export function ParentRoute() {
                   {world.index}. {world.title}
                 </span>
                 <span className="font-mono text-xs text-ink-dim">
+                  {hidden.has(world.id) ? 'hidden · ' : ''}
                   {cleared}/{lessons.length}
                   {mastered > 0 ? ` · ${mastered}\u2605` : ''}
                 </span>
@@ -128,8 +128,9 @@ export function ParentRoute() {
           ))}
         </div>
         <p className="mt-3 text-xs text-ink-faint">
-          Gentle keeps the activity but lets a miss still count, so she is never stuck. Skip hides the
-          activity and lets the lesson questions carry it.
+          Gentle keeps every activity, and any real try at one counts as done, so she is never stuck
+          on it. Skip leaves the activities out entirely — the lesson is scored on its questions
+          alone.
         </p>
       </section>
 
@@ -137,22 +138,24 @@ export function ParentRoute() {
       <section className="rounded-lg border border-line bg-surface p-5">
         <h2 className="text-lg">Which worlds she can see</h2>
         <p className="mt-2 text-sm text-ink-dim">
-          Hide a world to hold a topic back for later — the harder building or agent worlds, say.
-          Hiding never deletes progress; unhide and it returns exactly as it was.
+          Hide a world to hold a topic back for later. The worlds after it still open in order, as if
+          the hidden one were not there. Hiding never deletes progress. Her jigsaw picture needs a
+          piece from every lesson, so it finishes once the world is shown again and done.
         </p>
         <ul className="mt-4 flex flex-col gap-2">
           {curriculum.worlds.map((world) => {
             const isHidden = hidden.has(world.id);
             return (
               <li key={world.id} className="flex items-center justify-between gap-3">
-                <span className="min-w-0 flex-1 truncate text-sm text-ink">
+                <span className={`min-w-0 flex-1 truncate text-sm ${isHidden ? 'text-ink-faint line-through' : 'text-ink'}`}>
                   {world.index}. {world.title}
                 </span>
                 <Button
-                  tone={isHidden ? 'quiet' : 'primary'}
+                  tone="quiet"
+                  aria-label={`${isHidden ? 'Show' : 'Hide'} ${world.title}`}
                   onClick={() => progress.setWorldHidden(world.id, !isHidden)}
                 >
-                  {isHidden ? 'Hidden' : 'Shown'}
+                  {isHidden ? 'Show again' : 'Hide'}
                 </Button>
               </li>
             );
@@ -212,24 +215,6 @@ export function ParentRoute() {
         </p>
       </section>
 
-      <section className="rounded-lg border border-line bg-surface p-5">
-        <h2 className="text-lg">Build project theme</h2>
-        <p className="mt-2 text-sm text-ink-dim">
-          The look of the pipeline on the Build tab. Changing it only swaps the flavour, never the
-          progress.
-        </p>
-        <div className="mt-4 flex flex-wrap gap-2">
-          {THEMES.map((theme) => (
-            <Button
-              key={theme.id}
-              tone={(state.build?.theme ?? null) === theme.id ? 'primary' : 'quiet'}
-              onClick={() => progress.setBuild({ theme: theme.id })}
-            >
-              {theme.name}
-            </Button>
-          ))}
-        </div>
-      </section>
 
       <section className="rounded-lg border border-anomaly/40 bg-surface p-5">
         <h2 className="text-lg">Start over</h2>
@@ -327,7 +312,7 @@ function PinControl({
           maxLength={4}
           value={entry}
           onChange={(e) => setEntry(e.target.value.replace(/\D/g, '').slice(0, 4))}
-          placeholder="1234"
+          placeholder="4 digits"
           className="w-32 rounded-xl border-2 border-line bg-ground-deep p-2 text-center font-mono text-lg tracking-widest text-ink focus:border-spark focus:outline-none"
           aria-label="New code"
         />

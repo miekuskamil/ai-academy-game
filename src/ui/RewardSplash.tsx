@@ -1,55 +1,51 @@
-import { useEffect, useState } from 'react';
 import { Button } from './primitives/Button';
-import { cn } from '../lib/cn';
-import type { BadgeSpec } from '../domain/pipeline/blocks';
+import { RevealDefs } from './RevealArt';
+import { LoosePiece } from './JigsawPiece';
 
 /**
  * The moment of reward.
  *
- * When a lesson finishes and a machine part clicks into place, this splashes up
- * over the Done screen: a burst, the new part flying toward the strip with an
- * arrow, and — if this lesson also finished a world — the badge dropping in.
- * It is the deliberate "you earned something" beat the header alone was too
- * quiet to deliver.
+ * When a lesson is cleared for the first time, this pops up over the Done
+ * screen with the actual jigsaw piece she just earned — the same tilted piece
+ * she will find on the vault bench — and a clear next step: go and place it.
+ * Earning and placing are separate on purpose, so the pop-up always says where
+ * the piece went and offers to take her there.
  *
- * It respects the motion preference: with motion off it becomes a plain, still
- * "part added" card that the learner dismisses, so nothing is lost, only calmed.
+ * With motion off it is the same card, just still.
  */
 export function RewardSplash({
   partIndex,
-  badge,
+  onPlace,
   onDone,
 }: {
   partIndex: number;
-  badge: BadgeSpec | null;
+  onPlace: () => void;
   onDone: () => void;
 }) {
-  const [phase, setPhase] = useState<'burst' | 'settle'>('burst');
-
-  useEffect(() => {
-    const t = setTimeout(() => setPhase('settle'), 900);
-    return () => clearTimeout(t);
-  }, []);
-
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-ground-deep/80 p-6"
+      className="fixed inset-0 z-overlay flex items-center justify-center bg-ground-deep/85 p-6"
       role="dialog"
-      aria-label="You earned a new part"
+      aria-modal="true"
+      aria-labelledby="reward-title"
     >
+      {/* Gradients for the piece artwork. */}
+      <svg width="0" height="0" className="absolute" aria-hidden="true">
+        <RevealDefs />
+      </svg>
       <div className="nrn-enter w-full max-w-sm rounded-2xl border border-spark/40 bg-surface p-6 text-center">
-        {/* The burst. A ring of rays behind the new part. */}
-        <div className="relative mx-auto h-28 w-28">
+        {/* The burst, with the real piece in the middle of it. */}
+        <div className="relative mx-auto h-40 w-40">
           <svg viewBox="0 0 120 120" className="absolute inset-0 h-full w-full" aria-hidden="true">
             {Array.from({ length: 12 }, (_, i) => {
               const a = (i / 12) * Math.PI * 2;
               return (
                 <line
                   key={i}
-                  x1={60 + Math.cos(a) * 26}
-                  y1={60 + Math.sin(a) * 26}
-                  x2={60 + Math.cos(a) * 46}
-                  y2={60 + Math.sin(a) * 46}
+                  x1={60 + Math.cos(a) * 44}
+                  y1={60 + Math.sin(a) * 44}
+                  x2={60 + Math.cos(a) * 57}
+                  y2={60 + Math.sin(a) * 57}
                   stroke="var(--c-spark)"
                   strokeWidth="3"
                   strokeLinecap="round"
@@ -58,57 +54,27 @@ export function RewardSplash({
                 />
               );
             })}
-            <circle cx="60" cy="60" r="24" fill="var(--c-spark)" className="nrn-reward-pop" />
-            {/* A little cog on the new part. */}
-            <g
-              transform="translate(60 60)"
-              stroke="var(--c-ground-deep)"
-              strokeWidth="3"
-              fill="none"
-              className="nrn-reward-pop"
-              strokeLinecap="round"
-            >
-              <circle r="8" />
-              {Array.from({ length: 6 }, (_, i) => {
-                const a = (i / 6) * Math.PI * 2;
-                return (
-                  <line
-                    key={i}
-                    x1={Math.cos(a) * 8}
-                    y1={Math.sin(a) * 8}
-                    x2={Math.cos(a) * 12}
-                    y2={Math.sin(a) * 12}
-                  />
-                );
-              })}
-            </g>
           </svg>
+          <div className="nrn-reward-pop absolute inset-0 grid place-items-center">
+            <LoosePiece index={partIndex} size={112} idPrefix="reward" />
+          </div>
         </div>
 
-        <h2 className="mt-4 font-display text-xl text-ink">A new part clicked in!</h2>
+        <h2 id="reward-title" className="mt-4 font-display text-xl text-ink">
+          You earned a puzzle piece!
+        </h2>
         <p className="mt-1 text-sm text-ink-dim">
-          That is part {partIndex + 1} of your machine. It just landed up in the strip
-          <span aria-hidden="true" className="nrn-arrow inline-block"> ↗</span>
+          It is waiting in your vault. Put it in its place to see a bit more of the hidden picture.
         </p>
 
-        {badge && (
-          <div
-            className={cn(
-              'mt-5 rounded-xl border border-spark bg-spark/10 p-4',
-              phase === 'settle' ? 'nrn-badge-in' : 'opacity-0',
-            )}
-          >
-            <div className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-spark text-xl text-ground-deep">
-              ★
-            </div>
-            <p className="mt-2 font-display text-base text-ink">Badge earned: {badge.name}</p>
-            <p className="mt-1 text-xs text-ink-dim">{badge.earnedFor}</p>
-          </div>
-        )}
-
-        <Button className="mt-6 w-full" onClick={onDone}>
-          {badge ? 'Brilliant!' : 'Nice!'}
-        </Button>
+        <div className="mt-6 flex flex-col gap-2">
+          <Button className="w-full" onClick={onPlace}>
+            Place it now
+          </Button>
+          <Button tone="ghost" className="w-full" onClick={onDone}>
+            Later
+          </Button>
+        </div>
       </div>
     </div>
   );

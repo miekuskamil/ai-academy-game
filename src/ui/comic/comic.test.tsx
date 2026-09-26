@@ -2,7 +2,6 @@ import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { ComicPlayer } from '../ComicPlayer';
-import { sceneFor } from './scenes/W1RulesScene';
 import bundle from '../../generated/curriculum.json';
 import type { CurriculumBundle } from '../../domain/types';
 
@@ -10,19 +9,23 @@ const curriculum = bundle as CurriculumBundle;
 const lesson = curriculum.lessons[0]!;
 
 describe('drawn scenes', () => {
-  it('has a scene registered for the opening comic', () => {
-    expect(sceneFor(lesson.open_comic)).toBeDefined();
-  });
-
   /**
-   * Hand-composing twenty scenes was never realistic, so a lesson without
-   * bespoke artwork still gets a drawn panel built from its beat data. No
-   * lesson falls back to plain text.
+   * Guards the bug where lesson 1 showed an old comic: a drawing registered by
+   * comic id outlived its lesson and replaced the new lesson's dialogue. Every
+   * comic must show its own words, and only its own words.
    */
-  it('draws a panel even for a comic with no bespoke artwork', () => {
-    const undrawn = curriculum.lessons.find((l) => !sceneFor(l.open_comic))!;
-    render(<ComicPlayer comic={undrawn.open_comic} onFinish={() => {}} />);
-    expect(screen.getAllByRole('img').length).toBeGreaterThan(0);
+  it('shows each comic its own dialogue and nothing from another comic', async () => {
+    const user = userEvent.setup();
+    for (const l of curriculum.lessons) {
+      const { unmount } = render(<ComicPlayer comic={l.open_comic} onFinish={() => {}} />);
+      const reveal = screen.queryByRole('button', { name: /show the whole scene/i });
+      if (reveal) await user.click(reveal);
+      const text = document.body.textContent ?? '';
+      const firstWords = l.open_comic.beats[0]!.text.split(' ').slice(0, 3).join(' ');
+      expect(text, l.id).toContain(firstWords);
+      expect(text, l.id).not.toMatch(/four legs, it is a table/i);
+      unmount();
+    }
   });
 
   it('gives every comic in the course a drawn opening panel', () => {
@@ -63,6 +66,7 @@ describe('drawn scenes', () => {
     render(<ComicPlayer comic={lesson.open_comic} onFinish={() => {}} />);
     await user.click(screen.getByRole('button', { name: /show the whole scene/i }));
     // Speech is <text> inside the SVG, so it stays selectable and searchable.
-    expect(screen.getByText(/He has four legs\./)).toBeInTheDocument();
+    const svgText = [...document.querySelectorAll('svg text')].map((n) => n.textContent).join(' ');
+    expect(svgText).toMatch(/nine hundred words/i);
   });
 });

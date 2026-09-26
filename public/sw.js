@@ -7,7 +7,7 @@
  * network, then to the cached index for navigations. Bump CACHE when you ship
  * a new build so old assets are cleared.
  */
-const CACHE = 'neuron-v1';
+const CACHE = 'neuron-v2';
 const SHELL = [
   './',
   './index.html',

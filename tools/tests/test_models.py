@@ -39,12 +39,12 @@ def test_lesson_rejects_duplicate_exercise_ids():
 
 def test_sandbox_lesson_needs_a_brief():
     with pytest.raises(ValidationError, match="no play_brief"):
-        make_lesson("l1", play="knn")
+        make_lesson("l1", play="prompt-lab")
 
 
 def test_sandbox_lesson_with_brief_is_valid():
-    lesson = make_lesson("l1", play="knn", play_brief="Place dots and watch it guess.")
-    assert lesson.play == "knn"
+    lesson = make_lesson("l1", play="prompt-lab", play_brief="Place dots and watch it guess.")
+    assert lesson.play == "prompt-lab"
 
 
 def test_mcq_answer_index_must_exist():

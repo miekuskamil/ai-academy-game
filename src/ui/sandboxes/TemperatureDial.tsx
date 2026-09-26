@@ -57,7 +57,7 @@ export function TemperatureDial({
           step={0.01}
           value={temp}
           onChange={(e) => setTemp(Number(e.target.value))}
-          className="w-full accent-spark"
+          className="h-10 w-full cursor-pointer accent-spark"
           aria-label="Temperature"
         />
         <div className="mt-1 flex justify-between font-mono text-[10px] uppercase text-ink-faint">

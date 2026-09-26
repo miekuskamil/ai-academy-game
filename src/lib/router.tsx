@@ -173,9 +173,10 @@ interface LinkProps {
   to: string;
   className?: string;
   children: ReactNode;
+  'aria-label'?: string;
 }
 
-export function Link({ to, className, children }: LinkProps) {
+export function Link({ to, className, children, 'aria-label': ariaLabel }: LinkProps) {
   const navigate = useNavigate();
   const href = `#${to.startsWith('/') ? to : `/${to}`}`;
 
@@ -191,7 +192,7 @@ export function Link({ to, className, children }: LinkProps) {
   };
 
   return (
-    <a href={href} className={className} onClick={onClick}>
+    <a href={href} className={className} onClick={onClick} aria-label={ariaLabel}>
       {children}
     </a>
   );
@@ -199,18 +200,19 @@ export function Link({ to, className, children }: LinkProps) {
 
 interface NavLinkProps {
   to: string;
+  'aria-label'?: string;
   className?: string | ((state: { isActive: boolean }) => string);
   children: ReactNode | ((state: { isActive: boolean }) => ReactNode);
 }
 
-export function NavLink({ to, className, children }: NavLinkProps) {
+export function NavLink({ to, className, children, 'aria-label': ariaLabel }: NavLinkProps) {
   const { path } = useRouter();
   const isActive = path === to || path.startsWith(`${to}/`);
   const resolved = typeof className === 'function' ? className({ isActive }) : className;
   const content = typeof children === 'function' ? children({ isActive }) : children;
 
   return (
-    <Link to={to} className={resolved}>
+    <Link to={to} className={resolved} aria-label={ariaLabel}>
       {content}
     </Link>
   );

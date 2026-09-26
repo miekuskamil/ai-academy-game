@@ -80,7 +80,7 @@ name_it:
 exercises:
   - id: w3-01-e0
     kind: sandbox
-    prompt: In the sorter above, place all the tasks and get at least six in their best bin.
+    prompt: "Sort the tasks: place them all and get at least six in their best bin."
     check: sorted-tasks
     params:
       min: 6

@@ -80,7 +80,7 @@ name_it:
 exercises:
   - id: w3-02-e0
     kind: sandbox
-    prompt: In the game above, judge how carefully to handle each answer — match at least four.
+    prompt: Decide how carefully to handle each answer — match at least four.
     check: checked-care
     params:
       min: 4

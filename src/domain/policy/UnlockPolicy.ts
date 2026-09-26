@@ -25,7 +25,24 @@ export class UnlockPolicy {
     return !!record && record.best >= COMPLETE_AT;
   }
 
-  evaluate(records: Record<string, LessonRecord>, track: TrackId): StatusMap {
+  /**
+   * @param hiddenWorlds worlds a grown-up has put away. A prerequisite inside a
+   *   hidden world does not block: it counts as met once its own prerequisites
+   *   are met, so hiding World 3 lets World 4 open straight after World 2.
+   */
+  evaluate(
+    records: Record<string, LessonRecord>,
+    track: TrackId,
+    hiddenWorlds: readonly string[] = [],
+  ): StatusMap {
+    const hidden = new Set(hiddenWorlds);
+    const met = (id: string, depth = 0): boolean => {
+      if (UnlockPolicy.isCleared(records[id])) return true;
+      const prereq = this.curriculum.lesson(id);
+      if (!prereq || depth > 64 || !hidden.has(prereq.world)) return false;
+      return prereq.prereqs.every((p) => met(p, depth + 1));
+    };
+
     const status: StatusMap = {};
     for (const lesson of this.curriculum.forTrack(track)) {
       const earned = UnlockPolicy.statusOf(records[lesson.id]);
@@ -33,9 +50,7 @@ export class UnlockPolicy {
         status[lesson.id] = earned;
         continue;
       }
-      // A prerequisite outside the current track cannot block: the track
-      // filter is a pacing tool, not a wall.
-      const open = lesson.prereqs.every((id) => UnlockPolicy.isCleared(records[id]));
+      const open = lesson.prereqs.every((id) => met(id));
       status[lesson.id] = open ? 'open' : 'locked';
     }
     return status;

@@ -55,7 +55,10 @@ export function AppShell({ children }: { children: ReactNode }) {
           id="main"
           className={cn(
             'mx-auto w-full max-w-shell flex-1 px-4 py-6',
-            handset && 'pb-[calc(var(--nav-h)+var(--safe-bottom)+1.5rem)]',
+            handset
+              ? 'pb-[calc(var(--nav-h)+var(--safe-bottom)+1.5rem)]'
+              : // Room for the puzzle tab fixed on the right edge.
+                'pr-24',
           )}
           style={{ viewTransitionName: 'route' } as React.CSSProperties}
         >
@@ -65,7 +68,7 @@ export function AppShell({ children }: { children: ReactNode }) {
 
       {handset && <NavRail layout={layout} />}
 
-      <SaveTab />
+      {!handset && <SaveTab />}
 
       <span className="sr-only" aria-live="polite">
         Level {level.level}. {state.companionName} is with you.

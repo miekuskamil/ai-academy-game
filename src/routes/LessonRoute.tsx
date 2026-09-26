@@ -1,7 +1,6 @@
 import { useMemo, useState } from 'react';
 import { useNavigate, useParams, Link } from '../lib/router';
 import type { ExerciseResponse, SandboxState } from '../domain/types';
-import type { BadgeSpec } from '../domain/pipeline/blocks';
 import { RewardSplash } from '../ui/RewardSplash';
 import type { GradeOutcome } from '../domain/grading';
 import { COMPLETE_AT, MASTER_AT } from '../domain/progress/state';
@@ -9,6 +8,7 @@ import { useContainer, useProgress } from '../hooks/useContainer';
 import { ComicPlayer } from '../ui/ComicPlayer';
 import { ExerciseView } from '../ui/ExerciseView';
 import { sandboxFor } from '../ui/sandboxes';
+import { isAsked } from '../domain/grading/GradingService';
 import { Prop } from '../ui/comic/props';
 import { InkDefs } from '../ui/comic/ink';
 import { shuffled } from '../lib/shuffle';
@@ -63,7 +63,7 @@ function TeachProp({ kind }: { kind: import('../domain/types').PropKind }) {
 
 export function LessonRoute() {
   const { lessonId } = useParams();
-  const { curriculum, grading, progress, machine, pipeline } = useContainer();
+  const { curriculum, grading, progress, machine } = useContainer();
   const { status, state: progressState } = useProgress();
   const puzzleMode = progressState.puzzleMode ?? 'full';
   const navigate = useNavigate();
@@ -102,10 +102,12 @@ export function LessonRoute() {
   const [hints, setHints] = useState<Set<string>>(new Set());
   const [result, setResult] = useState<{ score: number; unaided: boolean } | null>(null);
   // What this lesson just earned, for the celebration splash on the Done screen.
-  const [reward, setReward] = useState<{ partIndex: number; badge: BadgeSpec | null } | null>(null);
+  const [reward, setReward] = useState<{ partIndex: number } | null>(null);
   // What she built in the workbench. Sandbox exercises are answered by doing,
   // not by typing, so their response is whatever the sandbox last reported.
   const [sandboxState, setSandboxState] = useState<SandboxState | null>(null);
+  // Sandbox questions she chose to redo in the test instead of keeping her Try work.
+  const [redo, setRedo] = useState<Set<string>>(new Set());
   // Changes once per attempt. Reordering questions and answers by this seed
   // stops anything being memorised by position, without reshuffling mid-answer.
   const [attemptSeed, setAttemptSeed] = useState(() => Math.floor(Math.random() * 1e9));
@@ -129,6 +131,14 @@ export function LessonRoute() {
     );
   }
 
+  if ((progressState.hiddenWorlds ?? []).includes(lesson.world)) {
+    return (
+      <EmptyState title="Put away for now" action={<Button onClick={() => navigate('/map')}>See the map</Button>}>
+        A grown-up has put this world away for later. Everything else is still open to you.
+      </EmptyState>
+    );
+  }
+
   if (status[lesson.id] === 'locked') {
     return (
       <EmptyState title="Not open yet" action={<Button onClick={() => navigate('/map')}>See the map</Button>}>
@@ -139,7 +149,9 @@ export function LessonRoute() {
 
   // Anything this build cannot grade is shown as a note, never as a question
   // she is expected to answer.
-  const askable = shuffledExercises.filter((exercise) => grading.canGrade(exercise));
+  const askable = shuffledExercises.filter(
+    (exercise) => grading.canGrade(exercise) && isAsked(exercise, { puzzleMode }),
+  );
   const answered = askable.filter(
     (exercise) => responses[exercise.id] || (exercise.kind === 'sandbox' && sandboxState),
   ).length;
@@ -155,7 +167,7 @@ export function LessonRoute() {
         }
       }
     }
-    const grade = grading.gradeLesson(lesson, withSandbox);
+    const grade = grading.gradeLesson(lesson, withSandbox, { puzzleMode });
     setOutcomes(grade.perExercise);
 
     const everyCorrect = askable.every((e) => grade.perExercise[e.id]?.correct);
@@ -163,26 +175,20 @@ export function LessonRoute() {
 
     const unaided = hints.size === 0;
 
-    // Snapshot the machine and badges before recording, so we can celebrate
-    // exactly what this lesson earned: a new part always, a badge if this was
-    // the lesson that finished a world.
+    // Snapshot before recording, so we celebrate exactly what this lesson
+    // earned: its own jigsaw piece, and only on a first clear (never a retry).
     const before = machine.evaluate(progress.snapshot().state.records);
-    const badgesBefore = new Set(
-      pipeline.evaluate(progress.snapshot().state.records).badges.map((b) => b.id),
-    );
     const wasCleared = before.built;
 
     progress.record({ lessonId: lesson.id, score: grade.score, usedHints: !unaided });
 
     const after = machine.evaluate(progress.snapshot().state.records);
-    const newBadge = pipeline
-      .evaluate(progress.snapshot().state.records)
-      .badges.find((b) => !badgesBefore.has(b.id));
-
     setResult({ score: grade.score, unaided });
-    // Only celebrate when a part actually clicked in (a first clear, not a retry).
     if (after.built > wasCleared) {
-      setReward({ partIndex: after.built - 1, badge: newBadge ?? null });
+      // The piece that belongs to this lesson — not "the latest one", which is
+      // wrong whenever lessons are finished out of order.
+      const part = after.parts.find((x) => x.lessonId === lesson.id);
+      if (part) setReward({ partIndex: part.index });
     }
     setStage('close');
   };
@@ -190,19 +196,34 @@ export function LessonRoute() {
   return (
     <article className="nrn-enter mx-auto max-w-reading">
       <header className="mb-5">
-        <Link to="/map" className="font-mono text-xs uppercase tracking-wide text-ink-faint hover:text-ink-dim">
+        <Link
+          to="/map"
+          className="-ml-2 inline-flex min-h-touch items-center px-2 font-mono text-xs uppercase tracking-wide text-ink-faint hover:text-ink-dim"
+        >
           ← {curriculum.world(lesson.world)?.title ?? 'Map'}
         </Link>
-        <h1 className="mt-2 text-2xl">{lesson.title}</h1>
-        {/* The warm framing comes first. An objective stated at a ten-year-old
-            before she knows why she should care is just homework. */}
-        {lesson.intro && <p className="mt-3 text-lg leading-relaxed">{lesson.intro}</p>}
-        <p className="mt-3 font-mono text-xs uppercase tracking-wide text-ink-faint">
-          By the end · {lesson.goal}
-        </p>
+        <h1 className="mt-1 text-2xl">{lesson.title}</h1>
+        {/* The warm framing comes first, and only once: on the opening step.
+            Repeating it above every step pushed the activity below the fold. */}
+        {stage === 'open' && (
+          <>
+            {lesson.intro && <p className="mt-3 text-lg leading-relaxed">{lesson.intro}</p>}
+            <p className="mt-3 font-mono text-xs uppercase tracking-wide text-ink-faint">
+              By the end · {lesson.goal}
+            </p>
+          </>
+        )}
       </header>
 
-      <StageTrack stage={stage} reached={reached} onJump={recapAt} />
+      <StageTrack
+        stage={stage}
+        reached={reached}
+        onJump={recapAt}
+        include={{
+          play: lesson.play !== 'none' && puzzleMode !== 'off',
+          teach: (lesson.teach?.length ?? 0) > 0,
+        }}
+      />
 
       {returnTo && stage !== returnTo && (
         <div className="mb-4 flex flex-wrap items-center gap-3 rounded-md border border-spark/40 bg-spark/5 p-3">
@@ -232,7 +253,7 @@ export function LessonRoute() {
           </p>
           <div className="mt-4">
             {Workbench ? (
-              <Workbench onState={setSandboxState} />
+              <Workbench compact onState={setSandboxState} />
             ) : (
               <p className="rounded-md border border-dashed border-line p-4 text-sm text-ink-faint">
                 The <span className="font-mono text-data">{lesson.play}</span> workbench is still being
@@ -315,18 +336,40 @@ export function LessonRoute() {
               <fieldset key={exercise.id} className="rounded-lg border border-line bg-surface p-4">
                 <legend className="sr-only">{exercise.prompt}</legend>
                 <p className="font-display text-lg leading-snug">{exercise.prompt}</p>
-                <div className="mt-4">
-                  <Workbench
-                    compact
-                    onState={(state) => {
-                      setSandboxState(state);
-                      setResponses((current) => ({
-                        ...current,
-                        [exercise.id]: { kind: 'sandbox', state },
-                      }));
-                    }}
-                  />
-                </div>
+                {/* Work from the Try step carries over: show how it went, and
+                    only bring the activity back if she wants another go. */}
+                {sandboxState && !redo.has(exercise.id) ? (
+                  <div className="mt-4 rounded-md border border-line bg-ground-deep p-3">
+                    <p className="text-sm text-ink">
+                      {grading.gradeOne(exercise, { kind: 'sandbox', state: sandboxState }).correct
+                        ? '\u2713 Done in the Try step. '
+                        : 'You had a go in the Try step. '}
+                      <span className="text-ink-dim">
+                        {grading.gradeOne(exercise, { kind: 'sandbox', state: sandboxState }).feedback}
+                      </span>
+                    </p>
+                    <Button
+                      tone="quiet"
+                      className="mt-3"
+                      onClick={() => setRedo((current) => new Set(current).add(exercise.id))}
+                    >
+                      Have another go
+                    </Button>
+                  </div>
+                ) : (
+                  <div className="mt-4">
+                    <Workbench
+                      compact
+                      onState={(state) => {
+                        setSandboxState(state);
+                        setResponses((current) => ({
+                          ...current,
+                          [exercise.id]: { kind: 'sandbox', state },
+                        }));
+                      }}
+                    />
+                  </div>
+                )}
                 {outcomes[exercise.id] && (
                   <p
                     role="status"
@@ -381,7 +424,7 @@ export function LessonRoute() {
       {stage === 'close' && result && reward && (
         <RewardSplash
           partIndex={reward.partIndex}
-          badge={reward.badge}
+          onPlace={() => navigate('/machine')}
           onDone={() => setReward(null)}
         />
       )}
@@ -501,15 +544,18 @@ function StageTrack({
   stage,
   reached,
   onJump,
+  include,
 }: {
   stage: Stage;
   /** The furthest stage the learner has actually got to. */
   reached: Stage;
   onJump: (stage: Stage) => void;
+  /** Steps this lesson actually has, so the bar never promises a step that is skipped. */
+  include: { play: boolean; teach: boolean };
 }) {
-  const stages = (['open', 'play', 'teach', 'name', 'stretch', 'close'] as Stage[]).map(
-    (id) => [id, STAGE_LABEL[id]] as const,
-  );
+  const stages = (['open', 'play', 'teach', 'name', 'stretch', 'close'] as Stage[])
+    .filter((id) => (id === 'play' ? include.play : id === 'teach' ? include.teach : true))
+    .map((id) => [id, STAGE_LABEL[id]] as const);
   const current = stages.findIndex(([id]) => id === stage);
   const reachedIndex = stages.findIndex(([id]) => id === reached);
 
@@ -529,7 +575,10 @@ function StageTrack({
               <button
                 type="button"
                 onClick={() => onJump(id)}
-                className={cn(tone, 'underline decoration-dotted underline-offset-4 hover:text-ink')}
+                className={cn(
+                  tone,
+                  '-my-3 py-3 underline decoration-dotted underline-offset-4 hover:text-ink',
+                )}
                 title={`Back to ${label}`}
               >
                 {label}

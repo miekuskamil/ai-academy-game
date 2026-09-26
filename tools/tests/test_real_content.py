@@ -71,8 +71,6 @@ def test_every_sandbox_check_is_known(built):
     """Any check id here must have a matching grader in the frontend."""
     curriculum, _, _ = built
     known = {
-        "knn-accuracy",
-        "knn-recovered",
         "prompt-parts",
         "spotted-fakes",
         "sorted-tasks",
@@ -80,16 +78,6 @@ def test_every_sandbox_check_is_known(built):
         "checked-agent",
         "checked-care",
         "felt-temperature",
-        "album-accuracy",
-        "album-fairness",
-        "token-split",
-        "embedding-pairs",
-        "ngram-novel",
-        "perceptron-manual",
-        "perceptron-trained",
-        "perceptron-rate",
-        "agent-plan",
-        "agent-evals",
     }
     used = {
         exercise.check

@@ -80,7 +80,7 @@ exercises:
   - id: w1-01-e0
     kind: sandbox
     prompt: >-
-      In the prompt lab above, write an ask that lights up at least three of the
+      Use the prompt lab to write an ask that lights up at least three of the
       four parts.
     check: prompt-parts
     params:

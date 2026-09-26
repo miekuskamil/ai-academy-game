@@ -23,9 +23,7 @@ export function MapRoute() {
   const { curriculum } = useContainer();
   const { status, state, level } = useProgress();
 
-  const next = curriculum
-    .forTrack(state.track)
-    .find((lesson) => status[lesson.id] === 'open');
+  const next = curriculum.nextOpen(status, state.track, state.hiddenWorlds);
   const fresh = Object.keys(state.records).length === 0;
 
   return (
@@ -56,8 +54,7 @@ export function MapRoute() {
           </div>
         ) : (
           <p className="mt-2 max-w-reading text-ink-dim">
-            Six worlds. Finish one lesson to open what comes after it — you choose the order from
-            whatever is open.
+            Six worlds, one after another. Finish a lesson and the next one opens.
           </p>
         )}
         {next && (
@@ -73,7 +70,7 @@ export function MapRoute() {
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         {curriculum.worlds
           .filter((world) => !(state.hiddenWorlds ?? []).includes(world.id))
-          .map((world) => {
+          .map((world, shownIndex, shown) => {
           const lessons = curriculum
             .lessonsInWorld(world.id)
             .filter((lesson) => lesson.tracks.includes(state.track));
@@ -87,7 +84,7 @@ export function MapRoute() {
               key={world.id}
               className={cn(
                 'nrn-stagger rounded-lg border border-line bg-surface p-4',
-                !reachable && 'opacity-55',
+                !reachable && 'opacity-80',
               )}
               style={
                 {
@@ -103,6 +100,12 @@ export function MapRoute() {
                 </p>
                 <h2 className="mt-1 text-lg">{world.title}</h2>
                 <p className="mt-1 text-sm text-ink-dim">{world.tagline}</p>
+                {/* One clear line instead of a column of "Locked" labels. */}
+                {!reachable && shownIndex > 0 && (
+                  <p className="mt-2 inline-flex items-center gap-1 rounded-full border border-line px-2 py-0.5 font-mono text-[11px] text-ink-dim">
+                    <span aria-hidden="true">🔒</span> Opens after World {shown[shownIndex - 1]!.index}
+                  </p>
+                )}
               </header>
 
               <ol className="flex flex-col">
@@ -121,9 +124,7 @@ export function MapRoute() {
         })}
       </div>
 
-      <p className="font-mono text-xs text-ink-faint">
-        Level {level.level} · {level.points} points earned
-      </p>
+      <p className="font-mono text-xs text-ink-faint">Level {level.level}</p>
     </div>
   );
 }
@@ -161,18 +162,19 @@ function MapNode({
       </span>
 
       <span className="flex-1 pb-3 pt-1">
-        <span className={cn('block text-sm', locked ? 'text-ink-faint' : 'text-ink')}>
+        <span className={cn('block text-sm', locked ? 'text-ink-dim' : 'text-ink')}>
           {lesson.title}
+          {locked && <span className="sr-only"> (not open yet)</span>}
         </span>
-        <span className="mt-0.5 block text-xs text-ink-faint">
-          {status === 'mastered'
-            ? 'Mastered'
-            : status === 'completed'
-              ? 'Done'
-              : locked
-                ? 'Locked'
-                : `${lesson.minutes} min`}
-        </span>
+        {!locked && (
+          <span className="mt-0.5 block text-xs text-ink-faint">
+            {status === 'mastered'
+              ? '\u2605 Done with no hints'
+              : status === 'completed'
+                ? '\u2713 Done'
+                : `Next up · ${lesson.minutes} min`}
+          </span>
+        )}
       </span>
     </>
   );
@@ -189,7 +191,7 @@ function MapNode({
     <li>
       <Link
         to={`/lesson/${lesson.id}`}
-        className="flex gap-2 rounded-md transition-colors duration-fast ease hover:bg-surface-hi"
+        className="flex gap-2 rounded-md transition-colors duration-fast ease-ease hover:bg-surface-hi"
       >
         {body}
       </Link>

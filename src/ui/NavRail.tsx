@@ -20,6 +20,8 @@ export function NavRail({ layout }: { layout: Layout }) {
   const built = machine.evaluate(state.records).built;
   const total = machine.total;
   const fill = total > 0 ? built / total : 0;
+  // Pieces earned but not yet placed: flagged so they are never forgotten.
+  const waiting = machine.vault(state.records, state.build?.placed ?? []).waiting.length;
 
   return (
     <nav
@@ -41,9 +43,14 @@ export function NavRail({ layout }: { layout: Layout }) {
         <NavLink
           key={item.to}
           to={item.to}
+          aria-label={
+            item.machine
+              ? `Puzzle, ${built} of ${total} pieces earned${waiting > 0 ? `, ${waiting} waiting to be placed` : ''}`
+              : undefined
+          }
           className={({ isActive }) =>
             cn(
-              'tap-target relative gap-3 text-xs transition-colors duration-fast ease',
+              'tap-target relative gap-3 text-xs transition-colors duration-fast ease-ease',
               handset ? 'flex-1 flex-col py-2' : 'w-full justify-start rounded-md px-3 py-2 text-sm',
               isActive ? 'text-spark' : 'text-ink-faint hover:text-ink-dim',
             )
@@ -62,7 +69,17 @@ export function NavRail({ layout }: { layout: Layout }) {
                 />
               )}
               {item.machine ? (
-                <MachineNavIcon fill={fill} active={isActive} />
+                <span className="relative">
+                  <MachineNavIcon fill={fill} active={isActive} />
+                  {waiting > 0 && (
+                    <span
+                      className="absolute -right-2 -top-1 grid min-w-[1.1rem] place-items-center rounded-full bg-anomaly px-1 font-mono text-[10px] font-bold leading-[1.1rem] text-ground-deep"
+                      aria-hidden="true"
+                    >
+                      {waiting}
+                    </span>
+                  )}
+                </span>
               ) : (
                 <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
                   <path
@@ -75,7 +92,7 @@ export function NavRail({ layout }: { layout: Layout }) {
                 </svg>
               )}
               <span className={cn(handset && 'text-[11px]')}>
-                {item.machine ? `${built}/${total}` : item.label}
+                {item.machine ? 'Puzzle' : item.label}
               </span>
             </>
           )}

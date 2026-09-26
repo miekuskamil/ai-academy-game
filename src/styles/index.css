@@ -504,3 +504,25 @@ html[data-motion='off'] .nrn-arrow {
   opacity: 1 !important;
   transform: none !important;
 }
+
+/* A picked-up jigsaw piece bobs gently so she can see which one she is holding. */
+.nrn-held {
+  animation: nrn-held 1.2s ease-in-out infinite;
+}
+@keyframes nrn-held {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html:not([data-motion='full']) .nrn-held {
+    animation: none;
+  }
+}
+html[data-motion='off'] .nrn-held {
+  animation: none;
+}

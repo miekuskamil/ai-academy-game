@@ -55,7 +55,7 @@ describe('the vault', () => {
   it('shows earned pieces waiting to be placed', () => {
     seedEarned(container, 3);
     wrap(container);
-    expect(screen.getByText(/3 pieces waiting/i)).toBeInTheDocument();
+    expect(screen.getByText(/you have 3 pieces to place/i)).toBeInTheDocument();
     expect(screen.getByText(/0 of 20 placed/i)).toBeInTheDocument();
   });
 

@@ -41,6 +41,9 @@ export function AxonLevel({ level, className }: { level: LevelState; className?:
           : `Level ${level.level}, ${percent} percent to level ${level.level + 1}, ${remaining} points to go`
       }
     >
+      <span aria-hidden="true" className="font-mono text-[11px] uppercase tracking-wide text-ink-faint">
+        Level
+      </span>
       <Node label={String(level.level)} state="lit" pulsing={pulse} />
 
       <div className="relative h-4 flex-1 min-w-[48px]" aria-hidden="true">
@@ -48,7 +51,7 @@ export function AxonLevel({ level, className }: { level: LevelState; className?:
         <span className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-line" />
         {/* Fired portion. Width is the only thing that animates. */}
         <span
-          className="absolute left-0 top-1/2 h-[3px] -translate-y-1/2 rounded-full bg-spark transition-[width] duration-slow ease"
+          className="absolute left-0 top-1/2 h-[3px] -translate-y-1/2 rounded-full bg-spark transition-[width] duration-slow ease-ease"
           style={{ width: `${percent}%`, boxShadow: '0 0 10px var(--c-spark)' }}
         />
         {/* Signal head, parked where the charge has reached. */}
@@ -56,7 +59,7 @@ export function AxonLevel({ level, className }: { level: LevelState; className?:
           <span
             className={cn(
               'absolute top-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-spark',
-              'transition-[left] duration-slow ease',
+              'transition-[left] duration-slow ease-ease',
               !reduced && 'animate-[nrn-throb_1.8s_ease-in-out_infinite]',
             )}
             style={{ left: `${percent}%` }}
@@ -86,7 +89,7 @@ function Node({
     <span
       aria-hidden="true"
       className={cn(
-        'grid h-8 w-8 shrink-0 place-items-center rounded-full border font-mono text-sm font-bold',
+        'grid h-9 w-9 shrink-0 place-items-center rounded-full border font-mono text-sm font-bold',
         state === 'lit'
           ? 'border-spark bg-spark text-ground-deep'
           : 'border-line bg-ground-deep text-ink-faint',

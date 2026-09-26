@@ -27,12 +27,6 @@ export type PropKind =
 
 export type SandboxId =
   | 'none'
-  | 'knn'
-  | 'bias-album'
-  | 'tokenizer'
-  | 'embedding-map'
-  | 'ngram'
-  | 'perceptron'
   | 'prompt-lab'
   | 'hallucination-spotter'
   | 'task-sorter'

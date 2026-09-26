@@ -17,7 +17,8 @@ export function EmptyState({
         <circle cx="32" cy="32" r="8" stroke="var(--c-spark)" strokeWidth="2" />
         <circle cx="32" cy="32" r="2.5" fill="var(--c-spark)" />
       </svg>
-      <h2 className="text-xl">{title}</h2>
+      {/* It fills the whole page when shown, so it carries the page heading. */}
+      <h1 className="text-xl">{title}</h1>
       <p className="mt-2 text-ink-dim">{children}</p>
       {action && <div className="mt-5 flex justify-center">{action}</div>}
     </div>

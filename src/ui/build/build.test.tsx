@@ -67,18 +67,23 @@ describe('the machine page', () => {
     expect(screen.getAllByText(/0 of 20 placed/i).length).toBeGreaterThan(0);
   });
 
-  it('asks her to pick a project once a whole world is done', () => {
-    // World 1 complete = 4 parts, and the brief block unlocked.
+  it('never interrupts the jigsaw with a project picker mid-course', () => {
+    // A whole world done used to swap the page for a picker; the vault stays.
     seed(container, clearWorlds('talking-to-ai'));
     mountMachine(container);
-    expect(screen.getByRole('heading', { name: /pick what you are building/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /build the machine/i })).toBeInTheDocument();
+    expect(screen.queryByRole('heading', { name: /what should your ai make/i })).toBeNull();
+    expect(screen.queryByRole('heading', { name: /run your ai/i })).toBeNull();
   });
 
-  it('opens a built block after a theme is set', async () => {
+  it('opens the finale once the picture is complete', async () => {
     const user = userEvent.setup();
-    seed(container, clearWorlds('talking-to-ai'), { theme: 'toys', prompt: null, items: [] });
+    const all: Record<string, LessonRecord> = {};
+    for (const w of c.worlds) Object.assign(all, clearWorlds(w.id));
+    seed(container, all, { theme: null, prompt: null, items: [], placed: [...Array(20).keys()] });
     mountMachine(container);
-    // The brief block is built and openable.
+    expect(screen.getByRole('heading', { name: /what should your ai make/i })).toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: /toy collection/i }));
     await user.click(screen.getAllByRole('button', { name: /^built/i })[0]!);
     expect(screen.getByRole('dialog')).toBeInTheDocument();
   });
@@ -90,7 +95,7 @@ describe('the prompt block', () => {
     container = createContainer({ store: new MemoryStore() });
     const all: Record<string, LessonRecord> = {};
     for (const w of c.worlds) Object.assign(all, clearWorlds(w.id));
-    seed(container, all, { theme: 'toys', prompt: null, items: [] });
+    seed(container, all, { theme: 'toys', prompt: null, items: [], placed: [...Array(20).keys()] });
   });
 
   it('lets her edit the prompt and run a recorded demo', async () => {

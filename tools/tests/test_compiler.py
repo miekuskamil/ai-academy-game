@@ -104,7 +104,7 @@ def test_sandbox_grading_without_a_sandbox_is_rejected():
             SandboxExercise(
                 id="s1",
                 prompt="Get the score above eight in ten.",
-                check="knn-accuracy",
+                check="prompt-parts",
                 params={"min": 0.8},
                 explain="More dots in the right place means better guesses.",
             )
@@ -115,7 +115,7 @@ def test_sandbox_grading_without_a_sandbox_is_rejected():
 
 
 def test_ungraded_sandbox_warns_but_compiles():
-    lesson = make_lesson("l1", play="knn", play_brief="Place some dots and look.")
+    lesson = make_lesson("l1", play="prompt-lab", play_brief="Place some dots and look.")
     _, report = compile_curriculum(make_curriculum([lesson]))
     assert any("never grades it" in w for w in report.warnings)
 

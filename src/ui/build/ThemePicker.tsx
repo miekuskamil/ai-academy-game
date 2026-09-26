@@ -3,11 +3,10 @@ import { THEMES } from '../../domain/pipeline/blocks';
 import { cn } from '../../lib/cn';
 
 /**
- * Choose the project once, up front.
+ * Choose what the finished machine makes.
  *
- * The theme only changes the flavour — the item words and the result page — never
- * which blocks she assembles or what they teach. Kept to a short list so it is a
- * quick, low-stakes decision, changeable later in settings.
+ * Shown once the picture is complete. The theme only changes the flavour — the
+ * item words and the result page — never what the pipeline teaches.
  */
 export function ThemePicker() {
   const { progress } = useContainer();
@@ -18,15 +17,11 @@ export function ThemePicker() {
   };
 
   return (
-    <div className="nrn-enter mx-auto max-w-2xl">
-      <header>
-        <p className="font-mono text-xs uppercase tracking-wide text-ink-faint">Your build</p>
-        <h1 className="mt-1 text-2xl">Pick what you are building</h1>
-        <p className="mt-2 max-w-reading text-ink-dim">
-          You just unlocked your first pipeline block. Choose a project and every lesson from here
-          will build a piece of it. You can change this later.
-        </p>
-      </header>
+    <section className="nrn-enter">
+      <h2 className="text-lg">What should your AI make?</h2>
+      <p className="mt-1 max-w-reading text-sm text-ink-dim">
+        Your machine is a real AI pipeline. Pick a project and you can run it, one part at a time.
+      </p>
 
       <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
         {THEMES.map((theme, i) => (
@@ -40,11 +35,11 @@ export function ThemePicker() {
             )}
             style={{ '--i': i } as React.CSSProperties}
           >
-            <h2 className="font-display text-lg text-ink">{theme.name}</h2>
+            <h3 className="font-display text-lg text-ink">{theme.name}</h3>
             <p className="mt-1 text-sm text-ink-dim">{theme.brief}</p>
           </button>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
